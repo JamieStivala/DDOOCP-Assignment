@@ -1,6 +1,6 @@
 ﻿namespace Booking_System.frontend.auth
 {
-    partial class Signup
+    partial class FormSignup
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.signupLabel = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
             this.labelSurname = new System.Windows.Forms.Label();
             this.textBoxSurname = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.labelIdCard = new System.Windows.Forms.Label();
             this.textBoxIdCard = new System.Windows.Forms.TextBox();
             this.labelContactNumber = new System.Windows.Forms.Label();
@@ -50,6 +51,8 @@
             this.signupButton = new System.Windows.Forms.Button();
             this.labelDateOfBirth = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // signupLabel
@@ -61,7 +64,6 @@
             this.signupLabel.Size = new System.Drawing.Size(148, 54);
             this.signupLabel.TabIndex = 8;
             this.signupLabel.Text = "Signup";
-            this.signupLabel.Click += new System.EventHandler(this.loginLabel_Click);
             // 
             // textBoxName
             // 
@@ -104,12 +106,12 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "Email Address";
             // 
-            // textBox1
+            // textBoxEmail
             // 
-            this.textBox1.Location = new System.Drawing.Point(74, 220);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(164, 20);
-            this.textBox1.TabIndex = 15;
+            this.textBoxEmail.Location = new System.Drawing.Point(74, 220);
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(164, 20);
+            this.textBoxEmail.TabIndex = 15;
             // 
             // labelIdCard
             // 
@@ -207,6 +209,7 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(164, 20);
             this.textBoxPassword.TabIndex = 27;
+            this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // signupButton
             // 
@@ -217,6 +220,7 @@
             this.signupButton.TabIndex = 30;
             this.signupButton.Text = "Signup";
             this.signupButton.UseVisualStyleBackColor = true;
+            this.signupButton.Click += new System.EventHandler(this.signupButton_Click);
             // 
             // labelDateOfBirth
             // 
@@ -234,7 +238,11 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(164, 20);
             this.dateTimePicker1.TabIndex = 33;
             // 
-            // Signup
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
+            // FormSignup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -253,7 +261,7 @@
             this.Controls.Add(this.labelContactNumber);
             this.Controls.Add(this.textBoxContactNumber);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.labelIdCard);
             this.Controls.Add(this.textBoxIdCard);
             this.Controls.Add(this.labelSurname);
@@ -261,9 +269,10 @@
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.signupLabel);
-            this.Name = "Signup";
+            this.Name = "FormSignup";
             this.Text = "FormSignup";
             this.Load += new System.EventHandler(this.FormSignup_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,7 +286,7 @@
         private System.Windows.Forms.Label labelSurname;
         private System.Windows.Forms.TextBox textBoxSurname;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label labelIdCard;
         private System.Windows.Forms.TextBox textBoxIdCard;
         private System.Windows.Forms.Label labelContactNumber;
@@ -293,5 +302,6 @@
         private System.Windows.Forms.Button signupButton;
         private System.Windows.Forms.Label labelDateOfBirth;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

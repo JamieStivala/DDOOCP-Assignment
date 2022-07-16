@@ -1,6 +1,6 @@
 ﻿namespace Booking_System
 {
-    partial class FormSignup
+    partial class FormSignin
     {
         /// <summary>
         ///  Required designer variable.

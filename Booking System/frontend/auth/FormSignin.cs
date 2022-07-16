@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Booking_System
 {
-    public partial class FormSignup : Form
+    public partial class FormSignin : Form
     {
-        public FormSignup()
+        public FormSignin()
         {
             InitializeComponent();
         }
