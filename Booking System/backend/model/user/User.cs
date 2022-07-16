@@ -6,8 +6,8 @@ namespace Booking_System.backend.model.user
 {
     public class User
     {
-        private string name;
-        private string surname;
+        private string firstName;
+        private string lastName;
         private string email;
         private string password; //This is always the encrypted password
         private DateTime dateOfBirth;
@@ -19,19 +19,28 @@ namespace Booking_System.backend.model.user
          */
         public User(string name, string surname, string email, string password, Boolean encrypted, DateTime dateOfBirth, string phoneNumber, string idCard)
         {
-            this.name = name;
-            this.surname = surname;
-            this.email = email;
-            if (encrypted) this.password = password;
-            else this.password = User.EncryptPassword(password);
-            this.password = password;
-            this.dateOfBirth = dateOfBirth;
-            this.phoneNumber = phoneNumber;
-            this.idCard = idCard;
+            this.FirstName = name;
+            this.LastName = surname;
+            this.Email = email;
+            if (encrypted) this.Password = password;
+            else this.Password = User.EncryptPassword(password);
+            this.Password = password;
+            this.DateOfBirth = dateOfBirth;
+            this.PhoneNumber = phoneNumber;
+            this.IdCard = idCard;
         }
+
+        public string FirstName { get => firstName; set => firstName = value; }
+        public string LastName { get => lastName; set => lastName = value; }
+        public string Email { get => email; set => email = value; }
+        public string Password { get => password; set => password = value; }
+        public DateTime DateOfBirth { get => dateOfBirth; set => dateOfBirth = value; }
+        public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
+        public string IdCard { get => idCard; set => idCard = value; }
+
         /**
-         * A simple algorithim to encrypt a user inputted password.  
-         */
+        * A simple algorithim to encrypt a user inputted password.  
+        */
         public static string EncryptPassword(string inputtedPassword)
         {
             byte[] data = System.Text.Encoding.UTF8.GetBytes(inputtedPassword);
@@ -48,7 +57,9 @@ namespace Booking_System.backend.model.user
             data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
             string encryptedInputtedPassword = System.Text.Encoding.UTF8.GetString(data);
 
-            return encryptedInputtedPassword == this.password;
+            return encryptedInputtedPassword == this.Password;
         }
+
+
     }
 }
