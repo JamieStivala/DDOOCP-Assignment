@@ -53,7 +53,9 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -70,7 +72,6 @@
     <Compile Include="backend\database\DatabaseWrapper.cs" />
     <Compile Include="backend\database\UserWrapper.cs" />
     <Compile Include="backend\model\user\User.cs" />
-    <Compile Include="backend\model\user\UserType.cs" />
     <Compile Include="bookingsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

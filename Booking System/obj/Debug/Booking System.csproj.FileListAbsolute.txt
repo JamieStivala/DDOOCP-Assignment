@@ -4,11 +4,11 @@ C:\Users\JamieStivala\source\repos\Booking System\Booking System\bin\Debug\Booki
 C:\Users\JamieStivala\source\repos\Booking System\Booking System\bin\Debug\Booking System.pdb
 C:\Users\JamieStivala\source\repos\Booking System\Booking System\obj\Debug\Booking System.csproj.AssemblyReference.cache
 C:\Users\JamieStivala\source\repos\Booking System\Booking System\obj\Debug\Booking System.csproj.SuggestedBindingRedirects.cache
-C:\Users\JamieStivala\source\repos\Booking System\Booking System\obj\Debug\Booking_System.FormSignup.resources
-C:\Users\JamieStivala\source\repos\Booking System\Booking System\obj\Debug\Booking_System.frontend.auth.Signup.resources
 C:\Users\JamieStivala\source\repos\Booking System\Booking System\obj\Debug\Booking_System.frontend.user.MainUserWindow.resources
 C:\Users\JamieStivala\source\repos\Booking System\Booking System\obj\Debug\Booking_System.Properties.Resources.resources
 C:\Users\JamieStivala\source\repos\Booking System\Booking System\obj\Debug\Booking System.csproj.GenerateResource.cache
 C:\Users\JamieStivala\source\repos\Booking System\Booking System\obj\Debug\Booking System.csproj.CoreCompileInputs.cache
 C:\Users\JamieStivala\source\repos\Booking System\Booking System\obj\Debug\Booking System.exe
 C:\Users\JamieStivala\source\repos\Booking System\Booking System\obj\Debug\Booking System.pdb
+C:\Users\JamieStivala\source\repos\Booking System\Booking System\obj\Debug\Booking_System.FormSignin.resources
+C:\Users\JamieStivala\source\repos\Booking System\Booking System\obj\Debug\Booking_System.frontend.auth.FormSignup.resources
