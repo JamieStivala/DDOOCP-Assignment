@@ -67,7 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="backend\database\ConnectionWrapper.cs" />
+    <Compile Include="backend\database\DatabaseWrapper.cs" />
     <Compile Include="backend\database\UserWrapper.cs" />
     <Compile Include="backend\model\user\User.cs" />
     <Compile Include="backend\model\user\UserType.cs" />
