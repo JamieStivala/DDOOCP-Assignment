@@ -52,6 +52,7 @@
             this.dateTimePickerDOB = new System.Windows.Forms.DateTimePicker();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.comboBoxGender = new System.Windows.Forms.ComboBox();
+            this.buttonSignin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -247,11 +248,22 @@
             this.comboBoxGender.Size = new System.Drawing.Size(164, 21);
             this.comboBoxGender.TabIndex = 34;
             // 
+            // buttonSignin
+            // 
+            this.buttonSignin.Location = new System.Drawing.Point(542, 412);
+            this.buttonSignin.Name = "buttonSignin";
+            this.buttonSignin.Size = new System.Drawing.Size(101, 35);
+            this.buttonSignin.TabIndex = 35;
+            this.buttonSignin.Text = "Signin";
+            this.buttonSignin.UseVisualStyleBackColor = true;
+            this.buttonSignin.Click += new System.EventHandler(this.buttonSignin_Click);
+            // 
             // FormSignup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(831, 470);
+            this.Controls.Add(this.buttonSignin);
             this.Controls.Add(this.comboBoxGender);
             this.Controls.Add(this.dateTimePickerDOB);
             this.Controls.Add(this.labelDateOfBirth);
@@ -308,5 +320,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerDOB;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.ComboBox comboBoxGender;
+        private System.Windows.Forms.Button buttonSignin;
     }
 }

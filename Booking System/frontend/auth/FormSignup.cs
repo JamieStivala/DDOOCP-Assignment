@@ -58,5 +58,12 @@ namespace Booking_System.frontend.auth
             string result = UserWrapper.CreateUser(user);
             if (result != null) MessageBox.Show(result, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); //If the result is null -> no error
         }
+
+        private void buttonSignin_Click(object sender, EventArgs e)
+        {
+            FormSignin formSignin = new FormSignin();
+            formSignin.Show();
+            this.Hide();
+        }
     }
 }

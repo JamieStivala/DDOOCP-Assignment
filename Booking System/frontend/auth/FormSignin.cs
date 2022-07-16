@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Booking_System.frontend.auth;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,14 @@ namespace Booking_System
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            
+        }
 
+        private void buttonSignup_Click(object sender, EventArgs e)
+        {
+            FormSignup formSignup = new FormSignup();
+            formSignup.Show();
+            this.Hide();
         }
     }
 }
