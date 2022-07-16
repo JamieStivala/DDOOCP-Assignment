@@ -64,6 +64,7 @@ namespace Booking_System.backend.database
                 case 0:
                     return DatabaseResult.OK;
                 case 958745:
+                case 49205706:
                     return DatabaseResult.DUPLICATE;
                 default:
                     return DatabaseResult.UNKNOWN;
