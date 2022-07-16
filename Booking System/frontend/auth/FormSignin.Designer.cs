@@ -28,79 +28,83 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.usernameTextBox = new System.Windows.Forms.TextBox();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
             this.loginLabel = new System.Windows.Forms.Label();
             this.loginButton = new System.Windows.Forms.Button();
-            this.usernameLabel = new System.Windows.Forms.Label();
+            this.emailLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // usernameTextBox
+            // emailTextBox
             // 
-            this.usernameTextBox.Location = new System.Drawing.Point(125, 195);
-            this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(342, 27);
-            this.usernameTextBox.TabIndex = 6;
+            this.emailTextBox.Location = new System.Drawing.Point(109, 146);
+            this.emailTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(300, 23);
+            this.emailTextBox.TabIndex = 6;
             // 
             // loginLabel
             // 
             this.loginLabel.AutoSize = true;
             this.loginLabel.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.loginLabel.Location = new System.Drawing.Point(46, 29);
+            this.loginLabel.Location = new System.Drawing.Point(40, 22);
             this.loginLabel.Name = "loginLabel";
-            this.loginLabel.Size = new System.Drawing.Size(151, 67);
+            this.loginLabel.Size = new System.Drawing.Size(122, 54);
             this.loginLabel.TabIndex = 7;
             this.loginLabel.Text = "Login";
             // 
             // loginButton
             // 
-            this.loginButton.Location = new System.Drawing.Point(593, 365);
+            this.loginButton.Location = new System.Drawing.Point(519, 274);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(156, 53);
+            this.loginButton.Size = new System.Drawing.Size(136, 40);
             this.loginButton.TabIndex = 8;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
-            // usernameLabel
+            // emailLabel
             // 
-            this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Location = new System.Drawing.Point(125, 172);
-            this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(75, 20);
-            this.usernameLabel.TabIndex = 9;
-            this.usernameLabel.Text = "Username";
+            this.emailLabel.AutoSize = true;
+            this.emailLabel.Location = new System.Drawing.Point(109, 129);
+            this.emailLabel.Name = "emailLabel";
+            this.emailLabel.Size = new System.Drawing.Size(36, 15);
+            this.emailLabel.TabIndex = 9;
+            this.emailLabel.Text = "Email";
             // 
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(125, 271);
+            this.passwordLabel.Location = new System.Drawing.Point(109, 203);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(70, 20);
+            this.passwordLabel.Size = new System.Drawing.Size(57, 15);
             this.passwordLabel.TabIndex = 11;
             this.passwordLabel.Text = "Password";
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(125, 294);
+            this.passwordTextBox.Location = new System.Drawing.Point(109, 220);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(342, 27);
+            this.passwordTextBox.Size = new System.Drawing.Size(300, 23);
             this.passwordTextBox.TabIndex = 10;
             // 
             // FormSignup
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(700, 338);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.passwordTextBox);
-            this.Controls.Add(this.usernameLabel);
+            this.Controls.Add(this.emailLabel);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.loginLabel);
-            this.Controls.Add(this.usernameTextBox);
+            this.Controls.Add(this.emailTextBox);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormSignup";
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,10 +112,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox usernameTextBox;
+        private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.Label loginLabel;
         private System.Windows.Forms.Button loginButton;
-        private System.Windows.Forms.Label usernameLabel;
+        private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.TextBox passwordTextBox;
     }
