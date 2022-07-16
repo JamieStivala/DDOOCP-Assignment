@@ -299,7 +299,7 @@ namespace Booking_System {
             
             private global::System.Data.DataColumn columnGender;
             
-            private global::System.Data.DataColumn columnUserType;
+            private global::System.Data.DataColumn columnType;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -416,9 +416,9 @@ namespace Booking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn UserTypeColumn {
+            public global::System.Data.DataColumn TypeColumn {
                 get {
-                    return this.columnUserType;
+                    return this.columnType;
                 }
             }
             
@@ -459,7 +459,7 @@ namespace Booking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tblUserRow AddtblUserRow(string FirstName, string LastName, string Email, string Password, System.DateTime DateOfBirth, string IDCardNumber, string ContactNumber, string Nationality, string Address, string Gender, string UserType) {
+            public tblUserRow AddtblUserRow(string FirstName, string LastName, string Email, string Password, System.DateTime DateOfBirth, string IDCardNumber, string ContactNumber, string Nationality, string Address, string Gender, int Type) {
                 tblUserRow rowtblUserRow = ((tblUserRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         FirstName,
@@ -472,7 +472,7 @@ namespace Booking_System {
                         Nationality,
                         Address,
                         Gender,
-                        UserType};
+                        Type};
                 rowtblUserRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtblUserRow);
                 return rowtblUserRow;
@@ -512,7 +512,7 @@ namespace Booking_System {
                 this.columnNationality = base.Columns["Nationality"];
                 this.columnAddress = base.Columns["Address"];
                 this.columnGender = base.Columns["Gender"];
-                this.columnUserType = base.Columns["UserType"];
+                this.columnType = base.Columns["Type"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -538,8 +538,8 @@ namespace Booking_System {
                 base.Columns.Add(this.columnAddress);
                 this.columnGender = new global::System.Data.DataColumn("Gender", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGender);
-                this.columnUserType = new global::System.Data.DataColumn("UserType", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUserType);
+                this.columnType = new global::System.Data.DataColumn("Type", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnType);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnEmail}, true));
                 this.columnFirstName.MaxLength = 255;
@@ -553,7 +553,6 @@ namespace Booking_System {
                 this.columnNationality.MaxLength = 255;
                 this.columnAddress.MaxLength = 536870910;
                 this.columnGender.MaxLength = 255;
-                this.columnUserType.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -851,17 +850,17 @@ namespace Booking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string UserType {
+            public int Type {
                 get {
                     try {
-                        return ((string)(this[this.tabletblUser.UserTypeColumn]));
+                        return ((int)(this[this.tabletblUser.TypeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'UserType\' in table \'tblUser\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Type\' in table \'tblUser\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletblUser.UserTypeColumn] = value;
+                    this[this.tabletblUser.TypeColumn] = value;
                 }
             }
             
@@ -975,14 +974,14 @@ namespace Booking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsUserTypeNull() {
-                return this.IsNull(this.tabletblUser.UserTypeColumn);
+            public bool IsTypeNull() {
+                return this.IsNull(this.tabletblUser.TypeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetUserTypeNull() {
-                this[this.tabletblUser.UserTypeColumn] = global::System.Convert.DBNull;
+            public void SetTypeNull() {
+                this[this.tabletblUser.TypeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1155,11 +1154,11 @@ namespace Booking_System.bookingsDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Nationality", "Nationality");
             tableMapping.ColumnMappings.Add("Address", "Address");
             tableMapping.ColumnMappings.Add("Gender", "Gender");
-            tableMapping.ColumnMappings.Add("UserType", "UserType");
+            tableMapping.ColumnMappings.Add("Type", "Type");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `tblUser` WHERE (((? = 1 AND `FirstName` IS NULL) OR (`FirstName` = ?)) AND ((? = 1 AND `LastName` IS NULL) OR (`LastName` = ?)) AND (`Email` = ?) AND ((? = 1 AND `DateOfBirth` IS NULL) OR (`DateOfBirth` = ?)) AND ((? = 1 AND `IDCardNumber` IS NULL) OR (`IDCardNumber` = ?)) AND ((? = 1 AND `ContactNumber` IS NULL) OR (`ContactNumber` = ?)) AND ((? = 1 AND `Nationality` IS NULL) OR (`Nationality` = ?)) AND ((? = 1 AND `Gender` IS NULL) OR (`Gender` = ?)) AND ((? = 1 AND `UserType` IS NULL) OR (`UserType` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `tblUser` WHERE (((? = 1 AND `FirstName` IS NULL) OR (`FirstName` = ?)) AND ((? = 1 AND `LastName` IS NULL) OR (`LastName` = ?)) AND (`Email` = ?) AND ((? = 1 AND `DateOfBirth` IS NULL) OR (`DateOfBirth` = ?)) AND ((? = 1 AND `IDCardNumber` IS NULL) OR (`IDCardNumber` = ?)) AND ((? = 1 AND `ContactNumber` IS NULL) OR (`ContactNumber` = ?)) AND ((? = 1 AND `Nationality` IS NULL) OR (`Nationality` = ?)) AND ((? = 1 AND `Gender` IS NULL) OR (`Gender` = ?)) AND ((? = 1 AND `Type` IS NULL) OR (`Type` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_FirstName", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FirstName", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_FirstName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FirstName", global::System.Data.DataRowVersion.Original, false, null));
@@ -1176,13 +1175,13 @@ namespace Booking_System.bookingsDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Nationality", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Nationality", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Gender", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Gender", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Gender", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Gender", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_UserType", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UserType", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_UserType", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UserType", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Type", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Type", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Type", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Type", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `tblUser` (`FirstName`, `LastName`, `Email`, `Password`, `DateOfBirth" +
-                "`, `IDCardNumber`, `Address`, `ContactNumber`, `Nationality`, `Gender`, `UserTyp" +
-                "e`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "`, `IDCardNumber`, `Address`, `ContactNumber`, `Nationality`, `Gender`, `Type`) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("FirstName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FirstName", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("LastName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "LastName", global::System.Data.DataRowVersion.Current, false, null));
@@ -1194,10 +1193,10 @@ namespace Booking_System.bookingsDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ContactNumber", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ContactNumber", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Nationality", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Nationality", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Gender", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Gender", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("UserType", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UserType", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Type", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Type", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `tblUser` SET `FirstName` = ?, `LastName` = ?, `Email` = ?, `Password` = ?, `DateOfBirth` = ?, `IDCardNumber` = ?, `Address` = ?, `ContactNumber` = ?, `Nationality` = ?, `Gender` = ?, `UserType` = ? WHERE (((? = 1 AND `FirstName` IS NULL) OR (`FirstName` = ?)) AND ((? = 1 AND `LastName` IS NULL) OR (`LastName` = ?)) AND (`Email` = ?) AND ((? = 1 AND `DateOfBirth` IS NULL) OR (`DateOfBirth` = ?)) AND ((? = 1 AND `IDCardNumber` IS NULL) OR (`IDCardNumber` = ?)) AND ((? = 1 AND `ContactNumber` IS NULL) OR (`ContactNumber` = ?)) AND ((? = 1 AND `Nationality` IS NULL) OR (`Nationality` = ?)) AND ((? = 1 AND `Gender` IS NULL) OR (`Gender` = ?)) AND ((? = 1 AND `UserType` IS NULL) OR (`UserType` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `tblUser` SET `FirstName` = ?, `LastName` = ?, `Email` = ?, `Password` = ?, `DateOfBirth` = ?, `IDCardNumber` = ?, `Address` = ?, `ContactNumber` = ?, `Nationality` = ?, `Gender` = ?, `Type` = ? WHERE (((? = 1 AND `FirstName` IS NULL) OR (`FirstName` = ?)) AND ((? = 1 AND `LastName` IS NULL) OR (`LastName` = ?)) AND (`Email` = ?) AND ((? = 1 AND `DateOfBirth` IS NULL) OR (`DateOfBirth` = ?)) AND ((? = 1 AND `IDCardNumber` IS NULL) OR (`IDCardNumber` = ?)) AND ((? = 1 AND `ContactNumber` IS NULL) OR (`ContactNumber` = ?)) AND ((? = 1 AND `Nationality` IS NULL) OR (`Nationality` = ?)) AND ((? = 1 AND `Gender` IS NULL) OR (`Gender` = ?)) AND ((? = 1 AND `Type` IS NULL) OR (`Type` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("FirstName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FirstName", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("LastName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "LastName", global::System.Data.DataRowVersion.Current, false, null));
@@ -1209,7 +1208,7 @@ namespace Booking_System.bookingsDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ContactNumber", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ContactNumber", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Nationality", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Nationality", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Gender", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Gender", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("UserType", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UserType", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Type", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Type", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_FirstName", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FirstName", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_FirstName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FirstName", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_LastName", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "LastName", global::System.Data.DataRowVersion.Original, true, null));
@@ -1225,8 +1224,8 @@ namespace Booking_System.bookingsDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Nationality", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Nationality", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Gender", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Gender", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Gender", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Gender", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_UserType", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UserType", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_UserType", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UserType", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Type", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Type", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Type", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Type", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1243,7 +1242,7 @@ namespace Booking_System.bookingsDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT FirstName, LastName, Email, [Password], DateOfBirth, IDCardNumber, Address" +
-                ", ContactNumber, Nationality, Gender, UserType FROM tblUser";
+                ", ContactNumber, Nationality, Gender, Type FROM tblUser";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1304,7 +1303,7 @@ namespace Booking_System.bookingsDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_FirstName, string Original_LastName, string Original_Email, global::System.Nullable<global::System.DateTime> Original_DateOfBirth, string Original_IDCardNumber, string Original_ContactNumber, string Original_Nationality, string Original_Gender, string Original_UserType) {
+        public virtual int Delete(string Original_FirstName, string Original_LastName, string Original_Email, global::System.Nullable<global::System.DateTime> Original_DateOfBirth, string Original_IDCardNumber, string Original_ContactNumber, string Original_Nationality, string Original_Gender, global::System.Nullable<int> Original_Type) {
             if ((Original_FirstName == null)) {
                 this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -1367,13 +1366,13 @@ namespace Booking_System.bookingsDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_Gender));
             }
-            if ((Original_UserType == null)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+            if ((Original_Type.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((int)(Original_Type.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_UserType));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1395,7 +1394,7 @@ namespace Booking_System.bookingsDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string FirstName, string LastName, string Email, string Password, global::System.Nullable<global::System.DateTime> DateOfBirth, string IDCardNumber, string Address, string ContactNumber, string Nationality, string Gender, string UserType) {
+        public virtual int Insert(string FirstName, string LastName, string Email, string Password, global::System.Nullable<global::System.DateTime> DateOfBirth, string IDCardNumber, string Address, string ContactNumber, string Nationality, string Gender, global::System.Nullable<int> Type) {
             if ((FirstName == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1456,11 +1455,11 @@ namespace Booking_System.bookingsDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Gender));
             }
-            if ((UserType == null)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            if ((Type.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((int)(Type.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(UserType));
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1493,7 +1492,7 @@ namespace Booking_System.bookingsDataSetTableAdapters {
                     string ContactNumber, 
                     string Nationality, 
                     string Gender, 
-                    string UserType, 
+                    global::System.Nullable<int> Type, 
                     string Original_FirstName, 
                     string Original_LastName, 
                     string Original_Email, 
@@ -1502,7 +1501,7 @@ namespace Booking_System.bookingsDataSetTableAdapters {
                     string Original_ContactNumber, 
                     string Original_Nationality, 
                     string Original_Gender, 
-                    string Original_UserType) {
+                    global::System.Nullable<int> Original_Type) {
             if ((FirstName == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1563,11 +1562,11 @@ namespace Booking_System.bookingsDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Gender));
             }
-            if ((UserType == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            if ((Type.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Type.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(UserType));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             if ((Original_FirstName == null)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
@@ -1631,13 +1630,13 @@ namespace Booking_System.bookingsDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_Gender));
             }
-            if ((Original_UserType == null)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+            if ((Original_Type.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_Type.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_UserType));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1669,7 +1668,7 @@ namespace Booking_System.bookingsDataSetTableAdapters {
                     string ContactNumber, 
                     string Nationality, 
                     string Gender, 
-                    string UserType, 
+                    global::System.Nullable<int> Type, 
                     string Original_FirstName, 
                     string Original_LastName, 
                     string Original_Email, 
@@ -1678,8 +1677,8 @@ namespace Booking_System.bookingsDataSetTableAdapters {
                     string Original_ContactNumber, 
                     string Original_Nationality, 
                     string Original_Gender, 
-                    string Original_UserType) {
-            return this.Update(FirstName, LastName, Original_Email, Password, DateOfBirth, IDCardNumber, Address, ContactNumber, Nationality, Gender, UserType, Original_FirstName, Original_LastName, Original_Email, Original_DateOfBirth, Original_IDCardNumber, Original_ContactNumber, Original_Nationality, Original_Gender, Original_UserType);
+                    global::System.Nullable<int> Original_Type) {
+            return this.Update(FirstName, LastName, Original_Email, Password, DateOfBirth, IDCardNumber, Address, ContactNumber, Nationality, Gender, Type, Original_FirstName, Original_LastName, Original_Email, Original_DateOfBirth, Original_IDCardNumber, Original_ContactNumber, Original_Nationality, Original_Gender, Original_Type);
         }
     }
     
