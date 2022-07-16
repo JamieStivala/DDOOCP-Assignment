@@ -13,20 +13,20 @@ namespace Booking_System.frontend
             return String.IsNullOrEmpty(input);
         }
 
-        private static Boolean IsEmpty(TextBox textBox)
+        private static Boolean IsEmpty(Control item)
         {
-            return IsEmpty(textBox.Text);
+            return IsEmpty(item.Text);
         }
 
-        public static Boolean IsEmpty(TextBox[] textBox, ErrorProvider errorProvider)
+        public static Boolean IsEmpty(Control[] item, ErrorProvider errorProvider)
         {
             bool passed = true;
-            for (int i = 0; i != textBox.Length; i++)
+            for (int i = 0; i != item.Length; i++)
             {
-                if (IsEmpty(textBox[i]))
+                if (IsEmpty(item[i]))
                 {
                     passed = false;
-                    errorProvider.SetError(textBox[i], "Field can't be empty");
+                    errorProvider.SetError(item[i], "Field can't be empty");
                 }
             }
 
@@ -52,7 +52,7 @@ namespace Booking_System.frontend
             }
         }
 
-        public static Boolean IsValidEmail(TextBox inputtedEmail, ErrorProvider errorProvider)
+        public static Boolean IsValidEmail(Control inputtedEmail, ErrorProvider errorProvider)
         {
             if (!GeneralValidation.IsValidEmail(inputtedEmail.Text))
             {
@@ -76,7 +76,7 @@ namespace Booking_System.frontend
             return Regex.IsMatch(inputtedPassword, @"((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%!]).{8,40})");
         }
 
-        public static Boolean VerifyPasswordStrength(TextBox inputtedPassword, ErrorProvider errorProvider)
+        public static Boolean VerifyPasswordStrength(Control inputtedPassword, ErrorProvider errorProvider)
         {
             if (!GeneralValidation.VerifyPasswordStrength(inputtedPassword.Text))
             {

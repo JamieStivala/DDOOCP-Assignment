@@ -41,7 +41,6 @@
             this.labelContactNumber = new System.Windows.Forms.Label();
             this.textBoxContactNumber = new System.Windows.Forms.TextBox();
             this.labelGender = new System.Windows.Forms.Label();
-            this.textBoxGender = new System.Windows.Forms.TextBox();
             this.labelNationality = new System.Windows.Forms.Label();
             this.textBoxNation = new System.Windows.Forms.TextBox();
             this.labelAddress = new System.Windows.Forms.Label();
@@ -52,6 +51,7 @@
             this.labelDateOfBirth = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.comboBoxGender = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -154,13 +154,6 @@
             this.labelGender.TabIndex = 26;
             this.labelGender.Text = "Gender";
             // 
-            // textBoxGender
-            // 
-            this.textBoxGender.Location = new System.Drawing.Point(349, 221);
-            this.textBoxGender.Name = "textBoxGender";
-            this.textBoxGender.Size = new System.Drawing.Size(164, 20);
-            this.textBoxGender.TabIndex = 25;
-            // 
             // labelNationality
             // 
             this.labelNationality.AutoSize = true;
@@ -242,18 +235,30 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // comboBoxGender
+            // 
+            this.comboBoxGender.FormattingEnabled = true;
+            this.comboBoxGender.Items.AddRange(new object[] {
+            "Male",
+            "Female",
+            "Other"});
+            this.comboBoxGender.Location = new System.Drawing.Point(349, 219);
+            this.comboBoxGender.Name = "comboBoxGender";
+            this.comboBoxGender.Size = new System.Drawing.Size(164, 21);
+            this.comboBoxGender.TabIndex = 34;
+            // 
             // FormSignup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(831, 470);
+            this.Controls.Add(this.comboBoxGender);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.labelDateOfBirth);
             this.Controls.Add(this.signupButton);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.labelGender);
-            this.Controls.Add(this.textBoxGender);
             this.Controls.Add(this.labelNationality);
             this.Controls.Add(this.textBoxNation);
             this.Controls.Add(this.labelAddress);
@@ -292,7 +297,6 @@
         private System.Windows.Forms.Label labelContactNumber;
         private System.Windows.Forms.TextBox textBoxContactNumber;
         private System.Windows.Forms.Label labelGender;
-        private System.Windows.Forms.TextBox textBoxGender;
         private System.Windows.Forms.Label labelNationality;
         private System.Windows.Forms.TextBox textBoxNation;
         private System.Windows.Forms.Label labelAddress;
@@ -303,5 +307,6 @@
         private System.Windows.Forms.Label labelDateOfBirth;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.ComboBox comboBoxGender;
     }
 }

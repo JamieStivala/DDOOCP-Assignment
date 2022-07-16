@@ -26,7 +26,7 @@ namespace Booking_System.frontend.auth
             errorProvider.Clear();
             bool passed = true;
 
-            TextBox[] itemsToValidateEmpty = new TextBox[] { textBoxName, textBoxSurname, textBoxPassword, textBoxContactNumber, textBoxIdCard, textBoxGender, textBoxNation, textBoxAddress };
+            Control[] itemsToValidateEmpty = new Control[] { textBoxName, textBoxSurname, textBoxPassword, textBoxContactNumber, textBoxIdCard, comboBoxGender, textBoxNation, textBoxAddress };
             if (GeneralValidation.IsEmpty(itemsToValidateEmpty, errorProvider)) passed = false;
 
             if (!GeneralValidation.IsValidEmail(textBoxEmail, errorProvider)) passed = false;
