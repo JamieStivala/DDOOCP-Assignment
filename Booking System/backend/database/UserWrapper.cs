@@ -10,7 +10,6 @@ namespace Booking_System.backend.database
 
         public static string CreateUser(User user)
         {
-            Debug.WriteLine((int)user.Type);
             string insertQuery = $"INSERT INTO tblUser VALUES" +
                 $"('{user.FirstName}', '{user.LastName}', '{user.Email}', '{user.Password}', '{user.ContactNumber}', '{user.DateOfBirth.ToShortDateString()}', '{user.Gender + ""}', '{user.IdCard}', '{user.Nationality}', '{user.Address}', '{(int)user.Type}')"; //Query to insert the information into the database
 
