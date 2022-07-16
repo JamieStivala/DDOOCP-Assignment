@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Booking_System.backend.model.user
 {
@@ -26,8 +24,8 @@ namespace Booking_System.backend.model.user
             this.FirstName = name;
             this.LastName = surname;
             this.Email = email;
-            if (encrypted) this.Password = password;
-            else this.Password = User.EncryptPassword(password);
+            if (!encrypted) password = User.EncryptPassword(password);
+            this.Password = password;
             this.Password = password;
             this.ContactNumber = contactNumber;
             this.DateOfBirth = dateOfBirth;
