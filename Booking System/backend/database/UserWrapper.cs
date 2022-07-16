@@ -11,7 +11,7 @@ namespace Booking_System.backend.database
         {
 
             string insertQuery = $"INSERT INTO tblUser VALUES" +
-                $"('{user.FirstName}', '{user.LastName}', '{user.Email}', '{user.Password}', '{user.DateOfBirth.ToShortDateString()}', '{user.PhoneNumber}', '{user.IdCard}')"; //Query to insert the information into the database
+                $"('{user.FirstName}', '{user.LastName}', '{user.Email}', '{user.Password}', '{user.DateOfBirth.ToShortDateString()}', '{user.IdCard}, '{user.ContactNumber}', '{user.Nationality}, '{user.Address}, '{user.Gender}, '{user.Type}')"; //Query to insert the information into the database
 
 
             DatabaseResult result = DatabaseWrapper.InsertIntoDatabase(insertQuery); //Run the query and get the result
@@ -30,10 +30,13 @@ namespace Booking_System.backend.database
 
         public static User GetUser(string email, string password)
         {
+            /*
             User user = new User("Jamie", "Stivala", email, password, false, new DateTime(), "77223883", "0368201L");
 
             if (user.ConfirmPassword(password)) return user;
             else throw new Exception("Invalid password provided for user with this email address.");
+            */
+            return null;
         }
     }
 }

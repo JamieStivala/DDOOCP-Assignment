@@ -10,14 +10,18 @@ namespace Booking_System.backend.model.user
         private string lastName;
         private string email;
         private string password; //This is always the encrypted password
+        private string contactNumber;
         private DateTime dateOfBirth;
-        private string phoneNumber;
+        private char gender;
         private string idCard;
+        private string nationality;
+        private string address;
+        private UserType type;
 
         /**
          * Creates the instance needed for a User.  Boolean encrypted checks if the password is encrypted or not and during instance create, if the password is "raw" the password is encrypted.
          */
-        public User(string name, string surname, string email, string password, Boolean encrypted, DateTime dateOfBirth, string phoneNumber, string idCard)
+        public User(string name, string surname, string email, string password, Boolean encrypted, string contactNumber, DateTime dateOfBirth, char gender, string idCard, string nationality, string address, UserType type)
         {
             this.FirstName = name;
             this.LastName = surname;
@@ -25,18 +29,28 @@ namespace Booking_System.backend.model.user
             if (encrypted) this.Password = password;
             else this.Password = User.EncryptPassword(password);
             this.Password = password;
+            this.ContactNumber = contactNumber;
             this.DateOfBirth = dateOfBirth;
-            this.PhoneNumber = phoneNumber;
+            this.Gender = gender;
             this.IdCard = idCard;
+            this.Nationality = nationality;
+            this.Address = address;
+            this.Type = type;
         }
 
         public string FirstName { get => firstName; set => firstName = value; }
         public string LastName { get => lastName; set => lastName = value; }
         public string Email { get => email; set => email = value; }
         public string Password { get => password; set => password = value; }
+        public string ContactNumber { get => contactNumber; set => contactNumber = value; }
         public DateTime DateOfBirth { get => dateOfBirth; set => dateOfBirth = value; }
-        public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
+        public char Gender { get => gender; set => gender = value; }
         public string IdCard { get => idCard; set => idCard = value; }
+        public string Nationality { get => nationality; set => nationality = value; }
+        public string Address { get => address; set => address = value; }
+        public UserType Type { get => type; set => type = value; }
+
+
 
         /**
         * A simple algorithim to encrypt a user inputted password.  
@@ -63,7 +77,7 @@ namespace Booking_System.backend.model.user
 
     }
 
-    internal enum UserType
+    public enum UserType
     {
         ADMIN = 0,
         CUSTOMER = 1,
