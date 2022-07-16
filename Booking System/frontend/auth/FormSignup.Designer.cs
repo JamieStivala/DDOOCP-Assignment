@@ -49,7 +49,7 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.signupButton = new System.Windows.Forms.Button();
             this.labelDateOfBirth = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerDOB = new System.Windows.Forms.DateTimePicker();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.comboBoxGender = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -224,12 +224,12 @@
             this.labelDateOfBirth.TabIndex = 32;
             this.labelDateOfBirth.Text = "Date of Birth";
             // 
-            // dateTimePicker1
+            // dateTimePickerDOB
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(349, 109);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(164, 20);
-            this.dateTimePicker1.TabIndex = 33;
+            this.dateTimePickerDOB.Location = new System.Drawing.Point(349, 109);
+            this.dateTimePickerDOB.Name = "dateTimePickerDOB";
+            this.dateTimePickerDOB.Size = new System.Drawing.Size(164, 20);
+            this.dateTimePickerDOB.TabIndex = 33;
             // 
             // errorProvider
             // 
@@ -253,7 +253,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(831, 470);
             this.Controls.Add(this.comboBoxGender);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePickerDOB);
             this.Controls.Add(this.labelDateOfBirth);
             this.Controls.Add(this.signupButton);
             this.Controls.Add(this.labelPassword);
@@ -305,7 +305,7 @@
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button signupButton;
         private System.Windows.Forms.Label labelDateOfBirth;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDOB;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.ComboBox comboBoxGender;
     }
