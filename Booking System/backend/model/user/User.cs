@@ -86,7 +86,7 @@ namespace Booking_System.backend.model.user
 
     public enum UserType
     {
-        ADMIN = 0,
-        CUSTOMER = 1,
+        Admin = 0,
+        Customer = 1,
     }
 }
