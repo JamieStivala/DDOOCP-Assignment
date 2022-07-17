@@ -25,6 +25,7 @@ namespace Booking_System
 
         private bool IsDataValid()
         {
+            errorProvider.Clear();
             bool passed = true;
 
             Control[] itemsToValidateEmpty = new Control[] { emailTextBox, passwordTextBox };
