@@ -60,7 +60,7 @@ namespace Booking_System.backend.model.user
 
 
         /**
-        * A simple algorithim to encrypt a user inputted password.  
+        * A simple algorithm to encrypt a user inputted password.  
         */
         public static string EncryptPassword(string inputtedPassword)
         {
@@ -72,7 +72,7 @@ namespace Booking_System.backend.model.user
         /**
          * Works by encrypting the user input and checking that encryptedInputtedPassword is equal to this.password
          */
-        public Boolean ConfirmPassword(string inputtedPassword)
+        public Boolean VerifyPassword(string inputtedPassword)
         {
             byte[] data = System.Text.Encoding.UTF8.GetBytes(inputtedPassword); //Convert user input to UTF8
             data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);

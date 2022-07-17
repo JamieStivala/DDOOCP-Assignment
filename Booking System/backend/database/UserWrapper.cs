@@ -51,7 +51,7 @@ namespace Booking_System.backend.database
                     };
 
                     
-                    if(!user.VeryifyPassword(password)) throw new Exception("The password entered for this user is incorrect."); //Verify the password
+                    if(!user.VerifyPassword(password)) throw new Exception("The password entered for this user is incorrect."); //Verify the password
 
                     return user;
 
