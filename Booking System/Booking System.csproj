@@ -72,6 +72,9 @@
     <Compile Include="backend\database\DatabaseWrapper.cs" />
     <Compile Include="backend\database\UserWrapper.cs" />
     <Compile Include="backend\model\user\User.cs" />
+    <Compile Include="bookingsDataSet.cs">
+      <DependentUpon>bookingsDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="bookingsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
