@@ -40,7 +40,7 @@ namespace Booking_System.frontend
          */
         public static Boolean IsValidEmail(string inputtedEmail)
         {
-            if(GeneralValidation.IsEmpty(inputtedEmail)) return false;
+            if (GeneralValidation.IsEmpty(inputtedEmail)) return false;
             try
             {
                 MailAddress m = new MailAddress(inputtedEmail);
@@ -72,7 +72,7 @@ namespace Booking_System.frontend
          */
         public static Boolean VerifyPasswordStrength(string inputtedPassword)
         {
-            if(IsEmpty(inputtedPassword)) return false;
+            if (IsEmpty(inputtedPassword)) return false;
             return Regex.IsMatch(inputtedPassword, @"((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%!]).{8,40})");
         }
 

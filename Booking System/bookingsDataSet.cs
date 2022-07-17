@@ -1,6 +1,8 @@
-﻿namespace Booking_System {
-    
-    
-    public partial class bookingsDataSet {
+﻿namespace Booking_System
+{
+
+
+    public partial class bookingsDataSet
+    {
     }
 }

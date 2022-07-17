@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Booking_System.backend.database;
+﻿using Booking_System.backend.database;
 using Booking_System.backend.model.user;
+using System;
+using System.Windows.Forms;
 
 namespace Booking_System.frontend.user
 {
@@ -32,7 +25,7 @@ namespace Booking_System.frontend.user
 
             string gender = "";
             switch (user.Gender)
-            {   
+            {
                 case 'M':
                     gender = "Male";
                     break;
@@ -55,8 +48,8 @@ namespace Booking_System.frontend.user
             bool passed = true;
 
             //If the password is left empty, that means that no updating to the password is needed.
-            Control[] itemsToValidateEmpty = GeneralValidation.IsEmpty(textBoxPassword.Text) ? 
-                new Control[] { textBoxName, textBoxSurname, textBoxContactNumber, textBoxIdCard, comboBoxGender, textBoxNation, textBoxAddress } : 
+            Control[] itemsToValidateEmpty = GeneralValidation.IsEmpty(textBoxPassword.Text) ?
+                new Control[] { textBoxName, textBoxSurname, textBoxContactNumber, textBoxIdCard, comboBoxGender, textBoxNation, textBoxAddress } :
                 new Control[] { textBoxName, textBoxSurname, textBoxPassword, textBoxContactNumber, textBoxIdCard, comboBoxGender, textBoxNation, textBoxAddress };
 
 
@@ -95,7 +88,7 @@ namespace Booking_System.frontend.user
             this.user.FirstName = textBoxName.Text.Trim();
             this.user.LastName = textBoxSurname.Text.Trim();
             this.user.Email = textBoxEmail.Text.Trim();
-            if(!GeneralValidation.IsEmpty(textBoxPassword.Text)) this.user.Password = textBoxPassword.Text.Trim();
+            if (!GeneralValidation.IsEmpty(textBoxPassword.Text)) this.user.Password = textBoxPassword.Text.Trim();
             this.user.ContactNumber = textBoxContactNumber.Text.Trim();
             this.user.DateOfBirth = dateTimePickerDOB.Value;
             this.user.IdCard = textBoxIdCard.Text.Trim();

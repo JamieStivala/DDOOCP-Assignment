@@ -50,7 +50,7 @@ namespace Booking_System.backend.database
             }
         }
 
-        public static User GetUser(string email, string password) 
+        public static User GetUser(string email, string password)
         {
             string findUserCommand = $"SELECT * FROM tblUser WHERE Email='{email}'";
             (DatabaseResult databaseResult, var currentRow) = (DatabaseWrapper.GetFromDatabase(findUserCommand))[0];
@@ -74,8 +74,8 @@ namespace Booking_System.backend.database
                         Type = (UserType)currentRow["Type"]
                     };
 
-                    
-                    if(!user.VerifyPassword(password)) throw new Exception("The password entered for this user is incorrect."); //Verify the password
+
+                    if (!user.VerifyPassword(password)) throw new Exception("The password entered for this user is incorrect."); //Verify the password
 
                     return user;
 

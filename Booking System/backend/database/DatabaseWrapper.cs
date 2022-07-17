@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.OleDb;
 using System.Diagnostics;
-using System.Configuration;
 using System.Linq;
 
 namespace Booking_System.backend.database
@@ -101,7 +101,7 @@ namespace Booking_System.backend.database
                 DatabaseWrapper.Close();
             }
 
-            
+
             return result.ToArray();
         }
 
@@ -132,7 +132,7 @@ namespace Booking_System.backend.database
     {
         Ok = 200,
         Duplicate = 409,
-        NotFound=404,
+        NotFound = 404,
         Unknown = 400
-    } 
+    }
 }

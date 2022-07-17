@@ -1,8 +1,8 @@
 ﻿using Booking_System.backend.database;
 using Booking_System.backend.model.user;
+using Booking_System.frontend.user;
 using System;
 using System.Windows.Forms;
-using Booking_System.frontend.user;
 
 namespace Booking_System.frontend.auth
 {
@@ -35,7 +35,7 @@ namespace Booking_System.frontend.auth
             int age = today.Year - dateTimePickerDOB.Value.Year;
             if (dateTimePickerDOB.Value.Date > today.AddYears(-age)) age--;
 
-            if(age < 18)
+            if (age < 18)
             {
                 errorProvider.SetError(dateTimePickerDOB, "Minimum age is 18.");
                 passed = false;

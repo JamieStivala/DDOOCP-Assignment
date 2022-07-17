@@ -1,8 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-using Booking_System.backend.database;
+﻿using Booking_System.backend.database;
 using Booking_System.backend.model.user;
 using Booking_System.frontend.user;
+using System;
+using System.Windows.Forms;
 
 namespace Booking_System.frontend.auth
 {
@@ -26,7 +26,7 @@ namespace Booking_System.frontend.auth
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            if(!IsDataValid()) return;
+            if (!IsDataValid()) return;
 
             try
             {

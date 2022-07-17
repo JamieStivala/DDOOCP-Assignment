@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Booking_System.backend.model.hotel
+﻿namespace Booking_System.backend.model.hotel
 {
     public class Room
     {
