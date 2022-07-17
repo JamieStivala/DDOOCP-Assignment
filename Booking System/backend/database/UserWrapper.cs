@@ -27,6 +27,33 @@ namespace Booking_System.backend.database
             }
         }
 
+        public static void UpdateUser(User user, string originalEmail)
+        {
+            string updateQuery = $"UPDATE tblUser SET" +
+                                 $" FirstName='{user.FirstName}', LastName='{user.LastName}', " +
+                                 $" Email='{user.Email}', [Password]='{user.Password}', " +
+                                 $" DateOfBirth='{user.DateOfBirth.ToShortDateString()}', IDCardNumber='{user.IdCard}', " +
+                                 $" ContactNumber='{user.ContactNumber}', Nationality='{user.Nationality}', " +
+                                 $" Address='{user.Address}', Gender='{user.Gender + ""}', " +
+                                 $" Type='{(int)user.Type}' " +
+                                 $"WHERE Email='{originalEmail}'";
+
+            Debug.WriteLine(updateQuery);
+
+            DatabaseResult result = DatabaseWrapper.UpdateFromDatabase(updateQuery);
+
+            //Switch the result based on the ENUM representing result
+            switch (result)
+            {
+                case DatabaseResult.Ok:
+                    return;
+                case DatabaseResult.Duplicate:
+                    throw new Exception("A user with that email already exists.  Please use another email or contact one of the admins to update your password.");
+                default:
+                    throw new Exception("An unknown error has occurred.");
+            }
+        }
+
         public static User GetUser(string email, string password) 
         {
             string findUserCommand = $"SELECT * FROM tblUser WHERE Email='{email}'";
