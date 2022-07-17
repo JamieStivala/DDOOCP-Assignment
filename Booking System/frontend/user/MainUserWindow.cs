@@ -20,7 +20,8 @@ namespace Booking_System.frontend.user
 
         private void signoutButton_Click(object sender, EventArgs e)
         {
-
+            new FormSignin().Show();
+            this.Hide();
         }
 
         private void MainUserWindow_Load(object sender, EventArgs e)
