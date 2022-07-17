@@ -27,5 +27,11 @@ namespace Booking_System.frontend.user
         {
 
         }
+
+        private void editPersonalInformationButton_Click(object sender, EventArgs e)
+        {
+            EditPersonalInformation editPersonalInformation = new EditPersonalInformation(this.user);
+            editPersonalInformation.ShowDialog();
+        }
     }
 }

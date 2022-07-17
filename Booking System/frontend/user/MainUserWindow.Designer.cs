@@ -74,6 +74,7 @@
             this.editPersonalInformationButton.TabIndex = 11;
             this.editPersonalInformationButton.Text = "Edit Personal Information";
             this.editPersonalInformationButton.UseVisualStyleBackColor = true;
+            this.editPersonalInformationButton.Click += new System.EventHandler(this.editPersonalInformationButton_Click);
             // 
             // signoutButton
             // 
