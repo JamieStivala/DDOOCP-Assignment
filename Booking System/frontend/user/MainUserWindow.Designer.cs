@@ -50,7 +50,7 @@
             this.createBookingButton.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.createBookingButton.Location = new System.Drawing.Point(75, 109);
             this.createBookingButton.Name = "createBookingButton";
-            this.createBookingButton.Size = new System.Drawing.Size(111, 42);
+            this.createBookingButton.Size = new System.Drawing.Size(111, 53);
             this.createBookingButton.TabIndex = 9;
             this.createBookingButton.Text = "Create Booking";
             this.createBookingButton.UseVisualStyleBackColor = true;
@@ -60,7 +60,7 @@
             this.viewBookingButton.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.viewBookingButton.Location = new System.Drawing.Point(303, 109);
             this.viewBookingButton.Name = "viewBookingButton";
-            this.viewBookingButton.Size = new System.Drawing.Size(111, 42);
+            this.viewBookingButton.Size = new System.Drawing.Size(111, 53);
             this.viewBookingButton.TabIndex = 10;
             this.viewBookingButton.Text = "View/Edit Bookings";
             this.viewBookingButton.UseVisualStyleBackColor = true;
@@ -70,7 +70,7 @@
             this.editPersonalInformationButton.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.editPersonalInformationButton.Location = new System.Drawing.Point(526, 109);
             this.editPersonalInformationButton.Name = "editPersonalInformationButton";
-            this.editPersonalInformationButton.Size = new System.Drawing.Size(111, 42);
+            this.editPersonalInformationButton.Size = new System.Drawing.Size(111, 53);
             this.editPersonalInformationButton.TabIndex = 11;
             this.editPersonalInformationButton.Text = "Edit Personal Information";
             this.editPersonalInformationButton.UseVisualStyleBackColor = true;
@@ -98,6 +98,7 @@
             this.Controls.Add(this.mainMenuLabel);
             this.Name = "MainUserWindow";
             this.Text = "MainUserWindow";
+            this.Load += new System.EventHandler(this.MainUserWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
