@@ -74,7 +74,7 @@
             this.editPersonalInformationButton.TabIndex = 11;
             this.editPersonalInformationButton.Text = "Edit Personal Information";
             this.editPersonalInformationButton.UseVisualStyleBackColor = true;
-            this.editPersonalInformationButton.Click += new System.EventHandler(this.editPersonalInformationButton_Click);
+            this.editPersonalInformationButton.Click += new System.EventHandler(this.EditPersonalInformationButton_Click);
             // 
             // signoutButton
             // 
@@ -85,7 +85,7 @@
             this.signoutButton.TabIndex = 12;
             this.signoutButton.Text = "Signout";
             this.signoutButton.UseVisualStyleBackColor = true;
-            this.signoutButton.Click += new System.EventHandler(this.signoutButton_Click);
+            this.signoutButton.Click += new System.EventHandler(this.SignoutButton_Click);
             // 
             // MainUserWindow
             // 

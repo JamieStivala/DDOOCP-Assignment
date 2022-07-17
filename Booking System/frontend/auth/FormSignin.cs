@@ -1,20 +1,10 @@
-﻿using Booking_System.frontend.auth;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 using Booking_System.backend.database;
 using Booking_System.backend.model.user;
-using Booking_System.frontend;
 using Booking_System.frontend.user;
 
-namespace Booking_System
+namespace Booking_System.frontend.auth
 {
     public partial class FormSignin : Form
     {
@@ -34,7 +24,7 @@ namespace Booking_System
             return passed;
         }
 
-        private void loginButton_Click(object sender, EventArgs e)
+        private void LoginButton_Click(object sender, EventArgs e)
         {
             if(!IsDataValid()) return;
 
@@ -51,7 +41,7 @@ namespace Booking_System
             }
         }
 
-        private void buttonSignup_Click(object sender, EventArgs e)
+        private void ButtonSignup_Click(object sender, EventArgs e)
         {
             FormSignup formSignup = new FormSignup();
             formSignup.Show();

@@ -45,7 +45,7 @@ namespace Booking_System.frontend.auth
             return passed;
         }
 
-        private void signupButton_Click(object sender, EventArgs e)
+        private void SignupButton_Click(object sender, EventArgs e)
         {
             if (!IsDataValid()) return; //Validate the data
 
@@ -63,7 +63,7 @@ namespace Booking_System.frontend.auth
             }
         }
 
-        private void buttonSignin_Click(object sender, EventArgs e)
+        private void ButtonSignin_Click(object sender, EventArgs e)
         {
             FormSignin formSignin = new FormSignin();
             formSignin.Show();

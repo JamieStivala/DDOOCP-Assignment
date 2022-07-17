@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Booking_System.backend.model.user;
+using Booking_System.frontend.auth;
 
 namespace Booking_System.frontend.user
 {
@@ -18,7 +19,7 @@ namespace Booking_System.frontend.user
             this.user = user;
         }
 
-        private void signoutButton_Click(object sender, EventArgs e)
+        private void SignoutButton_Click(object sender, EventArgs e)
         {
             new FormSignin().Show();
             this.Hide();
@@ -29,7 +30,7 @@ namespace Booking_System.frontend.user
 
         }
 
-        private void editPersonalInformationButton_Click(object sender, EventArgs e)
+        private void EditPersonalInformationButton_Click(object sender, EventArgs e)
         {
             EditPersonalInformation editPersonalInformation = new EditPersonalInformation(this.user);
             editPersonalInformation.ShowDialog();

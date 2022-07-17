@@ -214,7 +214,7 @@
             this.signupButton.TabIndex = 30;
             this.signupButton.Text = "Signup";
             this.signupButton.UseVisualStyleBackColor = true;
-            this.signupButton.Click += new System.EventHandler(this.signupButton_Click);
+            this.signupButton.Click += new System.EventHandler(this.SignupButton_Click);
             // 
             // labelDateOfBirth
             // 
@@ -256,7 +256,7 @@
             this.buttonSignin.TabIndex = 35;
             this.buttonSignin.Text = "Signin";
             this.buttonSignin.UseVisualStyleBackColor = true;
-            this.buttonSignin.Click += new System.EventHandler(this.buttonSignin_Click);
+            this.buttonSignin.Click += new System.EventHandler(this.ButtonSignin_Click);
             // 
             // FormSignup
             // 

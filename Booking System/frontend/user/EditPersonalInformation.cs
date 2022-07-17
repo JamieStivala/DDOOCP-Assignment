@@ -15,11 +15,9 @@ namespace Booking_System.frontend.user
     public partial class EditPersonalInformation : Form
     {
         private readonly User user;
-        private readonly string originalEmail;
         public EditPersonalInformation(User user)
         {
             InitializeComponent();
-            this.originalEmail = user.Email;
             this.user = user;
         }
 
@@ -84,12 +82,12 @@ namespace Booking_System.frontend.user
 
 
 
-        private void buttonCancel_Click(object sender, EventArgs e)
+        private void ButtonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
+        private void SaveButton_Click(object sender, EventArgs e)
         {
             if (!IsDataValid()) return; //Validate the data
 

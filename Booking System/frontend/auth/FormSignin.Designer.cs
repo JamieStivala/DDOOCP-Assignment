@@ -1,4 +1,4 @@
-﻿namespace Booking_System
+﻿namespace Booking_System.frontend.auth
 {
     partial class FormSignin
     {
@@ -67,7 +67,7 @@
             this.loginButton.TabIndex = 8;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
-            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            this.loginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // emailLabel
             // 
@@ -104,7 +104,7 @@
             this.buttonSignup.TabIndex = 12;
             this.buttonSignup.Text = "Signup";
             this.buttonSignup.UseVisualStyleBackColor = true;
-            this.buttonSignup.Click += new System.EventHandler(this.buttonSignup_Click);
+            this.buttonSignup.Click += new System.EventHandler(this.ButtonSignup_Click);
             // 
             // errorProvider
             // 
