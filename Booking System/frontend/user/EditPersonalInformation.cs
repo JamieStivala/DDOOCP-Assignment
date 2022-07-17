@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Booking_System.backend.database;
 using Booking_System.backend.model.user;
 
 namespace Booking_System.frontend.user
@@ -14,9 +15,11 @@ namespace Booking_System.frontend.user
     public partial class EditPersonalInformation : Form
     {
         private readonly User user;
+        private readonly string originalEmail;
         public EditPersonalInformation(User user)
         {
             InitializeComponent();
+            this.originalEmail = user.Email;
             this.user = user;
         }
 
@@ -102,6 +105,16 @@ namespace Booking_System.frontend.user
             this.user.Nationality = textBoxNation.Text.Trim();
             this.user.Address = textBoxAddress.Text.Trim();
             //Set the new user information
+
+            try
+            {
+                UserWrapper.UpdateUser(this.user, this.originalEmail);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }
