@@ -66,7 +66,7 @@ namespace Booking_System.backend.model.user
         {
             byte[] data = System.Text.Encoding.UTF8.GetBytes(inputtedPassword);
             data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
-            return System.Text.Encoding.UTF8.GetString(data);
+            return System.Convert.ToBase64String(data);
         }
 
         /**
@@ -74,14 +74,12 @@ namespace Booking_System.backend.model.user
          */
         public Boolean VerifyPassword(string inputtedPassword)
         {
-            byte[] data = System.Text.Encoding.UTF8.GetBytes(inputtedPassword); //Convert user input to UTF8
+            byte[] data = System.Text.Encoding.UTF8.GetBytes(inputtedPassword); //Convert user input to Base64String
             data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
-            string encryptedInputtedPassword = System.Text.Encoding.UTF8.GetString(data);
+            string encryptedInputtedPassword = System.Convert.ToBase64String(data);
 
             return encryptedInputtedPassword == this.Password;
         }
-
-
     }
 
     public enum UserType
