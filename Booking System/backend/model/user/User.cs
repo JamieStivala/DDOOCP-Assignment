@@ -4,29 +4,26 @@ namespace Booking_System.backend.model.user
 {
     public class User
     {
-        private string firstName;
-        private string lastName;
-        private string email;
-        private string password; //This is always the encrypted password
-        private string contactNumber;
-        private DateTime dateOfBirth;
-        private char gender;
-        private string idCard;
-        private string nationality;
-        private string address;
-        private UserType type;
+        private string password;
 
         /**
-         * Creates the instance needed for a User.  Boolean encrypted checks if the password is encrypted or not and during instance create, if the password is "raw" the password is encrypted.
+         * Assumes encrypted password
          */
-        public User(string name, string surname, string email, string password, Boolean encrypted, string contactNumber, DateTime dateOfBirth, char gender, string idCard, string nationality, string address, UserType type)
+        public User(string email, string password)
+        {
+            this.Email = email;
+            this.password = password; //sets the password pre-encrypted
+        }
+
+        /**
+         * Creates the instance needed for a User.  Assumes unencrypted password
+         */
+        public User(string name, string surname, string email, string password, string contactNumber, DateTime dateOfBirth, char gender, string idCard, string nationality, string address, UserType type)
         {
             this.FirstName = name;
             this.LastName = surname;
             this.Email = email;
-            if (!encrypted) password = User.EncryptPassword(password);
-            this.Password = password;
-            this.Password = password;
+            this.Password = password; //Encrypts the password
             this.ContactNumber = contactNumber;
             this.DateOfBirth = dateOfBirth;
             this.Gender = gender;
@@ -36,18 +33,30 @@ namespace Booking_System.backend.model.user
             this.Type = type;
         }
 
-        public string FirstName { get => firstName; set => firstName = value; }
-        public string LastName { get => lastName; set => lastName = value; }
-        public string Email { get => email; set => email = value; }
-        public string Password { get => password; set => password = value; }
-        public string ContactNumber { get => contactNumber; set => contactNumber = value; }
-        public DateTime DateOfBirth { get => dateOfBirth; set => dateOfBirth = value; }
-        public char Gender { get => gender; set => gender = value; }
-        public string IdCard { get => idCard; set => idCard = value; }
-        public string Nationality { get => nationality; set => nationality = value; }
-        public string Address { get => address; set => address = value; }
-        public UserType Type { get => type; set => type = value; }
+        public string FirstName { get; set; }
 
+        public string LastName { get; set; }
+
+        public string Email { get; set; }
+
+        /**
+         * Setter will instantly encrypt password
+         */
+        public string Password { get => password; set => password = EncryptPassword(value); }
+
+        public string ContactNumber { get; set; }
+
+        public DateTime DateOfBirth { get; set; }
+
+        public char Gender { get; set; }
+
+        public string IdCard { get; set; }
+
+        public string Nationality { get; set; }
+
+        public string Address { get; set; }
+
+        public UserType Type { get; set; }
 
 
         /**

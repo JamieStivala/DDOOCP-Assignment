@@ -54,7 +54,7 @@ namespace Booking_System.frontend.auth
         {
             if (!IsDataValid()) return; //Validate the data
 
-            User user = new User(textBoxName.Text, textBoxSurname.Text, textBoxEmail.Text, textBoxPassword.Text, false, textBoxContactNumber.Text, dateTimePickerDOB.Value, comboBoxGender.Text[0], textBoxIdCard.Text, textBoxNation.Text, textBoxAddress.Text, UserType.CUSTOMER); //Create the user instance
+            User user = new User(textBoxName.Text, textBoxSurname.Text, textBoxEmail.Text, textBoxPassword.Text, textBoxContactNumber.Text, dateTimePickerDOB.Value, comboBoxGender.Text[0], textBoxIdCard.Text, textBoxNation.Text, textBoxAddress.Text, UserType.CUSTOMER); //Create the user instance
             string result = UserWrapper.CreateUser(user);
             if (result != null) MessageBox.Show(result, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); //If the result is null -> no error
         }
