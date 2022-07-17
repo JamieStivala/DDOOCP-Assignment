@@ -29,9 +29,9 @@ namespace Booking_System.backend.database
         }
 
         /**
-         * Returns 0 when the command runs successfully, otherwise returns the error HashCode when the result is 
+         * Run a query which does not return an "item" from the database, but simply returns a status of command.
          */
-        public static DatabaseResult InsertIntoDatabase(string query)
+        private static DatabaseResult RunSingleNonReturningQuery(string query)
         {
             DatabaseResult result;
 
@@ -48,7 +48,7 @@ namespace Booking_System.backend.database
             catch (Exception ex)
             {
                 Debug.WriteLine($"Message: {ex.Message}\nHash Code: {ex.GetHashCode()}");
-                result = ConvertResult (ex.GetHashCode());
+                result = ConvertResult(ex.GetHashCode());
             }
             finally
             {
@@ -56,6 +56,14 @@ namespace Booking_System.backend.database
             }
 
             return result;
+        }
+
+        /**
+         * Insert into database.  This is mostly used for code readability as it is the same as UpdateFromDatabase
+         */
+        public static DatabaseResult InsertIntoDatabase(string query)
+        {
+            return DatabaseWrapper.RunSingleNonReturningQuery(query);
         }
 
         public static Tuple<DatabaseResult, Dictionary<string, object>>[] GetFromDatabase(string query)
@@ -96,6 +104,14 @@ namespace Booking_System.backend.database
 
             
             return result.ToArray();
+        }
+
+        /**
+         * Update from database.  This is mostly used for code readability as it is the same as InsertIntoDatabase
+         */
+        public static DatabaseResult UpdateFromDatabase(string query)
+        {
+            return DatabaseWrapper.RunSingleNonReturningQuery(query);
         }
 
         private static DatabaseResult ConvertResult(int error)
