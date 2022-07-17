@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.updateInformationLabel = new System.Windows.Forms.Label();
             this.comboBoxGender = new System.Windows.Forms.ComboBox();
             this.dateTimePickerDOB = new System.Windows.Forms.DateTimePicker();
@@ -51,6 +52,8 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // updateInformationLabel
@@ -239,6 +242,7 @@
             this.saveButton.TabIndex = 55;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // buttonCancel
             // 
@@ -250,6 +254,10 @@
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // EditPersonalInformation
             // 
@@ -282,6 +290,7 @@
             this.Name = "EditPersonalInformation";
             this.Text = "EditPersonalInformation";
             this.Load += new System.EventHandler(this.EditPersonalInformation_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,5 +321,6 @@
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

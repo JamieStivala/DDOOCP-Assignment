@@ -8,7 +8,7 @@ namespace Booking_System.frontend
     internal class GeneralValidation
     {
         #region Is Empty
-        private static Boolean IsEmpty(string input)
+        public static Boolean IsEmpty(string input)
         {
             return String.IsNullOrEmpty(input);
         }

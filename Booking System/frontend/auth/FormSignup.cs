@@ -49,7 +49,7 @@ namespace Booking_System.frontend.auth
         {
             if (!IsDataValid()) return; //Validate the data
 
-            User user = new User(textBoxName.Text.Trim(), textBoxSurname.Text.Trim(), textBoxEmail.Text.Trim(), textBoxPassword.Text.Trim(), textBoxContactNumber.Text.Trim(), dateTimePickerDOB.Value, comboBoxGender.Text[0], textBoxIdCard.Text.Trim(), textBoxNation.Text.Trim(), textBoxAddress.Text.Trim(), UserType.CUSTOMER); //Create the user instance
+            User user = new User(textBoxName.Text.Trim(), textBoxSurname.Text.Trim(), textBoxEmail.Text.Trim(), textBoxPassword.Text.Trim(), textBoxContactNumber.Text.Trim(), dateTimePickerDOB.Value, comboBoxGender.Text[0], textBoxIdCard.Text.Trim(), textBoxNation.Text.Trim(), textBoxAddress.Text.Trim(), UserType.Customer); //Create the user instance
             try
             {
                 UserWrapper.CreateUser(user);
