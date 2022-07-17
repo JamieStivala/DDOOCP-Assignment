@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Booking_System.frontend.user;
 
 namespace Booking_System.frontend.auth
 {
@@ -58,6 +59,9 @@ namespace Booking_System.frontend.auth
             try
             {
                 UserWrapper.CreateUser(user);
+                MainUserWindow mainUserWindow = new MainUserWindow(user);
+                mainUserWindow.Show();
+                this.Hide();
             }
             catch (Exception ex)
             {

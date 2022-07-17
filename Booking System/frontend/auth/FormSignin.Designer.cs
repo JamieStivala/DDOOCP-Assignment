@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.loginLabel = new System.Windows.Forms.Label();
             this.loginButton = new System.Windows.Forms.Button();
@@ -35,6 +36,8 @@
             this.passwordLabel = new System.Windows.Forms.Label();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.buttonSignup = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // emailTextBox
@@ -91,6 +94,7 @@
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(258, 20);
             this.passwordTextBox.TabIndex = 10;
+            this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // buttonSignup
             // 
@@ -101,6 +105,10 @@
             this.buttonSignup.Text = "Signup";
             this.buttonSignup.UseVisualStyleBackColor = true;
             this.buttonSignup.Click += new System.EventHandler(this.buttonSignup_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // FormSignin
             // 
@@ -117,6 +125,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormSignin";
             this.Text = "Login";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,5 +140,6 @@
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Button buttonSignup;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
