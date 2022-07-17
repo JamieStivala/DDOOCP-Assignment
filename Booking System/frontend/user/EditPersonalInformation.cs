@@ -108,7 +108,7 @@ namespace Booking_System.frontend.user
 
             try
             {
-                UserWrapper.UpdateUser(this.user, this.originalEmail);
+                UserWrapper.UpdateUser(this.user);
                 this.Close();
             }
             catch (Exception ex)

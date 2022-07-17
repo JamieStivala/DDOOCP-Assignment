@@ -20,6 +20,7 @@ namespace Booking_System.backend.model.user
          */
         public User(string name, string surname, string email, string password, string contactNumber, DateTime dateOfBirth, char gender, string idCard, string nationality, string address, UserType type)
         {
+            this.Uuid = Guid.NewGuid().ToString();
             this.FirstName = name;
             this.LastName = surname;
             this.Email = email;
@@ -32,6 +33,8 @@ namespace Booking_System.backend.model.user
             this.Address = address;
             this.Type = type;
         }
+
+        public string Uuid { get; set; }
 
         public string FirstName { get; set; }
 

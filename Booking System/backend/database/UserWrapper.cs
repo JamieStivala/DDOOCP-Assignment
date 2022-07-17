@@ -1,7 +1,5 @@
 ﻿using Booking_System.backend.model.user;
 using System;
-using System.Diagnostics;
-using System.Text;
 
 namespace Booking_System.backend.database
 {
@@ -10,7 +8,7 @@ namespace Booking_System.backend.database
         public static void CreateUser(User user)
         {
             string insertQuery = $"INSERT INTO tblUser VALUES" +
-                $"('{user.FirstName}', '{user.LastName}', '{user.Email}', '{user.Password}', '{user.ContactNumber}', '{user.DateOfBirth.ToShortDateString()}', '{user.Gender + ""}', '{user.IdCard}', '{user.Nationality}', '{user.Address}', '{(int)user.Type}')"; //Query to insert the information into the database
+                $"('{user.Uuid}', '{user.FirstName}', '{user.LastName}', '{user.Email}', '{user.Password}', '{user.ContactNumber}', '{user.DateOfBirth.ToShortDateString()}', '{user.Gender + ""}', '{user.IdCard}', '{user.Nationality}', '{user.Address}', '{(int)user.Type}')"; //Query to insert the information into the database
 
 
             DatabaseResult result = DatabaseWrapper.InsertIntoDatabase(insertQuery); //Run the query and get the result
@@ -27,7 +25,7 @@ namespace Booking_System.backend.database
             }
         }
 
-        public static void UpdateUser(User user, string originalEmail)
+        public static void UpdateUser(User user)
         {
             string updateQuery = $"UPDATE tblUser SET" +
                                  $" FirstName='{user.FirstName}', LastName='{user.LastName}', " +
@@ -36,9 +34,7 @@ namespace Booking_System.backend.database
                                  $" ContactNumber='{user.ContactNumber}', Nationality='{user.Nationality}', " +
                                  $" Address='{user.Address}', Gender='{user.Gender + ""}', " +
                                  $" Type='{(int)user.Type}' " +
-                                 $"WHERE Email='{originalEmail}'";
-
-            Debug.WriteLine(updateQuery);
+                                 $"WHERE uuid='{user.Uuid}'";
 
             DatabaseResult result = DatabaseWrapper.UpdateFromDatabase(updateQuery);
 
@@ -66,6 +62,7 @@ namespace Booking_System.backend.database
                     //Create the user
                     User user = new User(currentRow["Email"].ToString(), currentRow["Password"].ToString())
                     {
+                        Uuid = currentRow["uuid"].ToString(),
                         FirstName = currentRow["FirstName"].ToString(),
                         LastName = currentRow["LastName"].ToString(),
                         DateOfBirth = (DateTime)currentRow["DateOfBirth"],
