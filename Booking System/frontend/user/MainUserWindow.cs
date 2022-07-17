@@ -14,5 +14,10 @@ namespace Booking_System.frontend.user
         {
             InitializeComponent();
         }
+
+        private void signoutButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

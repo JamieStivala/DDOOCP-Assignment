@@ -38,8 +38,8 @@
             // mainMenuLabel
             // 
             this.mainMenuLabel.AutoSize = true;
-            this.mainMenuLabel.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.mainMenuLabel.Location = new System.Drawing.Point(46, 29);
+            this.mainMenuLabel.Font = new System.Drawing.Font("Segoe UI", 30F);
+            this.mainMenuLabel.Location = new System.Drawing.Point(39, 25);
             this.mainMenuLabel.Name = "mainMenuLabel";
             this.mainMenuLabel.Size = new System.Drawing.Size(226, 54);
             this.mainMenuLabel.TabIndex = 8;
@@ -47,49 +47,50 @@
             // 
             // createBookingButton
             // 
-            this.createBookingButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.createBookingButton.Location = new System.Drawing.Point(88, 126);
+            this.createBookingButton.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.createBookingButton.Location = new System.Drawing.Point(75, 109);
             this.createBookingButton.Name = "createBookingButton";
-            this.createBookingButton.Size = new System.Drawing.Size(129, 49);
+            this.createBookingButton.Size = new System.Drawing.Size(111, 42);
             this.createBookingButton.TabIndex = 9;
             this.createBookingButton.Text = "Create Booking";
             this.createBookingButton.UseVisualStyleBackColor = true;
             // 
             // viewBookingButton
             // 
-            this.viewBookingButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.viewBookingButton.Location = new System.Drawing.Point(354, 126);
+            this.viewBookingButton.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.viewBookingButton.Location = new System.Drawing.Point(303, 109);
             this.viewBookingButton.Name = "viewBookingButton";
-            this.viewBookingButton.Size = new System.Drawing.Size(129, 49);
+            this.viewBookingButton.Size = new System.Drawing.Size(111, 42);
             this.viewBookingButton.TabIndex = 10;
             this.viewBookingButton.Text = "View/Edit Bookings";
             this.viewBookingButton.UseVisualStyleBackColor = true;
             // 
             // editPersonalInformationButton
             // 
-            this.editPersonalInformationButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.editPersonalInformationButton.Location = new System.Drawing.Point(614, 126);
+            this.editPersonalInformationButton.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.editPersonalInformationButton.Location = new System.Drawing.Point(526, 109);
             this.editPersonalInformationButton.Name = "editPersonalInformationButton";
-            this.editPersonalInformationButton.Size = new System.Drawing.Size(129, 49);
+            this.editPersonalInformationButton.Size = new System.Drawing.Size(111, 42);
             this.editPersonalInformationButton.TabIndex = 11;
             this.editPersonalInformationButton.Text = "Edit Personal Information";
             this.editPersonalInformationButton.UseVisualStyleBackColor = true;
             // 
             // signoutButton
             // 
-            this.signoutButton.Location = new System.Drawing.Point(614, 373);
+            this.signoutButton.Location = new System.Drawing.Point(526, 323);
             this.signoutButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.signoutButton.Name = "signoutButton";
-            this.signoutButton.Size = new System.Drawing.Size(136, 40);
+            this.signoutButton.Size = new System.Drawing.Size(117, 35);
             this.signoutButton.TabIndex = 12;
             this.signoutButton.Text = "Signout";
             this.signoutButton.UseVisualStyleBackColor = true;
+            this.signoutButton.Click += new System.EventHandler(this.signoutButton_Click);
             // 
             // MainUserWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(686, 390);
             this.Controls.Add(this.signoutButton);
             this.Controls.Add(this.editPersonalInformationButton);
             this.Controls.Add(this.viewBookingButton);
