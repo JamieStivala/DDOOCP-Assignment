@@ -37,10 +37,10 @@ namespace Booking_System.backend.database
             try
             {
                 DatabaseWrapper.Open();
-                OleDbCommand insertCommand = new OleDbCommand(query, DatabaseWrapper.GetConnection());
+                OleDbCommand command = new OleDbCommand(query, DatabaseWrapper.GetConnection());
 
-                insertCommand.ExecuteNonQuery();
-                insertCommand.Dispose();
+                command.ExecuteNonQuery();
+                command.Dispose();
 
                 result = DatabaseWrapper.ConvertResult(0); //Null means command ok
             }
@@ -58,11 +58,63 @@ namespace Booking_System.backend.database
         }
 
         /**
+         * Run a query (usually insertion) which returns the "identity" of the object (a.k.a auto generated ID)
+         */
+        private static (DatabaseResult, int) RunSingleReturningIdQuery(string query)
+        {
+            DatabaseResult result;
+            int id = -1;
+
+            try
+            {
+
+                DatabaseWrapper.Open();
+                OleDbCommand command = new OleDbCommand(query, DatabaseWrapper.GetConnection());
+                command.ExecuteNonQuery();
+
+                //Get the command scalar (https://stackoverflow.com/questions/7230200/how-to-get-the-last-record-number-after-inserting-record-to-database-in-access)
+                command.CommandText = "Select @@Identity";
+                id = (int)command.ExecuteScalar();
+
+                command.Dispose();
+
+                result = DatabaseWrapper.ConvertResult(0); //Null means command ok
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Message: {ex.Message}\nHash Code: {ex.GetHashCode()}");
+                result = ConvertResult(ex.GetHashCode());
+            }
+            finally
+            {
+                DatabaseWrapper.Close();
+            }
+
+            return (result, id);
+        }
+
+        /**
+         * Update from database.  This is mostly used for code readability as it is the same as InsertIntoDatabase
+         */
+        public static DatabaseResult UpdateFromDatabase(string query)
+        {
+            return DatabaseWrapper.RunSingleNonReturningQuery(query);
+        }
+
+        /**
          * Insert into database.  This is mostly used for code readability as it is the same as UpdateFromDatabase
          */
         public static DatabaseResult InsertIntoDatabase(string query)
         {
             return DatabaseWrapper.RunSingleNonReturningQuery(query);
+        }
+
+        /**
+         * Insert into database whilst getting the ID of the insertion.
+         */
+        public static (DatabaseResult, int) InsertIntoDatabaseReturningId(string query)
+        {
+            return DatabaseWrapper.RunSingleReturningIdQuery(query);
         }
 
         public static Tuple<DatabaseResult, Dictionary<string, object>>[] GetFromDatabase(string query)
@@ -81,7 +133,7 @@ namespace Booking_System.backend.database
                     {
                         while (reader.Read())
                         {
-                            //The result is converted into a dictionary so it is independent of the OleDbReader.  This frees up memory and gives us the ability to close the connection and the reader before the data is manupulated
+                            //The result is converted into a dictionary so it is independent of the OleDbReader.  This frees up memory and gives us the ability to close the connection and the reader before the data is manipulated
                             Dictionary<string, object> currentRow = Enumerable.Range(0, reader.FieldCount).ToDictionary(reader.GetName, reader.GetValue); //Convert the current row into a dictionary (rowName -> rowResult)
                             result.Add(new Tuple<DatabaseResult, Dictionary<string, object>>(DatabaseResult.Ok, currentRow)); //Store the current row as dbResult -> dictionary
                         }
@@ -106,13 +158,8 @@ namespace Booking_System.backend.database
         }
 
         /**
-         * Update from database.  This is mostly used for code readability as it is the same as InsertIntoDatabase
+         * Converts Error HashCodes into readable and manipulatable results
          */
-        public static DatabaseResult UpdateFromDatabase(string query)
-        {
-            return DatabaseWrapper.RunSingleNonReturningQuery(query);
-        }
-
         private static DatabaseResult ConvertResult(int error)
         {
             switch (error)
