@@ -16,7 +16,7 @@ namespace Booking_System.backend.database.hotel
 
         public static void CreateHotel(Hotel hotel)
         {
-            string insertQuery = $"INSERT INTO tblUser ([Name], Location, DefaultCheckInTime, DefaultCheckOutTime) VALUES" +
+            string insertQuery = $"INSERT INTO tblHotel ([Name], Location, DefaultCheckInTime, DefaultCheckOutTime) VALUES" +
                                  $"('{hotel.Name}', '{hotel.Location}', '{hotel.DefaultCheckInTime.ToShortTimeString()}', '{hotel.DefaultCheckOutTime.ToShortTimeString()}')";
 
             (DatabaseResult, int) result = DatabaseWrapper.InsertIntoDatabaseReturningId(insertQuery);
