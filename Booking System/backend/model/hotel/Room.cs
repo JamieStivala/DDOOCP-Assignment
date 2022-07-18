@@ -2,6 +2,22 @@
 {
     public class Room
     {
+
+        public Room(int id)
+        {
+            this.Id = id;
+        }
+
+        public Room (int hotelId, string name, string description, int capacity, double price, int amountOfRooms)
+        {
+            HotelId = hotelId;
+            Name = name;
+            Description = description;
+            Capacity = capacity;
+            Price = price;
+            AmountOfRooms = amountOfRooms;
+        }
+
         public int Id { get; set; }
         public int HotelId { get; set; }
         public string Name { get; set; }
