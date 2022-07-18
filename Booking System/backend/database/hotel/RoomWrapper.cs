@@ -11,7 +11,7 @@ namespace Booking_System.backend.database.hotel
         public static void CreateRoom(Room room)
         {
             string insertQuery = $"INSERT INTO tblRoom (HotelId, [Name], Description, Capacity, Price, AmountOfRooms) VALUES" +
-                                 $"('{room.HotelId}', '{room.Name}', '{room.Description}', {room.Capacity}, {room.Price}, {room.AmountOfRooms})";
+                                 $"({room.HotelId}, '{room.Name}', '{room.Description}', {room.Capacity}, {room.Price}, {room.AmountOfRooms})";
 
             (DatabaseResult, int) result = DatabaseWrapper.InsertIntoDatabaseReturningId(insertQuery);
 
@@ -28,7 +28,36 @@ namespace Booking_System.backend.database.hotel
 
         public static void UpdateRoom(Room room)
         {
-            
+            //Just in case the  object was copied, copy the current instance onto the new instance
+            Room cachedRoom = RoomCache[room.HotelId]?.Find(searching => searching.Id == room.Id);
+            if (cachedRoom == null) throw new Exception("The room you are trying to update cannot be found.");
+
+            cachedRoom.HotelId = room.HotelId;
+            cachedRoom.Name = room.Name;
+            cachedRoom.Description = room.Description;
+            cachedRoom.Capacity = room.Capacity;
+            cachedRoom.Price = room.Price;
+            cachedRoom.AmountOfRooms = room.AmountOfRooms;
+            //Just in case the  object was copied, copy the current instance onto the new instance
+
+            string updateQuery = $"UPDATE tblRoom SET " +
+                                 $" HotelId={room.HotelId}, [Name]='{room.Name}', " +
+                                 $" Description='{room.Description}', Capacity={room.Capacity}, " +
+                                 $" Price={room.Price}, AmountOfRooms={room.AmountOfRooms}" +
+                                 $"WHERE ID={room.Id}";
+
+            DatabaseResult result = DatabaseWrapper.UpdateFromDatabase(updateQuery);
+
+            //Switch the result based on the ENUM representing result
+            switch (result)
+            {
+                case DatabaseResult.Ok:
+                    return;
+                case DatabaseResult.NotFound:
+                    throw new Exception("The room you are trying to update cannot be found.");
+                default:
+                    throw new Exception("An unknown error has occurred.");
+            }
         }
 
         public static Room[] GetHotelRooms(int hotelId)
