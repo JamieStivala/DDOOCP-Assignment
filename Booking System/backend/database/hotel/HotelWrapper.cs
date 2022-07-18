@@ -74,7 +74,33 @@ namespace Booking_System.backend.database.hotel
 
         public static void UpdateHotel(Hotel hotel)
         {
+            //Just in case the object was copied and not referenced, copy the current instance onto the new instance
+            Hotel cachedHotel = HotelWrapper.HotelCache.Find(val => val.Id == hotel.Id);
+            if (cachedHotel == null) throw new Exception("A hotel with that internal ID can't be found.");
 
+            cachedHotel.Name = hotel.Name;
+            cachedHotel.Location = hotel.Location;
+            cachedHotel.DefaultCheckInTime = hotel.DefaultCheckInTime;
+            cachedHotel.DefaultCheckOutTime = hotel.DefaultCheckOutTime;
+            //Just in case the object was copied and not referenced, copy the current instance onto the new instance
+            
+            string updateQuery = $"UPDATE tblHotel SET" +
+                                 $" [Name]='{hotel.Name}, Location='{hotel.Location}', " +
+                                 $" DefaultCheckInTime='{hotel.DefaultCheckInTime.ToShortTimeString()}', DefaultCheckOutTime='{hotel.DefaultCheckOutTime.ToShortTimeString()}'" +
+                                 $"WHERE ID={hotel.Id}";
+
+            DatabaseResult result = DatabaseWrapper.UpdateFromDatabase(updateQuery);
+
+            //Switch the result based on the ENUM representing result
+            switch (result)
+            {
+                case DatabaseResult.Ok:
+                    return;
+                case DatabaseResult.NotFound:
+                    throw new Exception("A hotel with that internal ID can't be found.");
+                default:
+                    throw new Exception("An unknown error has occurred.");
+            }
         }
 
         private static void AddToCache(Hotel hotel)
