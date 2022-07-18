@@ -1,0 +1,87 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Booking_System.backend.model.hotel;
+using Booking_System.backend.model.user;
+
+namespace Booking_System.backend.database.hotel
+{
+    public class HotelWrapper
+    {
+        private static readonly List<Hotel> HotelCache = new List<Hotel>();
+        private static bool _gottenAll = false;
+
+        public static void CreateHotel(Hotel hotel)
+        {
+            string insertQuery = $"INSERT INTO tblUser ([Name], Location, DefaultCheckInTime, DefaultCheckOutTime) VALUES" +
+                                 $"('{hotel.Name}', '{hotel.Location}', '{hotel.DefaultCheckInTime.ToShortTimeString()}', '{hotel.DefaultCheckOutTime.ToShortTimeString()}')";
+
+            (DatabaseResult, int) result = DatabaseWrapper.InsertIntoDatabaseReturningId(insertQuery);
+
+            switch (result.Item1)
+            {
+                case DatabaseResult.Ok:
+                    hotel.Id = result.Item2;
+                    HotelWrapper.AddToCache(hotel);
+                    return;
+                default:
+                    throw new Exception("An unknown error has occurred.");
+            }
+
+        }
+
+        public static Hotel[] GetAllHotels()
+        {
+            if (HotelWrapper._gottenAll) return HotelWrapper.HotelCache.ToArray(); //If already gotten all the database items, return all
+
+            string query = $"SELECT * FROM tblHotel";
+            Tuple<DatabaseResult, Dictionary<string, object>>[] result = DatabaseWrapper.GetFromDatabase(query);
+
+            for (int i = 0; i != result.Length; i++)
+            {
+                var currentRow = result[i];
+
+                switch (currentRow.Item1)
+                {
+                    case DatabaseResult.Ok:
+                        Hotel hotel = new Hotel((int)currentRow.Item2["ID"])
+                        {
+                            Name = currentRow.Item2["Name"].ToString(),
+                            Location = currentRow.Item2["Location"].ToString(), 
+                            DefaultCheckInTime = (DateTime)currentRow.Item2["DefaultCheckInTime"],
+                            DefaultCheckOutTime = (DateTime)currentRow.Item2["DefaultCheckOutTime"]
+                        }; //Create the hotel instance
+                        HotelWrapper.HotelCache.Add(hotel); //Add the hotel to cache
+                        break;
+                    default:
+                        throw new Exception("No hotels have been found.  Please tell the Admin to configure the system.");
+
+                }
+            }
+
+            HotelWrapper._gottenAll = true;
+
+            return HotelWrapper.GetAllHotels(); //Since now _gottenAll is true, return method (which simply returns the cache)
+        }
+
+        /**
+         * Get hotel by ID
+         */
+        public static Hotel GetHotel(int id) => HotelWrapper.HotelCache.First(h => h.Id == id);
+
+        public static void UpdateHotel(Hotel hotel)
+        {
+
+        }
+
+        private static void AddToCache(Hotel hotel)
+        {
+            HotelWrapper.HotelCache.Add(hotel);
+        }
+
+
+    }
+}
