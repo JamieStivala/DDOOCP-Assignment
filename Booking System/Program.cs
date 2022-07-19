@@ -14,8 +14,7 @@ namespace Booking_System
         [STAThread]
         static void Main()
         {
-            var user = new User("Jamie", "Stivala", "jamiestivala@gmail.com", "Pukka1234!", "77223883", DateTime.Today, 'M', "368201L", "Maltese", "48 Rhapsody, Donato Del Piano Street Zurrieq", UserType.Customer);
-            UserWrapper.CreateUser(user);
+            var user = UserWrapper.GetUser("jamiestivala@gmail.com", "Pukka1234!");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainUserWindow(user));

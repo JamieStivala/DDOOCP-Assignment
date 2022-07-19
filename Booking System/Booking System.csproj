@@ -160,7 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bookings.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
