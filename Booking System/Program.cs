@@ -2,7 +2,11 @@ using Booking_System.backend.database;
 using Booking_System.backend.model.user;
 using Booking_System.frontend.user;
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
+using Booking_System.backend.database.hotel;
+using Booking_System.backend.model.hotel;
+using Booking_System.frontend.admin;
 
 namespace Booking_System
 {
@@ -14,10 +18,11 @@ namespace Booking_System
         [STAThread]
         static void Main()
         {
-            var user = UserWrapper.GetUser("jamiestivala@gmail.com", "Pukka1234!");
+            //var user = UserWrapper.GetUser("admin@gmail.com", "admin");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainUserWindow(user));
+            Application.Run(new AdminUserWindow());
+            
         }
     }
 }
