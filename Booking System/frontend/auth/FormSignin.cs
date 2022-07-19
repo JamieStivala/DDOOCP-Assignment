@@ -3,6 +3,7 @@ using Booking_System.backend.model.user;
 using Booking_System.frontend.user;
 using System;
 using System.Windows.Forms;
+using Booking_System.frontend.admin;
 
 namespace Booking_System.frontend.auth
 {
@@ -31,9 +32,20 @@ namespace Booking_System.frontend.auth
             try
             {
                 User user = UserWrapper.GetUser(emailTextBox.Text.Trim(), passwordTextBox.Text.Trim());
-                MainUserWindow mainUserWindow = new MainUserWindow(user);
-                mainUserWindow.Show();
-                this.Hide();
+
+                if (user.Type == UserType.Admin)
+                {
+                    AdminUserWindow adminUserWindow = new AdminUserWindow();
+                    adminUserWindow.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MainUserWindow mainUserWindow = new MainUserWindow(user);
+                    mainUserWindow.Show();
+                    this.Hide();
+                }
+                
             }
             catch (Exception ex)
             {
