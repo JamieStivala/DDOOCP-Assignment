@@ -44,14 +44,32 @@ namespace Booking_System.frontend.admin
             this.buttonHotelManagerReset = new System.Windows.Forms.Button();
             this.buttonHotelManagerSave = new System.Windows.Forms.Button();
             this.tabPageRoomManager = new System.Windows.Forms.TabPage();
+            this.labelRoomManagerPrice = new System.Windows.Forms.Label();
+            this.labelRoomManagerDescription = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.labelRoomManagerAmountOfRooms = new System.Windows.Forms.Label();
+            this.labelRoomManagerCapacity = new System.Windows.Forms.Label();
+            this.labelRoomManagerName = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.labelRoomManagerRoomSelected = new System.Windows.Forms.Label();
+            this.comboBoxRoomManagerRoomSelected = new System.Windows.Forms.ComboBox();
             this.tabPageBookingManager = new System.Windows.Forms.TabPage();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.labelHotelSelected = new System.Windows.Forms.Label();
             this.comboBoxHotelSelect = new System.Windows.Forms.ComboBox();
             this.buttonSignOut = new System.Windows.Forms.Button();
+            this.numericUpDownRoomManagerCapacity = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownRoomManagerPrice = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownRoomManagerAmountOfRooms = new System.Windows.Forms.NumericUpDown();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPageHotelManager.SuspendLayout();
+            this.tabPageRoomManager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRoomManagerCapacity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRoomManagerPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRoomManagerAmountOfRooms)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -64,7 +82,6 @@ namespace Booking_System.frontend.admin
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(776, 337);
             this.tabControl.TabIndex = 0;
-            this.tabControl.Selecting += this.tabControl_Selecting;
             // 
             // tabPageHotelManager
             // 
@@ -167,7 +184,7 @@ namespace Booking_System.frontend.admin
             this.buttonHotelManagerReset.TabIndex = 57;
             this.buttonHotelManagerReset.Text = "Reset";
             this.buttonHotelManagerReset.UseVisualStyleBackColor = true;
-            this.buttonHotelManagerReset.Click += new System.EventHandler(this.buttonReset_Click);
+            this.buttonHotelManagerReset.Click += new System.EventHandler(this.buttonHotelManagerReset_Click);
             // 
             // buttonHotelManagerSave
             // 
@@ -178,10 +195,24 @@ namespace Booking_System.frontend.admin
             this.buttonHotelManagerSave.TabIndex = 56;
             this.buttonHotelManagerSave.Text = "Save";
             this.buttonHotelManagerSave.UseVisualStyleBackColor = true;
-            this.buttonHotelManagerSave.Click += new System.EventHandler(this.buttonSave_Click);
+            this.buttonHotelManagerSave.Click += new System.EventHandler(this.buttonHotelManagerSave_Click);
             // 
             // tabPageRoomManager
             // 
+            this.tabPageRoomManager.Controls.Add(this.button1);
+            this.tabPageRoomManager.Controls.Add(this.button2);
+            this.tabPageRoomManager.Controls.Add(this.numericUpDownRoomManagerAmountOfRooms);
+            this.tabPageRoomManager.Controls.Add(this.numericUpDownRoomManagerPrice);
+            this.tabPageRoomManager.Controls.Add(this.numericUpDownRoomManagerCapacity);
+            this.tabPageRoomManager.Controls.Add(this.labelRoomManagerPrice);
+            this.tabPageRoomManager.Controls.Add(this.labelRoomManagerDescription);
+            this.tabPageRoomManager.Controls.Add(this.textBox5);
+            this.tabPageRoomManager.Controls.Add(this.labelRoomManagerAmountOfRooms);
+            this.tabPageRoomManager.Controls.Add(this.labelRoomManagerCapacity);
+            this.tabPageRoomManager.Controls.Add(this.labelRoomManagerName);
+            this.tabPageRoomManager.Controls.Add(this.textBox1);
+            this.tabPageRoomManager.Controls.Add(this.labelRoomManagerRoomSelected);
+            this.tabPageRoomManager.Controls.Add(this.comboBoxRoomManagerRoomSelected);
             this.tabPageRoomManager.Location = new System.Drawing.Point(4, 22);
             this.tabPageRoomManager.Name = "tabPageRoomManager";
             this.tabPageRoomManager.Padding = new System.Windows.Forms.Padding(3);
@@ -189,6 +220,85 @@ namespace Booking_System.frontend.admin
             this.tabPageRoomManager.TabIndex = 1;
             this.tabPageRoomManager.Text = "Room Manager";
             this.tabPageRoomManager.UseVisualStyleBackColor = true;
+            // 
+            // labelRoomManagerPrice
+            // 
+            this.labelRoomManagerPrice.AutoSize = true;
+            this.labelRoomManagerPrice.Location = new System.Drawing.Point(520, 115);
+            this.labelRoomManagerPrice.Name = "labelRoomManagerPrice";
+            this.labelRoomManagerPrice.Size = new System.Drawing.Size(31, 13);
+            this.labelRoomManagerPrice.TabIndex = 84;
+            this.labelRoomManagerPrice.Text = "Price";
+            // 
+            // labelRoomManagerDescription
+            // 
+            this.labelRoomManagerDescription.AutoSize = true;
+            this.labelRoomManagerDescription.Location = new System.Drawing.Point(520, 55);
+            this.labelRoomManagerDescription.Name = "labelRoomManagerDescription";
+            this.labelRoomManagerDescription.Size = new System.Drawing.Size(60, 13);
+            this.labelRoomManagerDescription.TabIndex = 82;
+            this.labelRoomManagerDescription.Text = "Description";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(520, 70);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(202, 20);
+            this.textBox5.TabIndex = 81;
+            // 
+            // labelRoomManagerAmountOfRooms
+            // 
+            this.labelRoomManagerAmountOfRooms.AutoSize = true;
+            this.labelRoomManagerAmountOfRooms.Location = new System.Drawing.Point(43, 187);
+            this.labelRoomManagerAmountOfRooms.Name = "labelRoomManagerAmountOfRooms";
+            this.labelRoomManagerAmountOfRooms.Size = new System.Drawing.Size(93, 13);
+            this.labelRoomManagerAmountOfRooms.TabIndex = 80;
+            this.labelRoomManagerAmountOfRooms.Text = "Amount Of Rooms";
+            // 
+            // labelRoomManagerCapacity
+            // 
+            this.labelRoomManagerCapacity.AutoSize = true;
+            this.labelRoomManagerCapacity.Location = new System.Drawing.Point(43, 115);
+            this.labelRoomManagerCapacity.Name = "labelRoomManagerCapacity";
+            this.labelRoomManagerCapacity.Size = new System.Drawing.Size(48, 13);
+            this.labelRoomManagerCapacity.TabIndex = 76;
+            this.labelRoomManagerCapacity.Text = "Capacity";
+            // 
+            // labelRoomManagerName
+            // 
+            this.labelRoomManagerName.AutoSize = true;
+            this.labelRoomManagerName.Location = new System.Drawing.Point(43, 55);
+            this.labelRoomManagerName.Name = "labelRoomManagerName";
+            this.labelRoomManagerName.Size = new System.Drawing.Size(35, 13);
+            this.labelRoomManagerName.TabIndex = 72;
+            this.labelRoomManagerName.Text = "Name";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(43, 70);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(202, 20);
+            this.textBox1.TabIndex = 71;
+            // 
+            // labelRoomManagerRoomSelected
+            // 
+            this.labelRoomManagerRoomSelected.AutoSize = true;
+            this.labelRoomManagerRoomSelected.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRoomManagerRoomSelected.Location = new System.Drawing.Point(25, 15);
+            this.labelRoomManagerRoomSelected.Name = "labelRoomManagerRoomSelected";
+            this.labelRoomManagerRoomSelected.Size = new System.Drawing.Size(108, 17);
+            this.labelRoomManagerRoomSelected.TabIndex = 70;
+            this.labelRoomManagerRoomSelected.Text = "Room Selected:";
+            // 
+            // comboBoxRoomManagerRoomSelected
+            // 
+            this.comboBoxRoomManagerRoomSelected.AllowDrop = true;
+            this.comboBoxRoomManagerRoomSelected.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBoxRoomManagerRoomSelected.FormattingEnabled = true;
+            this.comboBoxRoomManagerRoomSelected.Location = new System.Drawing.Point(145, 14);
+            this.comboBoxRoomManagerRoomSelected.Name = "comboBoxRoomManagerRoomSelected";
+            this.comboBoxRoomManagerRoomSelected.Size = new System.Drawing.Size(599, 21);
+            this.comboBoxRoomManagerRoomSelected.TabIndex = 69;
             // 
             // tabPageBookingManager
             // 
@@ -236,6 +346,94 @@ namespace Booking_System.frontend.admin
             this.buttonSignOut.UseVisualStyleBackColor = true;
             this.buttonSignOut.Click += new System.EventHandler(this.buttonSignOut_Click);
             // 
+            // numericUpDownRoomManagerCapacity
+            // 
+            this.numericUpDownRoomManagerCapacity.Location = new System.Drawing.Point(43, 131);
+            this.numericUpDownRoomManagerCapacity.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDownRoomManagerCapacity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownRoomManagerCapacity.Name = "numericUpDownRoomManagerCapacity";
+            this.numericUpDownRoomManagerCapacity.Size = new System.Drawing.Size(202, 20);
+            this.numericUpDownRoomManagerCapacity.TabIndex = 85;
+            this.numericUpDownRoomManagerCapacity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // numericUpDownRoomManagerPrice
+            // 
+            this.numericUpDownRoomManagerPrice.DecimalPlaces = 2;
+            this.numericUpDownRoomManagerPrice.Location = new System.Drawing.Point(520, 131);
+            this.numericUpDownRoomManagerPrice.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownRoomManagerPrice.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDownRoomManagerPrice.Name = "numericUpDownRoomManagerPrice";
+            this.numericUpDownRoomManagerPrice.Size = new System.Drawing.Size(202, 20);
+            this.numericUpDownRoomManagerPrice.TabIndex = 86;
+            this.numericUpDownRoomManagerPrice.ThousandsSeparator = true;
+            this.numericUpDownRoomManagerPrice.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // numericUpDownRoomManagerAmountOfRooms
+            // 
+            this.numericUpDownRoomManagerAmountOfRooms.Location = new System.Drawing.Point(46, 203);
+            this.numericUpDownRoomManagerAmountOfRooms.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDownRoomManagerAmountOfRooms.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownRoomManagerAmountOfRooms.Name = "numericUpDownRoomManagerAmountOfRooms";
+            this.numericUpDownRoomManagerAmountOfRooms.Size = new System.Drawing.Size(202, 20);
+            this.numericUpDownRoomManagerAmountOfRooms.TabIndex = 87;
+            this.numericUpDownRoomManagerAmountOfRooms.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(457, 245);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(117, 35);
+            this.button1.TabIndex = 89;
+            this.button1.Text = "Reset";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(605, 245);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(117, 35);
+            this.button2.TabIndex = 88;
+            this.button2.Text = "Save";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // AdminUserWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -251,7 +449,12 @@ namespace Booking_System.frontend.admin
             this.tabControl.ResumeLayout(false);
             this.tabPageHotelManager.ResumeLayout(false);
             this.tabPageHotelManager.PerformLayout();
+            this.tabPageRoomManager.ResumeLayout(false);
+            this.tabPageRoomManager.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRoomManagerCapacity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRoomManagerPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRoomManagerAmountOfRooms)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,5 +480,19 @@ namespace Booking_System.frontend.admin
         private Label labelHotelSelected;
         private ComboBox comboBoxHotelSelect;
         private Button buttonSignOut;
+        private Label labelRoomManagerRoomSelected;
+        private ComboBox comboBoxRoomManagerRoomSelected;
+        private Label labelRoomManagerPrice;
+        private Label labelRoomManagerDescription;
+        private TextBox textBox5;
+        private Label labelRoomManagerAmountOfRooms;
+        private Label labelRoomManagerCapacity;
+        private Label labelRoomManagerName;
+        private TextBox textBox1;
+        private NumericUpDown numericUpDownRoomManagerCapacity;
+        private NumericUpDown numericUpDownRoomManagerPrice;
+        private NumericUpDown numericUpDownRoomManagerAmountOfRooms;
+        private Button button1;
+        private Button button2;
     }
 }

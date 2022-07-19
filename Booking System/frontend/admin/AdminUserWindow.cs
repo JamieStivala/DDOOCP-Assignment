@@ -132,7 +132,7 @@ namespace Booking_System.frontend.admin
             }
         }
 
-        private void buttonSave_Click(object sender, System.EventArgs e)
+        private void buttonHotelManagerSave_Click(object sender, System.EventArgs e)
         {
             if (!this.IsDataValid()) return;
             if (this.currentHotel == null)
@@ -169,7 +169,7 @@ namespace Booking_System.frontend.admin
             }
         }
 
-        private void buttonReset_Click(object sender, EventArgs e)
+        private void buttonHotelManagerReset_Click(object sender, EventArgs e)
         {
             if (this.currentHotel == null)
             {
