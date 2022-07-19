@@ -168,6 +168,7 @@ namespace Booking_System.backend.database
                     return DatabaseResult.Ok;
                 case 958745:
                 case 49205706:
+                case 53036123:
                     return DatabaseResult.Duplicate;
                 default:
                     return DatabaseResult.Unknown;
