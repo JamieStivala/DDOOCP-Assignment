@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace Booking_System.backend.database.hotel
         public static void CreateHotel(Hotel hotel)
         {
             string insertQuery = $"INSERT INTO tblHotel ([Name], Location, DefaultCheckInTime, DefaultCheckOutTime) VALUES" +
-                                 $"('{hotel.Name}', '{hotel.Location}', '{hotel.DefaultCheckInTime.ToShortTimeString()}', '{hotel.DefaultCheckOutTime.ToShortTimeString()}')";
+                                 $"('{hotel.Name}', '{hotel.Location}', {hotel.DefaultCheckInTime.ToOADate()}, {hotel.DefaultCheckOutTime.ToOADate()})";
 
             (DatabaseResult, int) result = DatabaseWrapper.InsertIntoDatabaseReturningId(insertQuery);
 
@@ -85,7 +86,7 @@ namespace Booking_System.backend.database.hotel
             //Just in case the object was copied and not referenced, copy the current instance onto the new instance
             
             string updateQuery = $"UPDATE tblHotel SET" +
-                                 $" [Name]='{hotel.Name}, Location='{hotel.Location}', " +
+                                 $" [Name]='{hotel.Name}', Location='{hotel.Location}', " +
                                  $" DefaultCheckInTime='{hotel.DefaultCheckInTime.ToShortTimeString()}', DefaultCheckOutTime='{hotel.DefaultCheckOutTime.ToShortTimeString()}'" +
                                  $"WHERE ID={hotel.Id}";
 
