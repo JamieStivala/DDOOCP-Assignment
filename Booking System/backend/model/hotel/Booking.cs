@@ -4,6 +4,21 @@ namespace Booking_System.backend.model.hotel
 {
     public class Booking
     {
+        public Booking(int id)
+        {
+            Id=id;
+        }
+
+        public Booking(int roomId, string userId, DateTime checkIn, DateTime checkOut, double price, int numberOfPeople)
+        {
+            RoomId = roomId;
+            UserId = userId;
+            CheckIn = checkIn;
+            CheckOut = checkOut;
+            Price = price;
+            NumberOfPeople = numberOfPeople;
+        }
+
         public int Id { get; set; }
         public int RoomId { get; set; }
         public string UserId { get; set; }
