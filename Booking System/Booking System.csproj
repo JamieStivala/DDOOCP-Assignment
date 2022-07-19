@@ -86,6 +86,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bookingsDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frontend\admin\AdminUserWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frontend\admin\AdminUserWindow.Designer.cs">
+      <DependentUpon>AdminUserWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="frontend\auth\FormSignin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frontend\admin\AdminUserWindow.resx">
+      <DependentUpon>AdminUserWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frontend\auth\FormSignin.resx">
       <DependentUpon>FormSignin.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,8 +172,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="frontend\admin\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
