@@ -51,7 +51,6 @@ namespace Booking_System.frontend.admin
             this.numericUpDownRoomManagerCapacity = new System.Windows.Forms.NumericUpDown();
             this.labelRoomManagerPrice = new System.Windows.Forms.Label();
             this.labelRoomManagerDescription = new System.Windows.Forms.Label();
-            this.textBoxRoomManagerDescription = new System.Windows.Forms.TextBox();
             this.labelRoomManagerAmountOfRooms = new System.Windows.Forms.Label();
             this.labelRoomManagerCapacity = new System.Windows.Forms.Label();
             this.labelRoomManagerName = new System.Windows.Forms.Label();
@@ -70,6 +69,7 @@ namespace Booking_System.frontend.admin
             this.labelHotelSelected = new System.Windows.Forms.Label();
             this.comboBoxHotelSelect = new System.Windows.Forms.ComboBox();
             this.buttonSignOut = new System.Windows.Forms.Button();
+            this.textBoxRoomManagerDescription = new System.Windows.Forms.RichTextBox();
             this.tabControl.SuspendLayout();
             this.tabPageHotelManager.SuspendLayout();
             this.tabPageRoomManager.SuspendLayout();
@@ -208,6 +208,7 @@ namespace Booking_System.frontend.admin
             // 
             // tabPageRoomManager
             // 
+            this.tabPageRoomManager.Controls.Add(this.textBoxRoomManagerDescription);
             this.tabPageRoomManager.Controls.Add(this.buttonRoomManagerReset);
             this.tabPageRoomManager.Controls.Add(this.buttonRoomManagerSave);
             this.tabPageRoomManager.Controls.Add(this.numericUpDownRoomManagerAmountOfRooms);
@@ -215,7 +216,6 @@ namespace Booking_System.frontend.admin
             this.tabPageRoomManager.Controls.Add(this.numericUpDownRoomManagerCapacity);
             this.tabPageRoomManager.Controls.Add(this.labelRoomManagerPrice);
             this.tabPageRoomManager.Controls.Add(this.labelRoomManagerDescription);
-            this.tabPageRoomManager.Controls.Add(this.textBoxRoomManagerDescription);
             this.tabPageRoomManager.Controls.Add(this.labelRoomManagerAmountOfRooms);
             this.tabPageRoomManager.Controls.Add(this.labelRoomManagerCapacity);
             this.tabPageRoomManager.Controls.Add(this.labelRoomManagerName);
@@ -277,7 +277,7 @@ namespace Booking_System.frontend.admin
             // numericUpDownRoomManagerPrice
             // 
             this.numericUpDownRoomManagerPrice.DecimalPlaces = 2;
-            this.numericUpDownRoomManagerPrice.Location = new System.Drawing.Point(520, 131);
+            this.numericUpDownRoomManagerPrice.Location = new System.Drawing.Point(520, 203);
             this.numericUpDownRoomManagerPrice.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -323,7 +323,7 @@ namespace Booking_System.frontend.admin
             // labelRoomManagerPrice
             // 
             this.labelRoomManagerPrice.AutoSize = true;
-            this.labelRoomManagerPrice.Location = new System.Drawing.Point(520, 115);
+            this.labelRoomManagerPrice.Location = new System.Drawing.Point(520, 187);
             this.labelRoomManagerPrice.Name = "labelRoomManagerPrice";
             this.labelRoomManagerPrice.Size = new System.Drawing.Size(78, 13);
             this.labelRoomManagerPrice.TabIndex = 84;
@@ -337,13 +337,6 @@ namespace Booking_System.frontend.admin
             this.labelRoomManagerDescription.Size = new System.Drawing.Size(60, 13);
             this.labelRoomManagerDescription.TabIndex = 82;
             this.labelRoomManagerDescription.Text = "Description";
-            // 
-            // textBoxRoomManagerDescription
-            // 
-            this.textBoxRoomManagerDescription.Location = new System.Drawing.Point(520, 70);
-            this.textBoxRoomManagerDescription.Name = "textBoxRoomManagerDescription";
-            this.textBoxRoomManagerDescription.Size = new System.Drawing.Size(202, 20);
-            this.textBoxRoomManagerDescription.TabIndex = 81;
             // 
             // labelRoomManagerAmountOfRooms
             // 
@@ -509,6 +502,14 @@ namespace Booking_System.frontend.admin
             this.buttonSignOut.UseVisualStyleBackColor = true;
             this.buttonSignOut.Click += new System.EventHandler(this.buttonSignOut_Click);
             // 
+            // textBoxRoomManagerDescription
+            // 
+            this.textBoxRoomManagerDescription.Location = new System.Drawing.Point(520, 70);
+            this.textBoxRoomManagerDescription.Name = "textBoxRoomManagerDescription";
+            this.textBoxRoomManagerDescription.Size = new System.Drawing.Size(202, 104);
+            this.textBoxRoomManagerDescription.TabIndex = 90;
+            this.textBoxRoomManagerDescription.Text = "";
+            // 
             // AdminUserWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -560,7 +561,6 @@ namespace Booking_System.frontend.admin
         private ComboBox comboBoxRoomManagerRoomSelected;
         private Label labelRoomManagerPrice;
         private Label labelRoomManagerDescription;
-        private TextBox textBoxRoomManagerDescription;
         private Label labelRoomManagerAmountOfRooms;
         private Label labelRoomManagerCapacity;
         private Label labelRoomManagerName;
@@ -577,5 +577,6 @@ namespace Booking_System.frontend.admin
         private ColumnHeader UserColumnHeaderIsAdmin;
         private Button buttonUserManagerEditUser;
         private Button buttonUserManagerToggleAdmin;
+        private RichTextBox textBoxRoomManagerDescription;
     }
 }
