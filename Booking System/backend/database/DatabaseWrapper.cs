@@ -117,6 +117,14 @@ namespace Booking_System.backend.database
             return DatabaseWrapper.RunSingleReturningIdQuery(query);
         }
 
+        /**
+         * Delete from database.  This is mostly used for code readability as it is the same as UpdateFromDatabase
+         */
+        public static DatabaseResult DeleteFromDatabase(string query)
+        {
+            return DatabaseWrapper.RunSingleNonReturningQuery(query);
+        }
+
         public static Tuple<DatabaseResult, Dictionary<string, object>>[] GetFromDatabase(string query)
         {
             List<Tuple<DatabaseResult, Dictionary<string, object>>> result = new List<Tuple<DatabaseResult, Dictionary<string, object>>>();
