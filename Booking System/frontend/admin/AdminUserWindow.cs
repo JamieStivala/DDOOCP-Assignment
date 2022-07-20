@@ -428,14 +428,6 @@ namespace Booking_System.frontend.admin
         {
             MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
-
-
-
-
-
-
-
         #endregion
 
 

@@ -325,9 +325,9 @@ namespace Booking_System.frontend.admin
             this.labelRoomManagerPrice.AutoSize = true;
             this.labelRoomManagerPrice.Location = new System.Drawing.Point(520, 115);
             this.labelRoomManagerPrice.Name = "labelRoomManagerPrice";
-            this.labelRoomManagerPrice.Size = new System.Drawing.Size(31, 13);
+            this.labelRoomManagerPrice.Size = new System.Drawing.Size(78, 13);
             this.labelRoomManagerPrice.TabIndex = 84;
-            this.labelRoomManagerPrice.Text = "Price";
+            this.labelRoomManagerPrice.Text = "Price Per Night";
             // 
             // labelRoomManagerDescription
             // 
