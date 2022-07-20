@@ -1,6 +1,6 @@
-﻿namespace Booking_System.frontend.user
+﻿namespace Booking_System.frontend.user.bookings.create
 {
-    partial class CreateBooking
+    partial class CreateBookingPage1
     {
         /// <summary>
         /// Required designer variable.
@@ -34,6 +34,12 @@
             this.comboBoxRoom = new System.Windows.Forms.ComboBox();
             this.labelRoom = new System.Windows.Forms.Label();
             this.groupBoxRoomInformation = new System.Windows.Forms.GroupBox();
+            this.richTextBoxRoomDescription = new System.Windows.Forms.RichTextBox();
+            this.labelRoomDescription = new System.Windows.Forms.Label();
+            this.labelCheckOutTimeValue = new System.Windows.Forms.Label();
+            this.labeCheckInTimeValue = new System.Windows.Forms.Label();
+            this.labelPriceValue = new System.Windows.Forms.Label();
+            this.labelMaxAmountOfPeopleValue = new System.Windows.Forms.Label();
             this.buttonBookNow = new System.Windows.Forms.Button();
             this.labelCheckOutTime = new System.Windows.Forms.Label();
             this.labelCheckInTime = new System.Windows.Forms.Label();
@@ -42,12 +48,6 @@
             this.groupBoxReviews = new System.Windows.Forms.GroupBox();
             this.buttonNextReview = new System.Windows.Forms.Button();
             this.labelHotel = new System.Windows.Forms.Label();
-            this.labelMaxAmountOfPeopleValue = new System.Windows.Forms.Label();
-            this.labelPriceValue = new System.Windows.Forms.Label();
-            this.labeCheckInlTimeValue = new System.Windows.Forms.Label();
-            this.labelCheckOutTimeValue = new System.Windows.Forms.Label();
-            this.labelRoomDescription = new System.Windows.Forms.Label();
-            this.richTextBoxRoomDescription = new System.Windows.Forms.RichTextBox();
             this.groupBoxRoomInformation.SuspendLayout();
             this.groupBoxReviews.SuspendLayout();
             this.SuspendLayout();
@@ -105,7 +105,7 @@
             this.groupBoxRoomInformation.Controls.Add(this.richTextBoxRoomDescription);
             this.groupBoxRoomInformation.Controls.Add(this.labelRoomDescription);
             this.groupBoxRoomInformation.Controls.Add(this.labelCheckOutTimeValue);
-            this.groupBoxRoomInformation.Controls.Add(this.labeCheckInlTimeValue);
+            this.groupBoxRoomInformation.Controls.Add(this.labeCheckInTimeValue);
             this.groupBoxRoomInformation.Controls.Add(this.labelPriceValue);
             this.groupBoxRoomInformation.Controls.Add(this.labelMaxAmountOfPeopleValue);
             this.groupBoxRoomInformation.Controls.Add(this.buttonBookNow);
@@ -113,12 +113,66 @@
             this.groupBoxRoomInformation.Controls.Add(this.labelCheckInTime);
             this.groupBoxRoomInformation.Controls.Add(this.labelPrice);
             this.groupBoxRoomInformation.Controls.Add(this.labelMaxAmountOfRoom);
-            this.groupBoxRoomInformation.Location = new System.Drawing.Point(72, 183);
+            this.groupBoxRoomInformation.Location = new System.Drawing.Point(73, 183);
             this.groupBoxRoomInformation.Name = "groupBoxRoomInformation";
             this.groupBoxRoomInformation.Size = new System.Drawing.Size(692, 193);
             this.groupBoxRoomInformation.TabIndex = 80;
             this.groupBoxRoomInformation.TabStop = false;
             this.groupBoxRoomInformation.Text = "Room Information";
+            // 
+            // richTextBoxRoomDescription
+            // 
+            this.richTextBoxRoomDescription.Location = new System.Drawing.Point(20, 57);
+            this.richTextBoxRoomDescription.Name = "richTextBoxRoomDescription";
+            this.richTextBoxRoomDescription.ReadOnly = true;
+            this.richTextBoxRoomDescription.Size = new System.Drawing.Size(198, 119);
+            this.richTextBoxRoomDescription.TabIndex = 10;
+            this.richTextBoxRoomDescription.Text = "";
+            // 
+            // labelRoomDescription
+            // 
+            this.labelRoomDescription.AutoSize = true;
+            this.labelRoomDescription.Location = new System.Drawing.Point(17, 33);
+            this.labelRoomDescription.Name = "labelRoomDescription";
+            this.labelRoomDescription.Size = new System.Drawing.Size(91, 13);
+            this.labelRoomDescription.TabIndex = 9;
+            this.labelRoomDescription.Text = "Room Description";
+            // 
+            // labelCheckOutTimeValue
+            // 
+            this.labelCheckOutTimeValue.AutoSize = true;
+            this.labelCheckOutTimeValue.Location = new System.Drawing.Point(630, 78);
+            this.labelCheckOutTimeValue.Name = "labelCheckOutTimeValue";
+            this.labelCheckOutTimeValue.Size = new System.Drawing.Size(34, 13);
+            this.labelCheckOutTimeValue.TabIndex = 8;
+            this.labelCheckOutTimeValue.Text = "00:00";
+            // 
+            // labeCheckInTimeValue
+            // 
+            this.labeCheckInTimeValue.AutoSize = true;
+            this.labeCheckInTimeValue.Location = new System.Drawing.Point(630, 33);
+            this.labeCheckInTimeValue.Name = "labeCheckInTimeValue";
+            this.labeCheckInTimeValue.Size = new System.Drawing.Size(34, 13);
+            this.labeCheckInTimeValue.TabIndex = 7;
+            this.labeCheckInTimeValue.Text = "00:00";
+            // 
+            // labelPriceValue
+            // 
+            this.labelPriceValue.AutoSize = true;
+            this.labelPriceValue.Location = new System.Drawing.Point(344, 78);
+            this.labelPriceValue.Name = "labelPriceValue";
+            this.labelPriceValue.Size = new System.Drawing.Size(19, 13);
+            this.labelPriceValue.TabIndex = 6;
+            this.labelPriceValue.Text = "£0";
+            // 
+            // labelMaxAmountOfPeopleValue
+            // 
+            this.labelMaxAmountOfPeopleValue.AutoSize = true;
+            this.labelMaxAmountOfPeopleValue.Location = new System.Drawing.Point(426, 33);
+            this.labelMaxAmountOfPeopleValue.Name = "labelMaxAmountOfPeopleValue";
+            this.labelMaxAmountOfPeopleValue.Size = new System.Drawing.Size(13, 13);
+            this.labelMaxAmountOfPeopleValue.TabIndex = 5;
+            this.labelMaxAmountOfPeopleValue.Text = "0";
             // 
             // buttonBookNow
             // 
@@ -195,61 +249,7 @@
             this.labelHotel.TabIndex = 72;
             this.labelHotel.Text = "Hotel:";
             // 
-            // labelMaxAmountOfPeopleValue
-            // 
-            this.labelMaxAmountOfPeopleValue.AutoSize = true;
-            this.labelMaxAmountOfPeopleValue.Location = new System.Drawing.Point(426, 33);
-            this.labelMaxAmountOfPeopleValue.Name = "labelMaxAmountOfPeopleValue";
-            this.labelMaxAmountOfPeopleValue.Size = new System.Drawing.Size(13, 13);
-            this.labelMaxAmountOfPeopleValue.TabIndex = 5;
-            this.labelMaxAmountOfPeopleValue.Text = "0";
-            // 
-            // labelPriceValue
-            // 
-            this.labelPriceValue.AutoSize = true;
-            this.labelPriceValue.Location = new System.Drawing.Point(344, 78);
-            this.labelPriceValue.Name = "labelPriceValue";
-            this.labelPriceValue.Size = new System.Drawing.Size(19, 13);
-            this.labelPriceValue.TabIndex = 6;
-            this.labelPriceValue.Text = "£0";
-            // 
-            // labeCheckInlTimeValue
-            // 
-            this.labeCheckInlTimeValue.AutoSize = true;
-            this.labeCheckInlTimeValue.Location = new System.Drawing.Point(630, 33);
-            this.labeCheckInlTimeValue.Name = "labeCheckInlTimeValue";
-            this.labeCheckInlTimeValue.Size = new System.Drawing.Size(34, 13);
-            this.labeCheckInlTimeValue.TabIndex = 7;
-            this.labeCheckInlTimeValue.Text = "00:00";
-            // 
-            // labelCheckOutTimeValue
-            // 
-            this.labelCheckOutTimeValue.AutoSize = true;
-            this.labelCheckOutTimeValue.Location = new System.Drawing.Point(630, 78);
-            this.labelCheckOutTimeValue.Name = "labelCheckOutTimeValue";
-            this.labelCheckOutTimeValue.Size = new System.Drawing.Size(34, 13);
-            this.labelCheckOutTimeValue.TabIndex = 8;
-            this.labelCheckOutTimeValue.Text = "00:00";
-            // 
-            // labelRoomDescription
-            // 
-            this.labelRoomDescription.AutoSize = true;
-            this.labelRoomDescription.Location = new System.Drawing.Point(17, 33);
-            this.labelRoomDescription.Name = "labelRoomDescription";
-            this.labelRoomDescription.Size = new System.Drawing.Size(91, 13);
-            this.labelRoomDescription.TabIndex = 9;
-            this.labelRoomDescription.Text = "Room Description";
-            // 
-            // richTextBoxRoomDescription
-            // 
-            this.richTextBoxRoomDescription.Location = new System.Drawing.Point(20, 57);
-            this.richTextBoxRoomDescription.Name = "richTextBoxRoomDescription";
-            this.richTextBoxRoomDescription.ReadOnly = true;
-            this.richTextBoxRoomDescription.Size = new System.Drawing.Size(198, 119);
-            this.richTextBoxRoomDescription.TabIndex = 10;
-            this.richTextBoxRoomDescription.Text = "";
-            // 
-            // CreateBooking
+            // CreateBookingPage1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -262,7 +262,7 @@
             this.Controls.Add(this.labelHotel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.mainMenuLabel);
-            this.Name = "CreateBooking";
+            this.Name = "CreateBookingPage1";
             this.Text = "CreateBooking";
             this.groupBoxRoomInformation.ResumeLayout(false);
             this.groupBoxRoomInformation.PerformLayout();
@@ -290,7 +290,7 @@
         private System.Windows.Forms.Label labelPriceValue;
         private System.Windows.Forms.Label labelMaxAmountOfPeopleValue;
         private System.Windows.Forms.Label labelCheckOutTimeValue;
-        private System.Windows.Forms.Label labeCheckInlTimeValue;
+        private System.Windows.Forms.Label labeCheckInTimeValue;
         private System.Windows.Forms.RichTextBox richTextBoxRoomDescription;
         private System.Windows.Forms.Label labelRoomDescription;
     }

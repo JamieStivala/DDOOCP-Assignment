@@ -11,13 +11,13 @@ using System.Windows.Forms;
 using Booking_System.backend.database.hotel;
 using Booking_System.backend.model.hotel;
 
-namespace Booking_System.frontend.user
+namespace Booking_System.frontend.user.bookings.create
 {
-    public partial class CreateBooking : Form
+    public partial class CreateBookingPage1 : Form
     {
         private Hotel[] hotels;
         private Room[] rooms;
-        public CreateBooking()
+        public CreateBookingPage1()
         {
             InitializeComponent();
             this.LoadHotels();
@@ -84,9 +84,8 @@ namespace Booking_System.frontend.user
             labelMaxAmountOfPeopleValue.Text = $"{room.Capacity}";
             labelPriceValue.Text = $"£{room.Price}";
             richTextBoxRoomDescription.Text = $"{room.Description}";
-            labelCheckInTime.Text = $"{this.selectedHotel.DefaultCheckInTime.ToShortTimeString()}";
-            labelCheckOutTime.Text = $"{this.selectedHotel.DefaultCheckOutTime.ToShortTimeString()}";
-            labelCheckOutTime.Text = $"{this.selectedHotel.DefaultCheckOutTime.ToShortTimeString()}";
+            labelCheckOutTimeValue.Text = $"{this.selectedHotel.DefaultCheckInTime.ToShortTimeString()}";
+            labelCheckOutTimeValue.Text = $"{this.selectedHotel.DefaultCheckOutTime.ToShortTimeString()}";
         }
 
         private void ShowError(string message)
