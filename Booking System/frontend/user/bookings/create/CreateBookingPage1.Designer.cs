@@ -37,7 +37,7 @@
             this.richTextBoxRoomDescription = new System.Windows.Forms.RichTextBox();
             this.labelRoomDescription = new System.Windows.Forms.Label();
             this.labelCheckOutTimeValue = new System.Windows.Forms.Label();
-            this.labeCheckInTimeValue = new System.Windows.Forms.Label();
+            this.labelCheckInTimeValue = new System.Windows.Forms.Label();
             this.labelPriceValue = new System.Windows.Forms.Label();
             this.labelMaxAmountOfPeopleValue = new System.Windows.Forms.Label();
             this.buttonBookNow = new System.Windows.Forms.Button();
@@ -105,7 +105,7 @@
             this.groupBoxRoomInformation.Controls.Add(this.richTextBoxRoomDescription);
             this.groupBoxRoomInformation.Controls.Add(this.labelRoomDescription);
             this.groupBoxRoomInformation.Controls.Add(this.labelCheckOutTimeValue);
-            this.groupBoxRoomInformation.Controls.Add(this.labeCheckInTimeValue);
+            this.groupBoxRoomInformation.Controls.Add(this.labelCheckInTimeValue);
             this.groupBoxRoomInformation.Controls.Add(this.labelPriceValue);
             this.groupBoxRoomInformation.Controls.Add(this.labelMaxAmountOfPeopleValue);
             this.groupBoxRoomInformation.Controls.Add(this.buttonBookNow);
@@ -147,14 +147,14 @@
             this.labelCheckOutTimeValue.TabIndex = 8;
             this.labelCheckOutTimeValue.Text = "00:00";
             // 
-            // labeCheckInTimeValue
+            // labelCheckInTimeValue
             // 
-            this.labeCheckInTimeValue.AutoSize = true;
-            this.labeCheckInTimeValue.Location = new System.Drawing.Point(630, 33);
-            this.labeCheckInTimeValue.Name = "labeCheckInTimeValue";
-            this.labeCheckInTimeValue.Size = new System.Drawing.Size(34, 13);
-            this.labeCheckInTimeValue.TabIndex = 7;
-            this.labeCheckInTimeValue.Text = "00:00";
+            this.labelCheckInTimeValue.AutoSize = true;
+            this.labelCheckInTimeValue.Location = new System.Drawing.Point(630, 33);
+            this.labelCheckInTimeValue.Name = "labelCheckInTimeValue";
+            this.labelCheckInTimeValue.Size = new System.Drawing.Size(34, 13);
+            this.labelCheckInTimeValue.TabIndex = 7;
+            this.labelCheckInTimeValue.Text = "00:00";
             // 
             // labelPriceValue
             // 
@@ -290,7 +290,7 @@
         private System.Windows.Forms.Label labelPriceValue;
         private System.Windows.Forms.Label labelMaxAmountOfPeopleValue;
         private System.Windows.Forms.Label labelCheckOutTimeValue;
-        private System.Windows.Forms.Label labeCheckInTimeValue;
+        private System.Windows.Forms.Label labelCheckInTimeValue;
         private System.Windows.Forms.RichTextBox richTextBoxRoomDescription;
         private System.Windows.Forms.Label labelRoomDescription;
     }

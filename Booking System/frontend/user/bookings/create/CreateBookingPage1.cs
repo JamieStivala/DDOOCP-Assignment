@@ -66,8 +66,8 @@ namespace Booking_System.frontend.user.bookings.create
             richTextBoxRoomDescription.Text = "";
             labelMaxAmountOfPeopleValue.Text = "0";
             labelPriceValue.Text = "£0";
-            labelCheckInTime.Text = "00:00";
-            labelCheckOutTime.Text = "00:00";
+            labelCheckInTimeValue.Text = "00:00";
+            labelCheckOutTimeValue.Text = "00:00";
         }
 
         private void comboBoxHotel_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,7 +84,7 @@ namespace Booking_System.frontend.user.bookings.create
             labelMaxAmountOfPeopleValue.Text = $"{room.Capacity}";
             labelPriceValue.Text = $"£{room.Price}";
             richTextBoxRoomDescription.Text = $"{room.Description}";
-            labelCheckOutTimeValue.Text = $"{this.selectedHotel.DefaultCheckInTime.ToShortTimeString()}";
+            labelCheckInTimeValue.Text = $"{this.selectedHotel.DefaultCheckInTime.ToShortTimeString()}";
             labelCheckOutTimeValue.Text = $"{this.selectedHotel.DefaultCheckOutTime.ToShortTimeString()}";
         }
 
