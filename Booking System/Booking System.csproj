@@ -72,10 +72,12 @@
     <Compile Include="backend\database\DatabaseWrapper.cs" />
     <Compile Include="backend\database\hotel\BookingWrapper.cs" />
     <Compile Include="backend\database\hotel\HotelWrapper.cs" />
+    <Compile Include="backend\database\hotel\ReviewWrapper.cs" />
     <Compile Include="backend\database\hotel\RoomWrapper.cs" />
     <Compile Include="backend\database\UserWrapper.cs" />
     <Compile Include="backend\model\hotel\Booking.cs" />
     <Compile Include="backend\model\hotel\Hotel.cs" />
+    <Compile Include="backend\model\hotel\Review.cs" />
     <Compile Include="backend\model\hotel\Room.cs" />
     <Compile Include="backend\model\user\User.cs" />
     <Compile Include="bookingsDataSet.cs">
@@ -111,6 +113,12 @@
     <Compile Include="frontend\user\bookings\create\CreateBookingPage1.Designer.cs">
       <DependentUpon>CreateBookingPage1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frontend\user\bookings\create\CreateBookingPage2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frontend\user\bookings\create\CreateBookingPage2.Designer.cs">
+      <DependentUpon>CreateBookingPage2.cs</DependentUpon>
+    </Compile>
     <Compile Include="frontend\user\EditPersonalInformation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frontend\user\bookings\create\CreateBookingPage1.resx">
       <DependentUpon>CreateBookingPage1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frontend\user\bookings\create\CreateBookingPage2.resx">
+      <DependentUpon>CreateBookingPage2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frontend\user\EditPersonalInformation.resx">
       <DependentUpon>EditPersonalInformation.cs</DependentUpon>
