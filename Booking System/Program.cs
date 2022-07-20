@@ -18,6 +18,9 @@ namespace Booking_System
         [STAThread]
         static void Main()
         {
+            //UserWrapper.CreateUser(new User("Jamie", "Stivala", "jamiestivala@gmail.com", "Pukka1234!", "77223883", new DateTime(2001,09,16, 1,1,1), 'M', "0368201L", "Malta", "48 Rhapsody", UserType.Customer));
+            //UserWrapper.CreateUser(new User("Jamie", "Stivala", "jamie.stivala@gmail.com", "Pukka1234!", "77223883", new DateTime(2001,09,16, 1,1,1), 'M', "0368201L", "Malta", "48 Rhapsody", UserType.Customer));
+            //UserWrapper.CreateUser(new User("Jamie", "Stivalaoa", "jam.stivala@gmail.com", "Pukka1234!", "77223883", new DateTime(2001,09,16, 1,1,1), 'M', "0368201L", "Malta", "48 Rhapsody", UserType.Admin));
             //var user = UserWrapper.GetUser("admin@gmail.com", "admin");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
