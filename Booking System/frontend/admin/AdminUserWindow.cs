@@ -12,6 +12,7 @@ using Booking_System.frontend.user;
 
 namespace Booking_System.frontend.admin
 {
+    //todo DELETE BUTTON ON HOTEL ROOM AND BOOKING
     public partial class AdminUserWindow : Form
     {
         private Hotel currentHotel = null;
