@@ -33,7 +33,7 @@ namespace Booking_System.frontend.user
 
         private void createBookingButton_Click(object sender, EventArgs e)
         {
-            CreateBooking createBooking = new CreateBooking();
+            CreateBookingPage1 createBooking = new CreateBookingPage1();
             createBooking.Show();
         }
     }
