@@ -199,6 +199,16 @@ namespace Booking_System.frontend.admin
                 dateTimePickerHotelManagerDefaultCheckOutTime.Value = this.currentHotel.DefaultCheckOutTime;
             }
         }
+        private void buttonHotelManagerRemove_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult =
+                MessageBox.Show($"Are you sure you want to remove this hotel?  This means that any rooms, bookings and reviews assigned to this hotel will not be available.",
+                    "Confirm hotel delete.", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes) return; //If no, stop action
+
+            HotelWrapper.DeleteHotel(this.currentHotel);
+            this.ReloadHotelComboBox();
+        }
         #endregion
 
         #region Room Manager Tab
@@ -319,6 +329,16 @@ namespace Booking_System.frontend.admin
                 numericUpDownRoomManagerAmountOfRooms.Value = currentRoom.AmountOfRooms;
             }
         }
+
+        private void buttonRoomManagerRemove_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult =
+                MessageBox.Show($"Are you sure you want to remove this room?  This means that any bookings and reviews assigned to this room will not be available.",
+                    "Confirm room delete.", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes) return; //If no, stop action
+            RoomWrapper.DeleteRoom(this.currentRoom);
+            this.FillRoomManagerComboBox();
+        }
         #endregion
 
         #region User Manager Tab
@@ -399,6 +419,17 @@ namespace Booking_System.frontend.admin
             new EditPersonalInformation(user).Show(); 
             LoadAllUsers(); //Reload user list
         }
+
+        private void buttonUserManagerRemove_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult =
+                MessageBox.Show($"Are you sure you want to remove this user =?  This means that any bookings and and reviews made by this User will be deleted.",
+                    "Confirm user delete", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes) return; //If no, stop action
+            User user = this.GetSelectedUser();
+            UserWrapper.DeleteUser(user);
+            LoadAllUsers();
+        }
         #endregion
 
         #region Shared Code Between Tabs
@@ -428,8 +459,9 @@ namespace Booking_System.frontend.admin
         {
             MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
         #endregion
 
-
+        
     }
 }
