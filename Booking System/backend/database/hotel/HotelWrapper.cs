@@ -104,6 +104,23 @@ namespace Booking_System.backend.database.hotel
             }
         }
 
+        public static void DeleteHotel(Hotel hotel)
+        {
+            string query = $"DELETE * FROM tblHotel WHERE ID={hotel.Id}";
+            DatabaseResult result = DatabaseWrapper.DeleteFromDatabase(query);
+
+            //Switch the result based on the ENUM representing result
+            switch (result)
+            {
+                case DatabaseResult.Ok:
+                    HotelWrapper.HotelCache.Remove(hotel); //Remove the hotel from the cache
+                    return;
+                default:
+                    throw new Exception("An unknown error has occurred.");
+            }
+        }
+
+
         private static void AddToCache(Hotel hotel)
         {
             HotelWrapper.HotelCache.Add(hotel);

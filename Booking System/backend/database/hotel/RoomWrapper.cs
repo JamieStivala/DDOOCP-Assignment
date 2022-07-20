@@ -112,6 +112,23 @@ namespace Booking_System.backend.database.hotel
             return null;
         }
 
+        public static void DeleteRoom(Room room)
+        {
+            string query = $"DELETE * FROM tblRoom WHERE ID={room.Id}";
+            DatabaseResult result = DatabaseWrapper.DeleteFromDatabase(query);
+
+            //Switch the result based on the ENUM representing result
+            switch (result)
+            {
+                case DatabaseResult.Ok:
+                    RoomWrapper.RoomCache[room.HotelId].Remove(room); //Remove the room from the cache
+                    return;
+                default:
+                    throw new Exception("An unknown error has occurred.");
+            }
+        }
+
+
         /**
          * Ability to add one room to the cache, organized by hotel id
          */

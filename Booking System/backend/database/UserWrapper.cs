@@ -87,6 +87,22 @@ namespace Booking_System.backend.database
             }
         }
 
+        public static void DeleteUser(User user)
+        {
+            string query = $"DELETE * FROM tblUser WHERE uuid={user.Uuid}";
+            DatabaseResult result = DatabaseWrapper.DeleteFromDatabase(query);
+
+            //Switch the result based on the ENUM representing result
+            switch (result)
+            {
+                case DatabaseResult.Ok:
+                    return;
+                default:
+                    throw new Exception("An unknown error has occurred.");
+            }
+        }
+
+
         public static User[] GetAllUsers()
         {
             List<User> users = new List<User>();

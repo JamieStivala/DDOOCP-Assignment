@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Booking_System.backend.model.hotel;
 
 namespace Booking_System.backend.database.hotel
@@ -110,11 +111,25 @@ namespace Booking_System.backend.database.hotel
              
         }
 
+        public static void DeleteBooking(Booking booking)
+        {
+            string query = $"DELETE * FROM tblBooking WHERE ID={booking.Id}";
+            DatabaseResult result = DatabaseWrapper.DeleteFromDatabase(query);
+
+            //Switch the result based on the ENUM representing result
+            switch (result)
+            {
+                case DatabaseResult.Ok:
+                    BookingWrapper.Bookings.Remove(booking); //Remove the booking from the cache
+                    return;
+                default:
+                    throw new Exception("An unknown error has occurred.");
+            }
+        }
+
         private static void AddToCache(Booking booking)
         {
             BookingWrapper.Bookings.Add(booking);
         }
-        //todo Add table for reviews -> ID, BookingID, AmountOfStars, Title, Description
-        
     }
 }
