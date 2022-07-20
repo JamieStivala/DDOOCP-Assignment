@@ -261,6 +261,7 @@ namespace Booking_System.frontend.admin
 
         private void buttonRoomManagerSave_Click(object sender, EventArgs e)
         {
+            if(!IsDataValid()) return;
             if (this.currentRoom == null) //If creating new room
             {
                 Room room = new Room(this.currentHotel.Id, textBoxRoomManagerName.Text, textBoxRoomManagerDescription.Text,
@@ -412,6 +413,10 @@ namespace Booking_System.frontend.admin
                 {
                     textBoxHotelManagerName, textBoxHotelManagerLocation, dateTimePickerHotelManagerDefaultCheckInTime, dateTimePickerHotelManagerDefaultCheckOutTime
                 };
+                if (GeneralValidation.IsEmpty(itemsToValidateEmpty, errorProvider)) passed = false;
+            }else if (currentTab == 1)
+            {
+                Control[] itemsToValidateEmpty = new Control[] { textBoxRoomManagerName, textBoxRoomManagerDescription, numericUpDownRoomManagerCapacity, numericUpDownRoomManagerPrice, numericUpDownRoomManagerAmountOfRooms};
                 if (GeneralValidation.IsEmpty(itemsToValidateEmpty, errorProvider)) passed = false;
             }
 
