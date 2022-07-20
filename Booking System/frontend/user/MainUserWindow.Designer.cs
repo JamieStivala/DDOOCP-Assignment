@@ -54,6 +54,7 @@
             this.createBookingButton.TabIndex = 9;
             this.createBookingButton.Text = "Create Booking";
             this.createBookingButton.UseVisualStyleBackColor = true;
+            this.createBookingButton.Click += new System.EventHandler(this.createBookingButton_Click);
             // 
             // viewBookingButton
             // 
