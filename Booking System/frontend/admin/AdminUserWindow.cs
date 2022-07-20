@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 using Booking_System.backend.database.hotel;
@@ -19,6 +20,7 @@ namespace Booking_System.frontend.admin
         private void AdminUserWindow_Load(object sender, System.EventArgs e)
         {
             ReloadHotelComboBox();
+            tabControl.Selecting += tabControl_Selecting; //TabControl Selecting to be able to cancel
         }
 
         private void buttonSignOut_Click(object sender, EventArgs e)
@@ -28,6 +30,8 @@ namespace Booking_System.frontend.admin
         }
 
         #region Hotel ComboBox Manager
+        private readonly Dictionary<int, Hotel> indexedHotels = new Dictionary<int, Hotel>();
+
         /**
          * Update which tabs are accessible based on if a valid hotel is selected.
          */
@@ -68,7 +72,7 @@ namespace Booking_System.frontend.admin
             {
                 if (comboBoxHotelSelect.SelectedIndex == -1 ||
                     comboBoxHotelSelect.SelectedIndex == comboBoxHotelSelect.Items.Count - 1) this.currentHotel = null;
-                else this.currentHotel = HotelWrapper.GetHotel(comboBoxHotelSelect.SelectedIndex + 1);
+                else this.currentHotel = this.indexedHotels[comboBoxHotelSelect.SelectedIndex];
             }
             catch (Exception ex)
             {
@@ -82,12 +86,14 @@ namespace Booking_System.frontend.admin
         private void ReloadHotelComboBox(int selectedIndex = 0)
         {
             comboBoxHotelSelect.Items.Clear();
+            this.indexedHotels.Clear();
             try
             {
                 Hotel[] hotels = HotelWrapper.GetAllHotels();
-                foreach (Hotel hotel in hotels)
+                for (int i = 0; i != hotels.Length; i++)
                 {
-                    comboBoxHotelSelect.Items.Add(hotel.Name);
+                    this.indexedHotels.Add(i, hotels[i]);
+                    comboBoxHotelSelect.Items.Add(hotels[i].Name);
                 }
             }
             catch (Exception ex)
@@ -110,6 +116,7 @@ namespace Booking_System.frontend.admin
             this.UpdateInternalCurrentHotel();
             this.UpdateAccessibleTabs();
             this.SetHotelManagerTabOnHotelChange();
+            this.FillRoomManagerComboBox();
         }
         #endregion
 
@@ -188,6 +195,125 @@ namespace Booking_System.frontend.admin
         }
         #endregion
 
+        #region Room Manager Tab
+
+        private readonly Dictionary<int, Room> indexedRooms = new Dictionary<int, Room>(); //Store the index in the list -> room, so when the items in the list change (Or ID is not consecutive) the code does not break
+        private void FillRoomManagerComboBox(int selectedRoomId = -1)
+        {
+            int selectedRoomIndex = 0;
+
+            if (this.currentHotel == null) return; //If the hotel room is not selected, return
+            this.currentRoom = null; //Reset current room
+            comboBoxRoomManagerRoomSelected.Items.Clear(); //Reset combo box
+            indexedRooms.Clear(); //Reset indexed rooms
+
+            try
+            {
+                Room[] rooms = RoomWrapper.GetHotelRooms(this.currentHotel.Id); //Get all the hotel rooms
+
+                for (int i = 0; i != rooms.Length; i++)
+                {
+                    Room room = rooms[i];
+                    comboBoxRoomManagerRoomSelected.Items.Add(room.Name);
+                    indexedRooms.Add(i, room); //Store the indexed room
+                    if(room.Id == selectedRoomId) selectedRoomIndex = i;
+                }
+            }
+            catch (Exception ex)
+            {
+                //There is nothing to do here.  This exception can only happen if there are no hotel rooms
+            }
+            finally
+            {
+                comboBoxRoomManagerRoomSelected.Items.Add("<Create new room>");
+                comboBoxRoomManagerRoomSelected.SelectedIndex = selectedRoomIndex; //If the room is not found, just go to create new room
+            }
+        }
+
+        private Room currentRoom;
+        private void comboBoxRoomManagerRoomSelected_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxRoomManagerRoomSelected.SelectedIndex == comboBoxRoomManagerRoomSelected.Items.Count - 1) //If the room is set to "Create New Room", reset all values to default
+            {
+                this.currentRoom = null;
+                textBoxRoomManagerName.Text = "";
+                textBoxRoomManagerDescription.Text = "";
+                numericUpDownRoomManagerCapacity.Value = 1;
+                numericUpDownRoomManagerPrice.Value = 10;
+                numericUpDownRoomManagerAmountOfRooms.Value = 1;
+            }
+            else //If a valid room is selected, set the text boxes to the values of the room
+            {
+                this.currentRoom = this.indexedRooms[comboBoxRoomManagerRoomSelected.SelectedIndex];
+
+                textBoxRoomManagerName.Text = currentRoom.Name;
+                textBoxRoomManagerDescription.Text = currentRoom.Description;
+                numericUpDownRoomManagerCapacity.Value = currentRoom.Capacity;
+                numericUpDownRoomManagerPrice.Value = (decimal)currentRoom.Price;
+                numericUpDownRoomManagerAmountOfRooms.Value = currentRoom.AmountOfRooms;
+            }
+        }
+
+        private void buttonRoomManagerSave_Click(object sender, EventArgs e)
+        {
+            if (this.currentRoom == null) //If creating new room
+            {
+                Room room = new Room(this.currentHotel.Id, textBoxRoomManagerName.Text, textBoxRoomManagerDescription.Text,
+                    decimal.ToInt32(numericUpDownRoomManagerCapacity.Value), (double)numericUpDownRoomManagerPrice.Value,
+                    decimal.ToInt32(numericUpDownRoomManagerAmountOfRooms.Value));
+                try
+                {
+                    RoomWrapper.CreateRoom(room);
+                    this.FillRoomManagerComboBox(room.Id);
+                }
+                catch (Exception ex)
+                {
+                    this.ShowError(ex.Message);
+                }
+            }
+            else //If updating room
+            {
+                try
+                {
+                    this.currentRoom.Name = textBoxRoomManagerName.Text;
+                    currentRoom.Description = textBoxRoomManagerDescription.Text;
+                    currentRoom.Capacity = (int)numericUpDownRoomManagerCapacity.Value;
+                    currentRoom.Price = (double)numericUpDownRoomManagerPrice.Value;
+                    currentRoom.AmountOfRooms = (int)numericUpDownRoomManagerAmountOfRooms.Value;
+                    RoomWrapper.UpdateRoom(this.currentRoom);
+                    this.FillRoomManagerComboBox(this.currentRoom.Id);
+                }
+                catch (Exception ex)
+                {
+                    this.ShowError(ex.Message);
+                }
+            }
+        }
+
+        /**
+         * On reset press, reset the text boxes
+         */
+        private void buttonRoomManagerReset_Click(object sender, EventArgs e)
+        {
+            if (this.currentRoom == null)
+            {
+                textBoxRoomManagerName.Text = "";
+                textBoxRoomManagerDescription.Text = "";
+                numericUpDownRoomManagerCapacity.Value = 1;
+                numericUpDownRoomManagerPrice.Value = 10;
+                numericUpDownRoomManagerAmountOfRooms.Value = 1;
+            }
+            else
+            {
+                textBoxRoomManagerName.Text = currentRoom.Name;
+                textBoxRoomManagerDescription.Text = currentRoom.Description;
+                numericUpDownRoomManagerCapacity.Value = currentRoom.Capacity;
+                numericUpDownRoomManagerPrice.Value = (decimal)currentRoom.Price;
+                numericUpDownRoomManagerAmountOfRooms.Value = currentRoom.AmountOfRooms;
+            }
+        }
+        #endregion
+
         #region Shared Code Between Tabs
         private bool IsDataValid()
         {
@@ -213,8 +339,11 @@ namespace Booking_System.frontend.admin
         }
 
 
+
+
+
         #endregion
 
-        
+
     }
 }
