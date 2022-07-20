@@ -1,5 +1,6 @@
 ﻿using Booking_System.backend.model.user;
 using System;
+using System.Collections.Generic;
 
 namespace Booking_System.backend.database
 {
@@ -84,6 +85,44 @@ namespace Booking_System.backend.database
                 default:
                     throw new Exception("An unknown error has occurred.");
             }
+        }
+
+        public static User[] GetAllUsers()
+        {
+            List<User> users = new List<User>();
+
+            string getAllUsers = $"SELECT * FROM tblUser";
+            var result = DatabaseWrapper.GetFromDatabase(getAllUsers);
+            
+            foreach (Tuple<DatabaseResult, Dictionary<string, object>> row in result)
+            {
+                switch (row.Item1)
+                {
+                    case DatabaseResult.Ok:
+
+                        //Create the user
+                        User user = new User(row.Item2["Email"].ToString(), row.Item2["Password"].ToString())
+                        {
+                            Uuid = row.Item2["uuid"].ToString(),
+                            FirstName = row.Item2["FirstName"].ToString(),
+                            LastName = row.Item2["LastName"].ToString(),
+                            DateOfBirth = (DateTime)row.Item2["DateOfBirth"],
+                            IdCard = row.Item2["IDCardNumber"].ToString(),
+                            ContactNumber = row.Item2["ContactNumber"].ToString(),
+                            Nationality = row.Item2["Nationality"].ToString(),
+                            Address = row.Item2["Address"].ToString(),
+                            Gender = row.Item2["Gender"].ToString()[0],
+                            Type = (UserType)row.Item2["Type"]
+                        };
+
+                        users.Add(user);
+                        break;
+                    default:
+                        throw new Exception("An unknown error has occurred.");
+                }
+            }
+
+            return users.ToArray();
         }
     }
 }
