@@ -60,6 +60,12 @@ namespace Booking_System.frontend.admin
             this.comboBoxRoomManagerRoomSelected = new System.Windows.Forms.ComboBox();
             this.tabPageBookingManager = new System.Windows.Forms.TabPage();
             this.tabPageUserManager = new System.Windows.Forms.TabPage();
+            this.buttonUserManagerEditUser = new System.Windows.Forms.Button();
+            this.buttonUserManagerToggleAdmin = new System.Windows.Forms.Button();
+            this.listViewUserManagerUserList = new System.Windows.Forms.ListView();
+            this.UserColumnHeaderUUID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.UserColumnHeaderFullName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.UserColumnHeaderIsAdmin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.labelHotelSelected = new System.Windows.Forms.Label();
             this.comboBoxHotelSelect = new System.Windows.Forms.ComboBox();
@@ -70,6 +76,7 @@ namespace Booking_System.frontend.admin
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRoomManagerAmountOfRooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRoomManagerPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRoomManagerCapacity)).BeginInit();
+            this.tabPageUserManager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -405,6 +412,9 @@ namespace Booking_System.frontend.admin
             // 
             // tabPageUserManager
             // 
+            this.tabPageUserManager.Controls.Add(this.buttonUserManagerEditUser);
+            this.tabPageUserManager.Controls.Add(this.buttonUserManagerToggleAdmin);
+            this.tabPageUserManager.Controls.Add(this.listViewUserManagerUserList);
             this.tabPageUserManager.Location = new System.Drawing.Point(4, 22);
             this.tabPageUserManager.Name = "tabPageUserManager";
             this.tabPageUserManager.Padding = new System.Windows.Forms.Padding(3);
@@ -412,6 +422,56 @@ namespace Booking_System.frontend.admin
             this.tabPageUserManager.TabIndex = 3;
             this.tabPageUserManager.Text = "User Manager";
             this.tabPageUserManager.UseVisualStyleBackColor = true;
+            // 
+            // buttonUserManagerEditUser
+            // 
+            this.buttonUserManagerEditUser.Location = new System.Drawing.Point(521, 268);
+            this.buttonUserManagerEditUser.Name = "buttonUserManagerEditUser";
+            this.buttonUserManagerEditUser.Size = new System.Drawing.Size(110, 33);
+            this.buttonUserManagerEditUser.TabIndex = 2;
+            this.buttonUserManagerEditUser.Text = "Edit User";
+            this.buttonUserManagerEditUser.UseVisualStyleBackColor = true;
+            this.buttonUserManagerEditUser.Click += new System.EventHandler(this.buttonUserManagerEditUser_Click);
+            // 
+            // buttonUserManagerToggleAdmin
+            // 
+            this.buttonUserManagerToggleAdmin.Location = new System.Drawing.Point(647, 268);
+            this.buttonUserManagerToggleAdmin.Name = "buttonUserManagerToggleAdmin";
+            this.buttonUserManagerToggleAdmin.Size = new System.Drawing.Size(115, 34);
+            this.buttonUserManagerToggleAdmin.TabIndex = 1;
+            this.buttonUserManagerToggleAdmin.Text = "Toggle Admin";
+            this.buttonUserManagerToggleAdmin.UseVisualStyleBackColor = true;
+            this.buttonUserManagerToggleAdmin.Click += new System.EventHandler(this.buttonUserManagerToggleAdmin_Click);
+            // 
+            // listViewUserManagerUserList
+            // 
+            this.listViewUserManagerUserList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.UserColumnHeaderUUID,
+            this.UserColumnHeaderFullName,
+            this.UserColumnHeaderIsAdmin});
+            this.listViewUserManagerUserList.HideSelection = false;
+            this.listViewUserManagerUserList.Location = new System.Drawing.Point(6, 6);
+            this.listViewUserManagerUserList.MultiSelect = false;
+            this.listViewUserManagerUserList.Name = "listViewUserManagerUserList";
+            this.listViewUserManagerUserList.Size = new System.Drawing.Size(756, 256);
+            this.listViewUserManagerUserList.TabIndex = 0;
+            this.listViewUserManagerUserList.UseCompatibleStateImageBehavior = false;
+            this.listViewUserManagerUserList.View = System.Windows.Forms.View.Details;
+            // 
+            // UserColumnHeaderUUID
+            // 
+            this.UserColumnHeaderUUID.Text = "UUID";
+            this.UserColumnHeaderUUID.Width = 361;
+            // 
+            // UserColumnHeaderFullName
+            // 
+            this.UserColumnHeaderFullName.Text = "Full Name";
+            this.UserColumnHeaderFullName.Width = 291;
+            // 
+            // UserColumnHeaderIsAdmin
+            // 
+            this.UserColumnHeaderIsAdmin.Text = "Is Admin?";
+            this.UserColumnHeaderIsAdmin.Width = 88;
             // 
             // errorProvider
             // 
@@ -469,6 +529,7 @@ namespace Booking_System.frontend.admin
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRoomManagerAmountOfRooms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRoomManagerPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRoomManagerCapacity)).EndInit();
+            this.tabPageUserManager.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -510,5 +571,11 @@ namespace Booking_System.frontend.admin
         private Button buttonRoomManagerReset;
         private Button buttonRoomManagerSave;
         private TabPage tabPageUserManager;
+        private ListView listViewUserManagerUserList;
+        private ColumnHeader UserColumnHeaderUUID;
+        private ColumnHeader UserColumnHeaderFullName;
+        private ColumnHeader UserColumnHeaderIsAdmin;
+        private Button buttonUserManagerEditUser;
+        private Button buttonUserManagerToggleAdmin;
     }
 }

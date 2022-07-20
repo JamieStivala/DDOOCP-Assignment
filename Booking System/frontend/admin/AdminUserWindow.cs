@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Forms;
+using Booking_System.backend.database;
 using Booking_System.backend.database.hotel;
 using Booking_System.backend.model.hotel;
+using Booking_System.backend.model.user;
 using Booking_System.frontend.auth;
+using Booking_System.frontend.user;
 
 namespace Booking_System.frontend.admin
 {
@@ -20,6 +24,7 @@ namespace Booking_System.frontend.admin
         private void AdminUserWindow_Load(object sender, System.EventArgs e)
         {
             ReloadHotelComboBox();
+            LoadAllUsers();
             tabControl.Selecting += tabControl_Selecting; //TabControl Selecting to be able to cancel
         }
 
@@ -314,6 +319,86 @@ namespace Booking_System.frontend.admin
         }
         #endregion
 
+        #region User Manager Tab
+
+        private User[] allUsers;
+        private void LoadAllUsers()
+        {
+            try
+            {
+                listViewUserManagerUserList.Items.Clear();
+
+                User[] users = UserWrapper.GetAllUsers();
+                this.allUsers = users;
+
+                for (int i = 0; i != users.Length; i++)
+                {
+                    char isAdmin = users[i].Type == UserType.Admin ? 'Y' : 'N';
+                    ListViewItem listViewItem = new ListViewItem(users[i].Uuid);
+                    listViewItem.SubItems.Add($"{users[i].FirstName} {users[i].LastName}");
+                    listViewItem.SubItems.Add(isAdmin + "");
+                    listViewUserManagerUserList.Items.Add(listViewItem);
+                }
+            }
+            catch (Exception ex)
+            {
+                this.ShowError(ex.Message);
+            }
+        }
+
+        private User GetSelectedUser()
+        {
+            if (listViewUserManagerUserList.SelectedItems.Count != 1)
+            {
+                this.ShowError("Please select a user.");
+                return null;
+            } 
+
+            string uuid = listViewUserManagerUserList.SelectedItems[0].Text;
+            return allUsers.Single(value => value.Uuid == uuid); //Get the user with that UUID
+        }
+
+        private void buttonUserManagerToggleAdmin_Click(object sender, EventArgs e)
+        {
+            User user = GetSelectedUser();
+            UserType originalUserType = user.Type;
+
+            switch (user.Type)
+            {
+                case UserType.Admin:
+                {
+                    DialogResult dialogResult =
+                        MessageBox.Show($"Are you sure you want to remove {user.FirstName} {user.LastName} from an administrator?",
+                            "Confirm administrator change", MessageBoxButtons.YesNo);
+
+                    if (dialogResult == DialogResult.Yes) user.Type = UserType.Customer;
+                    break;
+                }
+                case UserType.Customer:
+                {
+                    DialogResult dialogResult =  
+                        MessageBox.Show($"Are you sure you want to make {user.FirstName} {user.LastName} an administrator?",
+                            "Confirm administrator change", MessageBoxButtons.YesNo);
+
+                    if (dialogResult == DialogResult.Yes) user.Type = UserType.Admin;
+                    break;
+                }
+            }
+
+            if(originalUserType == user.Type) return; //Means nothing was updated
+
+            UserWrapper.UpdateUser(user);
+            LoadAllUsers(); //Reload user list
+        }
+
+        private void buttonUserManagerEditUser_Click(object sender, EventArgs e)
+        {
+            User user = this.GetSelectedUser();
+            new EditPersonalInformation(user).Show(); 
+            LoadAllUsers(); //Reload user list
+        }
+        #endregion
+
         #region Shared Code Between Tabs
         private bool IsDataValid()
         {
@@ -337,6 +422,9 @@ namespace Booking_System.frontend.admin
         {
             MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+
+
 
 
 
