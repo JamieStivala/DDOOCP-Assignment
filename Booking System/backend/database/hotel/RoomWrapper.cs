@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using Booking_System.backend.model.hotel;
 
 namespace Booking_System.backend.database.hotel
@@ -43,7 +44,7 @@ namespace Booking_System.backend.database.hotel
             string updateQuery = $"UPDATE tblRoom SET " +
                                  $" HotelId={room.HotelId}, [Name]='{room.Name}', " +
                                  $" Description='{room.Description}', Capacity={room.Capacity}, " +
-                                 $" Price={room.Price}, AmountOfRooms={room.AmountOfRooms}" +
+                                 $" Price={room.Price}, AmountOfRooms={room.AmountOfRooms} " +
                                  $"WHERE ID={room.Id}";
 
             DatabaseResult result = DatabaseWrapper.UpdateFromDatabase(updateQuery);
@@ -63,9 +64,9 @@ namespace Booking_System.backend.database.hotel
         public static Room[] GetHotelRooms(int hotelId)
         {
             //Check if the item is in the cache, if it is, return it
-            if(RoomWrapper.RoomCache.ContainsKey(hotelId)) return RoomWrapper.RoomCache[hotelId].ToArray();
+            if (RoomWrapper.RoomCache.ContainsKey(hotelId)) return RoomWrapper.RoomCache[hotelId].ToArray().OrderBy(value => value.Name).ToArray();
 
-            string query = $"SELECT * FROM tblRoom WHERE HotelId={hotelId}";
+                string query = $"SELECT * FROM tblRoom WHERE HotelId={hotelId}";
             Tuple<DatabaseResult, Dictionary<string, object>>[] result = DatabaseWrapper.GetFromDatabase(query);
 
             foreach (var dbRoom in result)
@@ -79,7 +80,7 @@ namespace Booking_System.backend.database.hotel
                             Name = dbRoom.Item2["Name"].ToString(),
                             Description = dbRoom.Item2["Description"].ToString(),
                             Capacity = (int)dbRoom.Item2["Capacity"],
-                            Price = (double)dbRoom.Item2["Price"],
+                            Price = double.Parse(dbRoom.Item2["Price"].ToString()), //For some reason normal typecasting wasn't working
                             AmountOfRooms = (int)dbRoom.Item2["AmountOfRooms"],
                         };
                         RoomWrapper.AddToCache(room); //Add the room to the cache
@@ -94,12 +95,29 @@ namespace Booking_System.backend.database.hotel
             return GetHotelRooms(hotelId); //Since now all the rooms have been cached, recall method and return result from cache
         }
 
+        public static Room GetHotelRoom(int hotelId, int roomId)
+        {
+            try
+            {
+                foreach (Room hotelRoom in RoomWrapper.GetHotelRooms(hotelId))
+                {
+                    if (hotelRoom.Id == roomId) return hotelRoom;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+            return null;
+        }
+
         /**
          * Ability to add one room to the cache, organized by hotel id
          */
         private static void AddToCache(Room room)
         {
-            if(RoomWrapper.RoomCache[room.HotelId] == null) RoomWrapper.RoomCache.Add(room.HotelId, new List<Room>());
+            if(!RoomWrapper.RoomCache.ContainsKey(room.HotelId)) RoomWrapper.RoomCache.Add(room.HotelId, new List<Room>());
             RoomWrapper.RoomCache[room.HotelId].Add(room);
         }
 
