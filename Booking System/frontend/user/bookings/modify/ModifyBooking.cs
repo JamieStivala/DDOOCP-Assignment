@@ -11,6 +11,10 @@ namespace Booking_System.frontend.user.bookings
         private readonly Hotel hotel;
         private readonly Room room;
         private readonly Booking booking;
+        
+        private Review[] reviews;
+        private int reviewIndex = 0;
+
         public ModifyBooking(Hotel hotel, Room room, Booking booking)
         {
             InitializeComponent();
@@ -27,7 +31,29 @@ namespace Booking_System.frontend.user.bookings
             dateTimePickerCheckInDay.Value = this.booking.CheckIn;
             dateTimePickerCheckOutDay.Value = this.booking.CheckOut;
 
-            
+            this.GetAllReviews();
+        }
+
+        private void GetAllReviews()
+        {
+            try
+            {
+                this.reviews = ReviewWrapper.GetRoomReviews(this.room.Id);
+                if(reviews == null || reviews.Length == 0) return;
+                this.UpdateReviewBox();
+            }
+            catch (Exception ex)
+            {
+                //Nothing to show here just no reviews
+            }
+        }
+
+        private void UpdateReviewBox()
+        {
+            if(this.reviews.Length == 0 || this.reviews == null) return;
+            this.reviewIndex = new Random().Next(0, this.reviews.Length);
+            labelReviewTitleValue.Text = this.reviews[reviewIndex].Title;
+            richTextBoxReviewDescription.Text = this.reviews[reviewIndex].Description;
         }
 
         private bool ValidateDates()
@@ -113,6 +139,16 @@ namespace Booking_System.frontend.user.bookings
                 }
 
             }
+        }
+
+        private void buttonViewBigReview_Click(object sender, EventArgs e)
+        {
+            new ViewReview(this.reviews, 0).Show();
+        }
+
+        private void buttonNextReview_Click(object sender, EventArgs e)
+        {
+            this.UpdateReviewBox();
         }
     }
 }

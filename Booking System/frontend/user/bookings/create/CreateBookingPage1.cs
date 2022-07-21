@@ -20,6 +20,10 @@ namespace Booking_System.frontend.user.bookings.create
         private Hotel[] hotels;
         private Room[] rooms;
         private User user;
+
+        private Review[] reviews;
+        private int reviewIndex;
+
         public CreateBookingPage1(User user)
         {
             InitializeComponent();
@@ -74,15 +78,43 @@ namespace Booking_System.frontend.user.bookings.create
             labelCheckOutTimeValue.Text = "00:00";
         }
 
+        private void ResetReviewInformation()
+        {
+            labelReviewTitleValue.Text = "No reviews yet.";
+            richTextBoxReviewDescription.Text = "No reviews yet.";
+        }
+
+        private void GetReviews(Room room)
+        {
+            try
+            {
+                this.reviews = ReviewWrapper.GetRoomReviews(room.Id);
+            }
+            catch (Exception ex)
+            {
+                //Nothing to do here just means no reviews
+            }
+        }
+
+        private void ShowReview()
+        {
+            if(this.reviews == null || this.reviews.Length == 0) return;
+            this.reviewIndex = new Random().Next(0, this.reviews.Length);
+            labelReviewTitleValue.Text = this.reviews[reviewIndex].Title;
+            richTextBoxReviewDescription.Text = this.reviews[reviewIndex].Description;
+        }
+
         private void comboBoxHotel_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.LoadHotelRooms();
+            this.ResetReviewInformation();
             this.ResetHotelRoomInformation();
         }
 
         private void comboBoxRoom_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.ResetHotelRoomInformation();
+            this.ResetReviewInformation();
             Room room = this.rooms[comboBoxRoom.SelectedIndex]; //Get the selected room
 
             labelMaxAmountOfPeopleValue.Text = $"{room.Capacity}";
@@ -90,6 +122,9 @@ namespace Booking_System.frontend.user.bookings.create
             richTextBoxRoomDescription.Text = $"{room.Description}";
             labelCheckInTimeValue.Text = $"{this.selectedHotel.DefaultCheckInTime.ToShortTimeString()}";
             labelCheckOutTimeValue.Text = $"{this.selectedHotel.DefaultCheckOutTime.ToShortTimeString()}";
+
+            this.GetReviews(room);
+            this.ShowReview();
         }
 
         private void ShowError(string message)
@@ -109,6 +144,16 @@ namespace Booking_System.frontend.user.bookings.create
                 new CreateBookingPage2(this.user, this.selectedHotel, selectedRoom).Show();
                 this.Close();
             }
+        }
+
+        private void buttonNextReview_Click(object sender, EventArgs e)
+        {
+            this.ShowReview();
+        }
+
+        private void buttonViewBigReview_Click(object sender, EventArgs e)
+        {
+            new ViewReview(this.reviews, this.reviewIndex).Show();
         }
     }
 }

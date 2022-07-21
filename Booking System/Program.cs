@@ -21,7 +21,7 @@ namespace Booking_System
             {
                 bool adminFound = UserWrapper.GetAllUsers().Any(user => user.Type == UserType.Admin); //Check if an admin is existing, if not, create the default admin.
                 
-                UserWrapper.CreateUser(new User("Jamie", "Stivala", "jamiestivala@gmail.com", "Pukka1234!", "77223883", new DateTime(2001, 09, 16, 1, 1, 1), 'M', "0368201L", "Malta", "48 Rhapsody", UserType.Customer));
+                //UserWrapper.CreateUser(new User("Jamie", "Stivala", "jamiestivala@gmail.com", "Pukka1234!", "77223883", new DateTime(2001, 09, 16, 1, 1, 1), 'M', "0368201L", "Malta", "48 Rhapsody", UserType.Customer));
                 if (!adminFound) UserWrapper.CreateUser(new User("Admin", "Account", "admin@admin.com", "SecurePassword123!", "00000000", new DateTime(2001, 09, 16, 1, 1, 1), 'O', "000000A", "British", "London Bridge", UserType.Admin));
             }
             catch (Exception ex)

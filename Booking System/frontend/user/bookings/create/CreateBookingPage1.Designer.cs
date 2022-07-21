@@ -46,7 +46,12 @@
             this.labelPrice = new System.Windows.Forms.Label();
             this.labelMaxAmountOfRoom = new System.Windows.Forms.Label();
             this.groupBoxReviews = new System.Windows.Forms.GroupBox();
+            this.richTextBoxReviewDescription = new System.Windows.Forms.RichTextBox();
+            this.labelReviewTitleValue = new System.Windows.Forms.Label();
+            this.buttonViewBigReview = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.buttonNextReview = new System.Windows.Forms.Button();
+            this.labelReviewTitle = new System.Windows.Forms.Label();
             this.labelHotel = new System.Windows.Forms.Label();
             this.groupBoxRoomInformation.SuspendLayout();
             this.groupBoxReviews.SuspendLayout();
@@ -222,7 +227,12 @@
             // 
             // groupBoxReviews
             // 
+            this.groupBoxReviews.Controls.Add(this.richTextBoxReviewDescription);
+            this.groupBoxReviews.Controls.Add(this.labelReviewTitleValue);
+            this.groupBoxReviews.Controls.Add(this.buttonViewBigReview);
+            this.groupBoxReviews.Controls.Add(this.label4);
             this.groupBoxReviews.Controls.Add(this.buttonNextReview);
+            this.groupBoxReviews.Controls.Add(this.labelReviewTitle);
             this.groupBoxReviews.Location = new System.Drawing.Point(569, 69);
             this.groupBoxReviews.Name = "groupBoxReviews";
             this.groupBoxReviews.Size = new System.Drawing.Size(201, 111);
@@ -230,14 +240,60 @@
             this.groupBoxReviews.TabStop = false;
             this.groupBoxReviews.Text = "Reviews";
             // 
+            // richTextBoxReviewDescription
+            // 
+            this.richTextBoxReviewDescription.Location = new System.Drawing.Point(13, 55);
+            this.richTextBoxReviewDescription.Name = "richTextBoxReviewDescription";
+            this.richTextBoxReviewDescription.ReadOnly = true;
+            this.richTextBoxReviewDescription.Size = new System.Drawing.Size(182, 21);
+            this.richTextBoxReviewDescription.TabIndex = 85;
+            this.richTextBoxReviewDescription.Text = "";
+            // 
+            // labelReviewTitleValue
+            // 
+            this.labelReviewTitleValue.AutoSize = true;
+            this.labelReviewTitleValue.Location = new System.Drawing.Point(49, 20);
+            this.labelReviewTitleValue.Name = "labelReviewTitleValue";
+            this.labelReviewTitleValue.Size = new System.Drawing.Size(0, 13);
+            this.labelReviewTitleValue.TabIndex = 84;
+            // 
+            // buttonViewBigReview
+            // 
+            this.buttonViewBigReview.Location = new System.Drawing.Point(103, 82);
+            this.buttonViewBigReview.Name = "buttonViewBigReview";
+            this.buttonViewBigReview.Size = new System.Drawing.Size(92, 23);
+            this.buttonViewBigReview.TabIndex = 5;
+            this.buttonViewBigReview.Text = "Show Bigger";
+            this.buttonViewBigReview.UseVisualStyleBackColor = true;
+            this.buttonViewBigReview.Click += new System.EventHandler(this.buttonViewBigReview_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 38);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 13);
+            this.label4.TabIndex = 83;
+            this.label4.Text = "Description";
+            // 
             // buttonNextReview
             // 
-            this.buttonNextReview.Location = new System.Drawing.Point(6, 82);
+            this.buttonNextReview.Location = new System.Drawing.Point(13, 82);
             this.buttonNextReview.Name = "buttonNextReview";
-            this.buttonNextReview.Size = new System.Drawing.Size(189, 23);
+            this.buttonNextReview.Size = new System.Drawing.Size(84, 23);
             this.buttonNextReview.TabIndex = 3;
             this.buttonNextReview.Text = "Next Review";
             this.buttonNextReview.UseVisualStyleBackColor = true;
+            this.buttonNextReview.Click += new System.EventHandler(this.buttonNextReview_Click);
+            // 
+            // labelReviewTitle
+            // 
+            this.labelReviewTitle.AutoSize = true;
+            this.labelReviewTitle.Location = new System.Drawing.Point(10, 20);
+            this.labelReviewTitle.Name = "labelReviewTitle";
+            this.labelReviewTitle.Size = new System.Drawing.Size(33, 13);
+            this.labelReviewTitle.TabIndex = 82;
+            this.labelReviewTitle.Text = "Title: ";
             // 
             // labelHotel
             // 
@@ -267,6 +323,7 @@
             this.groupBoxRoomInformation.ResumeLayout(false);
             this.groupBoxRoomInformation.PerformLayout();
             this.groupBoxReviews.ResumeLayout(false);
+            this.groupBoxReviews.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,5 +350,10 @@
         private System.Windows.Forms.Label labelCheckInTimeValue;
         private System.Windows.Forms.RichTextBox richTextBoxRoomDescription;
         private System.Windows.Forms.Label labelRoomDescription;
+        private System.Windows.Forms.Button buttonViewBigReview;
+        private System.Windows.Forms.RichTextBox richTextBoxReviewDescription;
+        private System.Windows.Forms.Label labelReviewTitleValue;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelReviewTitle;
     }
 }

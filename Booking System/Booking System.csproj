@@ -120,6 +120,12 @@
     <Compile Include="frontend\user\bookings\create\CreateBookingPage2.Designer.cs">
       <DependentUpon>CreateBookingPage2.cs</DependentUpon>
     </Compile>
+    <Compile Include="frontend\user\bookings\LeaveReview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frontend\user\bookings\LeaveReview.Designer.cs">
+      <DependentUpon>LeaveReview.cs</DependentUpon>
+    </Compile>
     <Compile Include="frontend\user\bookings\modify\ListBookings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,12 @@
     </Compile>
     <Compile Include="frontend\user\bookings\modify\ModifyBooking.Designer.cs">
       <DependentUpon>ModifyBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frontend\user\bookings\ViewReview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frontend\user\bookings\ViewReview.Designer.cs">
+      <DependentUpon>ViewReview.cs</DependentUpon>
     </Compile>
     <Compile Include="frontend\user\EditPersonalInformation.cs">
       <SubType>Form</SubType>
@@ -161,11 +173,17 @@
     <EmbeddedResource Include="frontend\user\bookings\create\CreateBookingPage2.resx">
       <DependentUpon>CreateBookingPage2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frontend\user\bookings\LeaveReview.resx">
+      <DependentUpon>LeaveReview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frontend\user\bookings\modify\ListBookings.resx">
       <DependentUpon>ListBookings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frontend\user\bookings\modify\ModifyBooking.resx">
       <DependentUpon>ModifyBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frontend\user\bookings\ViewReview.resx">
+      <DependentUpon>ViewReview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frontend\user\EditPersonalInformation.resx">
       <DependentUpon>EditPersonalInformation.cs</DependentUpon>
