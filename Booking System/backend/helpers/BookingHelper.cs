@@ -11,7 +11,7 @@ namespace Booking_System.backend.helpers
         /**
          * Checks if check-in and check-out fall between two existing dates
          */
-        public static bool IsBetweenDates(DateTime existingCheckIn, DateTime existingCheckOut, DateTime newBookingCheckIn, DateTime newBookingCheckOut)
+        private static bool IsBetweenDates(DateTime existingCheckIn, DateTime existingCheckOut, DateTime newBookingCheckIn, DateTime newBookingCheckOut)
         {
             return (existingCheckIn <= newBookingCheckOut) && (existingCheckOut >= newBookingCheckIn);
         }
