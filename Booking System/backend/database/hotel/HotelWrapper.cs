@@ -38,6 +38,8 @@ namespace Booking_System.backend.database.hotel
         {
             if (HotelWrapper._gottenAll) return HotelWrapper.HotelCache.ToArray(); //If already gotten all the database items, return all
 
+            HotelWrapper.HotelCache.Clear(); //Since we are re-getting everything from the database, remove any hotels in cache that were created
+
             string query = $"SELECT * FROM tblHotel";
             Tuple<DatabaseResult, Dictionary<string, object>>[] result = DatabaseWrapper.GetFromDatabase(query);
 
