@@ -26,5 +26,10 @@ namespace Booking_System.backend.model.hotel
         public DateTime CheckOut { get; set; }
         public double Price { get; set; }
         public int NumberOfPeople { get; set; }
+
+        public int GetAmountOfNights()
+        {
+            return (this.CheckOut.Date - this.CheckIn.Date).Days;
+        }
     }
 }
