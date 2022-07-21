@@ -75,6 +75,7 @@
     <Compile Include="backend\database\hotel\ReviewWrapper.cs" />
     <Compile Include="backend\database\hotel\RoomWrapper.cs" />
     <Compile Include="backend\database\UserWrapper.cs" />
+    <Compile Include="backend\helpers\BookingHelper.cs" />
     <Compile Include="backend\model\hotel\Booking.cs" />
     <Compile Include="backend\model\hotel\Hotel.cs" />
     <Compile Include="backend\model\hotel\Review.cs" />
