@@ -435,6 +435,7 @@ namespace Booking_System.frontend.admin
                     "Confirm user delete", MessageBoxButtons.YesNo);
             if (dialogResult != DialogResult.Yes) return; //If no, stop action
             User user = this.GetSelectedUser();
+            if(user == null) return;
 
             if (user.Uuid == this.currentUser.Uuid)
             {
