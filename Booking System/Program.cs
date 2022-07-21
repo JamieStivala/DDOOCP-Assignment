@@ -1,17 +1,10 @@
 using Booking_System.backend.database;
 using Booking_System.backend.model.user;
-using Booking_System.frontend.user;
 using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
-using Booking_System.backend.database.hotel;
-using Booking_System.backend.helpers;
-using Booking_System.backend.model.hotel;
-using Booking_System.frontend.admin;
 using Booking_System.frontend.auth;
-using Booking_System.frontend.user.bookings.create;
-using Booking_System.frontend.user.bookings.modify;
 
 namespace Booking_System
 {
@@ -40,9 +33,7 @@ namespace Booking_System
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            var userr = UserWrapper.GetUser("jamiestivala@gmail.com", "Pukka1234!");
-            Application.Run(new ListBookings(userr));
+            new FormSignin().Show();
         }
     }
 }
