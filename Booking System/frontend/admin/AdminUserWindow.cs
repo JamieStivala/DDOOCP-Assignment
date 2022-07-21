@@ -9,6 +9,8 @@ using Booking_System.backend.model.hotel;
 using Booking_System.backend.model.user;
 using Booking_System.frontend.auth;
 using Booking_System.frontend.user;
+using Booking_System.frontend.user.bookings.create;
+using Booking_System.frontend.user.bookings.modify;
 
 namespace Booking_System.frontend.admin
 {
@@ -446,6 +448,35 @@ namespace Booking_System.frontend.admin
             UserWrapper.DeleteUser(user);
             LoadAllUsers();
         }
+
+        private void buttonViewModifyBookings_Click(object sender, EventArgs e)
+        {
+            User user = this.GetSelectedUser();
+            if (user == null) return;
+
+            if (user.Type == UserType.Admin)
+            {
+                this.ShowError("You can't modify admin bookings.");
+                return;
+            }
+
+            new ListBookings(user, true).Show();
+        }
+
+        private void buttonCreateUserBooking_Click(object sender, EventArgs e)
+        {
+            User user = this.GetSelectedUser();
+            if (user == null) return;
+
+            if (user.Type == UserType.Admin)
+            {
+                this.ShowError("You can't modify admin bookings.");
+                return;
+            }
+
+            new CreateBookingPage1(user).Show();
+        }
+
         #endregion
 
         #region Shared Code Between Tabs
@@ -475,6 +506,7 @@ namespace Booking_System.frontend.admin
         {
             MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
 
         #endregion
 
