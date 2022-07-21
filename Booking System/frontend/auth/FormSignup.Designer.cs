@@ -71,7 +71,7 @@
             this.textBoxName.Location = new System.Drawing.Point(74, 109);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(164, 20);
-            this.textBoxName.TabIndex = 9;
+            this.textBoxName.TabIndex = 1;
             // 
             // labelName
             // 
@@ -96,7 +96,7 @@
             this.textBoxSurname.Location = new System.Drawing.Point(74, 165);
             this.textBoxSurname.Name = "textBoxSurname";
             this.textBoxSurname.Size = new System.Drawing.Size(164, 20);
-            this.textBoxSurname.TabIndex = 11;
+            this.textBoxSurname.TabIndex = 2;
             // 
             // label1
             // 
@@ -112,7 +112,7 @@
             this.textBoxEmail.Location = new System.Drawing.Point(74, 220);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(164, 20);
-            this.textBoxEmail.TabIndex = 15;
+            this.textBoxEmail.TabIndex = 3;
             // 
             // labelIdCard
             // 
@@ -128,7 +128,7 @@
             this.textBoxIdCard.Location = new System.Drawing.Point(349, 165);
             this.textBoxIdCard.Name = "textBoxIdCard";
             this.textBoxIdCard.Size = new System.Drawing.Size(164, 20);
-            this.textBoxIdCard.TabIndex = 13;
+            this.textBoxIdCard.TabIndex = 7;
             // 
             // labelContactNumber
             // 
@@ -144,7 +144,7 @@
             this.textBoxContactNumber.Location = new System.Drawing.Point(74, 330);
             this.textBoxContactNumber.Name = "textBoxContactNumber";
             this.textBoxContactNumber.Size = new System.Drawing.Size(164, 20);
-            this.textBoxContactNumber.TabIndex = 17;
+            this.textBoxContactNumber.TabIndex = 5;
             // 
             // labelGender
             // 
@@ -169,7 +169,7 @@
             this.textBoxNation.Location = new System.Drawing.Point(349, 276);
             this.textBoxNation.Name = "textBoxNation";
             this.textBoxNation.Size = new System.Drawing.Size(164, 20);
-            this.textBoxNation.TabIndex = 23;
+            this.textBoxNation.TabIndex = 8;
             // 
             // labelAddress
             // 
@@ -186,7 +186,7 @@
             this.textBoxAddress.Multiline = true;
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(164, 53);
-            this.textBoxAddress.TabIndex = 19;
+            this.textBoxAddress.TabIndex = 9;
             // 
             // labelPassword
             // 
@@ -202,7 +202,7 @@
             this.textBoxPassword.Location = new System.Drawing.Point(74, 276);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(164, 20);
-            this.textBoxPassword.TabIndex = 27;
+            this.textBoxPassword.TabIndex = 4;
             this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // signupButton
@@ -230,7 +230,7 @@
             this.dateTimePickerDOB.Location = new System.Drawing.Point(349, 109);
             this.dateTimePickerDOB.Name = "dateTimePickerDOB";
             this.dateTimePickerDOB.Size = new System.Drawing.Size(164, 20);
-            this.dateTimePickerDOB.TabIndex = 33;
+            this.dateTimePickerDOB.TabIndex = 6;
             // 
             // errorProvider
             // 
@@ -246,7 +246,7 @@
             this.comboBoxGender.Location = new System.Drawing.Point(349, 219);
             this.comboBoxGender.Name = "comboBoxGender";
             this.comboBoxGender.Size = new System.Drawing.Size(164, 21);
-            this.comboBoxGender.TabIndex = 34;
+            this.comboBoxGender.TabIndex = 7;
             // 
             // buttonSignin
             // 

@@ -51,7 +51,7 @@
             this.createBookingButton.Location = new System.Drawing.Point(75, 109);
             this.createBookingButton.Name = "createBookingButton";
             this.createBookingButton.Size = new System.Drawing.Size(111, 53);
-            this.createBookingButton.TabIndex = 9;
+            this.createBookingButton.TabIndex = 1;
             this.createBookingButton.Text = "Create Booking";
             this.createBookingButton.UseVisualStyleBackColor = true;
             this.createBookingButton.Click += new System.EventHandler(this.createBookingButton_Click);
@@ -62,7 +62,7 @@
             this.viewBookingButton.Location = new System.Drawing.Point(303, 109);
             this.viewBookingButton.Name = "viewBookingButton";
             this.viewBookingButton.Size = new System.Drawing.Size(111, 53);
-            this.viewBookingButton.TabIndex = 10;
+            this.viewBookingButton.TabIndex = 2;
             this.viewBookingButton.Text = "View/Edit Bookings";
             this.viewBookingButton.UseVisualStyleBackColor = true;
             // 
@@ -72,7 +72,7 @@
             this.editPersonalInformationButton.Location = new System.Drawing.Point(526, 109);
             this.editPersonalInformationButton.Name = "editPersonalInformationButton";
             this.editPersonalInformationButton.Size = new System.Drawing.Size(111, 53);
-            this.editPersonalInformationButton.TabIndex = 11;
+            this.editPersonalInformationButton.TabIndex = 3;
             this.editPersonalInformationButton.Text = "Edit Personal Information";
             this.editPersonalInformationButton.UseVisualStyleBackColor = true;
             this.editPersonalInformationButton.Click += new System.EventHandler(this.EditPersonalInformationButton_Click);
@@ -83,7 +83,7 @@
             this.signoutButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.signoutButton.Name = "signoutButton";
             this.signoutButton.Size = new System.Drawing.Size(117, 35);
-            this.signoutButton.TabIndex = 12;
+            this.signoutButton.TabIndex = 4;
             this.signoutButton.Text = "Signout";
             this.signoutButton.UseVisualStyleBackColor = true;
             this.signoutButton.Click += new System.EventHandler(this.SignoutButton_Click);

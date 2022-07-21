@@ -46,7 +46,7 @@
             this.emailTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(258, 20);
-            this.emailTextBox.TabIndex = 6;
+            this.emailTextBox.TabIndex = 1;
             // 
             // loginLabel
             // 
@@ -64,7 +64,7 @@
             this.loginButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(117, 35);
-            this.loginButton.TabIndex = 8;
+            this.loginButton.TabIndex = 3;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.LoginButton_Click);
@@ -93,7 +93,7 @@
             this.passwordTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(258, 20);
-            this.passwordTextBox.TabIndex = 10;
+            this.passwordTextBox.TabIndex = 2;
             this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // buttonSignup
@@ -101,7 +101,7 @@
             this.buttonSignup.Location = new System.Drawing.Point(321, 237);
             this.buttonSignup.Name = "buttonSignup";
             this.buttonSignup.Size = new System.Drawing.Size(101, 35);
-            this.buttonSignup.TabIndex = 12;
+            this.buttonSignup.TabIndex = 4;
             this.buttonSignup.Text = "Signup";
             this.buttonSignup.UseVisualStyleBackColor = true;
             this.buttonSignup.Click += new System.EventHandler(this.ButtonSignup_Click);
