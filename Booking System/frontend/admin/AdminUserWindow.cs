@@ -50,12 +50,10 @@ namespace Booking_System.frontend.admin
             if (currentHotel != null)
             {
                 tabPageRoomManager.Enabled = true;
-                tabPageBookingManager.Enabled = true;
             }
             else
             {
                 tabPageRoomManager.Enabled = false;
-                tabPageBookingManager.Enabled = false;
 
                 if (tabControl.SelectedIndex == 0) return;
                 this.ShowError("Please select a valid hotel or create a new hotel.");
