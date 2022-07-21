@@ -87,7 +87,7 @@ namespace Booking_System.frontend.user.bookings.create
             }
             else
             {
-                Booking booking = new Booking(this.room.Id, this.user.IdCard, checkInDate, checkOutDate,
+                Booking booking = new Booking(this.room.Id, this.user.Uuid, checkInDate, checkOutDate,
                     (this.CalculateAmountOfNights() * this.room.Price), this.room.Capacity);
 
                 try
