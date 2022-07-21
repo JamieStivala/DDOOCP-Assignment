@@ -59,9 +59,10 @@ namespace Booking_System.backend.database.hotel
 
         public static Review[] GetBookingReviews(int[] bookingIds)
         {
+            if (bookingIds.Length == 0) return null;
             //Build a string which is able to get multiple reviews based on multiple BookingIds using WHERE (BookingId=something OR ...)
             string builtQuery = bookingIds.Aggregate("", (current, bookingId) => current + $"BookingId={bookingId} OR");
-            builtQuery = builtQuery.Substring(builtQuery.Length - 3); //Remove the last OR 
+            builtQuery = builtQuery.Substring(0, builtQuery.Length - 3); //Remove the last OR 
 
 
             string query = $"SELECT * FROM tblReview WHERE ({builtQuery})";
