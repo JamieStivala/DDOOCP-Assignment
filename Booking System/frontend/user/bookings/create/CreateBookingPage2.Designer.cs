@@ -173,6 +173,7 @@
             this.buttonBookNow.TabIndex = 78;
             this.buttonBookNow.Text = "Book now";
             this.buttonBookNow.UseVisualStyleBackColor = true;
+            this.buttonBookNow.Click += new System.EventHandler(this.buttonBookNow_Click);
             // 
             // errorProvider
             // 
