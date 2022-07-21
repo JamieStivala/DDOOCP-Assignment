@@ -135,7 +135,6 @@ namespace Booking_System.backend.database.hotel
                     };
                     RoomWrapper.AddToCache(room); //Add the room to the cache
                     return room;
-                    break;
                 default:
                     throw new Exception("An unknown error has occurred.");
             }

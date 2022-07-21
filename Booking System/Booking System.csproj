@@ -120,6 +120,12 @@
     <Compile Include="frontend\user\bookings\create\CreateBookingPage2.Designer.cs">
       <DependentUpon>CreateBookingPage2.cs</DependentUpon>
     </Compile>
+    <Compile Include="frontend\user\bookings\LeaveReview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frontend\user\bookings\LeaveReview.Designer.cs">
+      <DependentUpon>LeaveReview.cs</DependentUpon>
+    </Compile>
     <Compile Include="frontend\user\bookings\modify\ListBookings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frontend\user\bookings\create\CreateBookingPage2.resx">
       <DependentUpon>CreateBookingPage2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frontend\user\bookings\LeaveReview.resx">
+      <DependentUpon>LeaveReview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frontend\user\bookings\modify\ListBookings.resx">
       <DependentUpon>ListBookings.cs</DependentUpon>

@@ -33,6 +33,7 @@
             this.viewBookingButton = new System.Windows.Forms.Button();
             this.editPersonalInformationButton = new System.Windows.Forms.Button();
             this.signoutButton = new System.Windows.Forms.Button();
+            this.buttonLeaveReview = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mainMenuLabel
@@ -89,11 +90,24 @@
             this.signoutButton.UseVisualStyleBackColor = true;
             this.signoutButton.Click += new System.EventHandler(this.SignoutButton_Click);
             // 
+            // buttonLeaveReview
+            // 
+            this.buttonLeaveReview.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.buttonLeaveReview.Location = new System.Drawing.Point(303, 203);
+            this.buttonLeaveReview.Name = "buttonLeaveReview";
+            this.buttonLeaveReview.Size = new System.Drawing.Size(111, 53);
+            this.buttonLeaveReview.TabIndex = 9;
+            this.buttonLeaveReview.Text = "Leave a Review";
+            this.buttonLeaveReview.UseVisualStyleBackColor = true;
+            this.buttonLeaveReview.Visible = false;
+            this.buttonLeaveReview.Click += new System.EventHandler(this.buttonLeaveReview_Click);
+            // 
             // MainUserWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 390);
+            this.Controls.Add(this.buttonLeaveReview);
             this.Controls.Add(this.signoutButton);
             this.Controls.Add(this.editPersonalInformationButton);
             this.Controls.Add(this.viewBookingButton);
@@ -114,5 +128,6 @@
         private System.Windows.Forms.Button viewBookingButton;
         private System.Windows.Forms.Button editPersonalInformationButton;
         private System.Windows.Forms.Button signoutButton;
+        private System.Windows.Forms.Button buttonLeaveReview;
     }
 }
