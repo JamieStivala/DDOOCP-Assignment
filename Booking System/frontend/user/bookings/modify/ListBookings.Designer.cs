@@ -37,6 +37,7 @@
             this.columnRoomName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnAmountOfNights = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnAmountPaid = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnEditable = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // labelListAllBookings
@@ -78,7 +79,8 @@
             this.columnHotelName,
             this.columnRoomName,
             this.columnAmountOfNights,
-            this.columnAmountPaid});
+            this.columnAmountPaid,
+            this.columnEditable});
             this.listViewBookings.HideSelection = false;
             this.listViewBookings.Location = new System.Drawing.Point(52, 85);
             this.listViewBookings.Name = "listViewBookings";
@@ -94,12 +96,12 @@
             // columnHotelName
             // 
             this.columnHotelName.Text = "Hotel Name";
-            this.columnHotelName.Width = 227;
+            this.columnHotelName.Width = 173;
             // 
             // columnRoomName
             // 
             this.columnRoomName.Text = "Room Name";
-            this.columnRoomName.Width = 198;
+            this.columnRoomName.Width = 161;
             // 
             // columnAmountOfNights
             // 
@@ -110,6 +112,10 @@
             // 
             this.columnAmountPaid.Text = "Amount Paid";
             this.columnAmountPaid.Width = 92;
+            // 
+            // columnEditable
+            // 
+            this.columnEditable.Text = "Editable";
             // 
             // ListBookings
             // 
@@ -138,5 +144,6 @@
         private System.Windows.Forms.ColumnHeader columnRoomName;
         private System.Windows.Forms.ColumnHeader columnAmountOfNights;
         private System.Windows.Forms.ColumnHeader columnAmountPaid;
+        private System.Windows.Forms.ColumnHeader columnEditable;
     }
 }

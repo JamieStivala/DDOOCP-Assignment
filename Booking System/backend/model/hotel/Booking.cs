@@ -31,5 +31,16 @@ namespace Booking_System.backend.model.hotel
         {
             return (this.CheckOut.Date - this.CheckIn.Date).Days;
         }
+
+        public bool IsBeforeCheckIn()
+        {
+            return DateTime.Today < this.CheckIn;
+        }
+
+        public static int CalculateAmountOfNights(DateTime checkIn, DateTime checkOut)
+        {
+            return (checkOut.Date - checkIn.Date).Days;
+        }
+
     }
 }

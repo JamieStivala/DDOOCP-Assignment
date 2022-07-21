@@ -1,26 +1,33 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Windows.Forms;
 using Booking_System.backend.database.hotel;
 using Booking_System.backend.helpers;
 using Booking_System.backend.model.hotel;
-using Booking_System.backend.model.user;
 
-namespace Booking_System.frontend.user.bookings.create
+namespace Booking_System.frontend.user.bookings
 {
-    public partial class CreateBookingPage2 : Form
+    public partial class ModifyBooking : Form
     {
         private readonly Hotel hotel;
         private readonly Room room;
-        private readonly User user;
-        public CreateBookingPage2(User user, Hotel hotel, Room room)
+        private readonly Booking booking;
+        public ModifyBooking(Hotel hotel, Room room, Booking booking)
         {
             InitializeComponent();
-            this.hotel = hotel;
+            this.booking = booking;
             this.room = room;
-            this.user = user;
+            this.hotel = hotel;
 
-            labelPricePerNightValue.Text = $"£{this.room.Price}";
+            labelMaxAmountOfPeopleValue.Text = room.Capacity + "";
+            labelCheckInTimeValue.Text = hotel.DefaultCheckInTime.ToShortTimeString();
+            labelCheckOutTimeValue.Text = hotel.DefaultCheckOutTime.ToShortTimeString();
+            richTextBoxRoomDescription.Text = room.Description;
+            labelPricePerNightValue.Text = $"£{room.Price}";
+
+            dateTimePickerCheckInDay.Value = this.booking.CheckIn;
+            dateTimePickerCheckOutDay.Value = this.booking.CheckOut;
+
+            
         }
 
         private bool ValidateDates()
@@ -40,17 +47,18 @@ namespace Booking_System.frontend.user.bookings.create
 
             return true;
         }
-
         private void UpdatePriceBreakdown()
         {
-            
-            if(!this.ValidateDates()) return;
-            int amountOfNights = Booking.CalculateAmountOfNights(dateTimePickerCheckInDay.Value, dateTimePickerCheckOutDay.Value);
+
+            if (!this.ValidateDates()) return;
+            var amountOfNights =
+                Booking.CalculateAmountOfNights(dateTimePickerCheckInDay.Value, dateTimePickerCheckOutDay.Value);
             labelAmountOfNightsValue.Text = amountOfNights + "";
             labelTotalPriceValue.Text = $"£{amountOfNights * this.room.Price}";
-
         }
-        private void dateTimePickerCheckInDate_ValueChanged(object sender, EventArgs e)
+
+
+        private void dateTimePickerCheckInDay_ValueChanged(object sender, EventArgs e)
         {
             this.UpdatePriceBreakdown();
         }
@@ -60,7 +68,13 @@ namespace Booking_System.frontend.user.bookings.create
             this.UpdatePriceBreakdown();
         }
 
-        private void buttonBookNow_Click(object sender, EventArgs e)
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
+        private void buttonSaveModifiedBooking_Click(object sender, EventArgs e)
         {
             if (!this.ValidateDates()) return;
 
@@ -76,18 +90,18 @@ namespace Booking_System.frontend.user.bookings.create
             checkOutDate += checkOutTimeSpan;
             //Set the time of the check-in and check-out days
 
-            if (!BookingHelper.IsRoomAvailable(this.room, checkInDate, checkOutDate))
+            if (!BookingHelper.IsRoomAvailable(this.room, checkInDate, checkOutDate, this.booking.Id))
             {
                 MessageBox.Show("Unfortunately the room is not available on the dates you picked.  Please pick another date or contact an administrator to help you.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                Booking booking = new Booking(this.room.Id, this.user.Uuid, checkInDate, checkOutDate,
-                    (Booking.CalculateAmountOfNights(dateTimePickerCheckInDay.Value, dateTimePickerCheckOutDay.Value) * this.room.Price), this.room.Capacity);
+                this.booking.CheckIn = checkInDate;
+                this.booking.CheckOut = checkOutDate;
 
                 try
                 {
-                    BookingWrapper.CreateBooking(booking);
+                    BookingWrapper.UpdateBooking(booking);
                 }
                 catch (Exception ex)
                 {
@@ -99,7 +113,6 @@ namespace Booking_System.frontend.user.bookings.create
                 }
 
             }
-
         }
     }
 }
