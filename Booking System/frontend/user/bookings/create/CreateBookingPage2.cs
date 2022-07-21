@@ -10,9 +10,9 @@ namespace Booking_System.frontend.user.bookings.create
 {
     public partial class CreateBookingPage2 : Form
     {
-        private Hotel hotel;
-        private Room room;
-        private User user;
+        private readonly Hotel hotel;
+        private readonly Room room;
+        private readonly User user;
         public CreateBookingPage2(User user, Hotel hotel, Room room)
         {
             InitializeComponent();
