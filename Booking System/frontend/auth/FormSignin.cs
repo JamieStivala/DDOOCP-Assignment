@@ -35,7 +35,7 @@ namespace Booking_System.frontend.auth
 
                 if (user.Type == UserType.Admin)
                 {
-                    AdminUserWindow adminUserWindow = new AdminUserWindow();
+                    AdminUserWindow adminUserWindow = new AdminUserWindow(user);
                     adminUserWindow.Show();
                     this.Hide();
                 }

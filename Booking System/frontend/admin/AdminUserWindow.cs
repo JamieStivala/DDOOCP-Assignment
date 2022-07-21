@@ -16,10 +16,12 @@ namespace Booking_System.frontend.admin
     public partial class AdminUserWindow : Form
     {
         private Hotel currentHotel = null;
+        private User currentUser;
 
-        public AdminUserWindow()
+        public AdminUserWindow(User user)
         {
             InitializeComponent();
+            this.currentUser = user;
         }
 
         private void AdminUserWindow_Load(object sender, System.EventArgs e)
@@ -383,6 +385,12 @@ namespace Booking_System.frontend.admin
         private void buttonUserManagerToggleAdmin_Click(object sender, EventArgs e)
         {
             User user = GetSelectedUser();
+            if (user.Uuid == this.currentUser.Uuid)
+            {
+                this.ShowError("You can't toggle your own User Type.  Please ask another admin to do it for you.");
+                return;
+            }
+
             UserType originalUserType = user.Type;
 
             switch (user.Type)
@@ -423,10 +431,17 @@ namespace Booking_System.frontend.admin
         private void buttonUserManagerRemove_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult =
-                MessageBox.Show($"Are you sure you want to remove this user =?  This means that any bookings and and reviews made by this User will be deleted.",
+                MessageBox.Show($"Are you sure you want to remove this user?  This means that any bookings and and reviews made by this User will be deleted.",
                     "Confirm user delete", MessageBoxButtons.YesNo);
             if (dialogResult != DialogResult.Yes) return; //If no, stop action
             User user = this.GetSelectedUser();
+
+            if (user.Uuid == this.currentUser.Uuid)
+            {
+                this.ShowError("You can't delete your own User.  Please ask another admin to do it for you.");
+                return;
+            }
+
             UserWrapper.DeleteUser(user);
             LoadAllUsers();
         }
