@@ -11,8 +11,8 @@ namespace Booking_System.backend.database.hotel
 
         public static void CreateBooking(Booking booking)
         {
-            string insertQuery = $"INSERT INTO tblBooking (RoomId, UserId, CheckIn, CheckOut, Price, NumberOfPeople) VALUES" +
-                                 $"({booking.RoomId}, '{booking.UserId}', '{booking.CheckIn}', '{booking.CheckOut}', {booking.Price}, {booking.NumberOfPeople})";
+            string insertQuery = $"INSERT INTO tblBooking (RoomId, UserId, CheckIn, CheckOut, Price, NumberOfPeopleInRoom) VALUES" +
+                                 $"({booking.RoomId}, '{booking.UserId}', {booking.CheckIn.ToOADate()}, {booking.CheckOut.ToOADate()}, {booking.Price}, {booking.NumberOfPeople})";
 
             (DatabaseResult, int) result = DatabaseWrapper.InsertIntoDatabaseReturningId(insertQuery);
 
@@ -49,7 +49,7 @@ namespace Booking_System.backend.database.hotel
                         booking.CheckIn = (DateTime)row.Item2["CheckIn"];
                         booking.CheckOut = (DateTime)row.Item2["CheckOut"];
                         booking.Price = (int)row.Item2["Price"];
-                        booking.NumberOfPeople = (int)row.Item2["NumberOfPeople"];
+                        booking.NumberOfPeople = (int)row.Item2["NumberOfPeopleInRoom"];
                         break;
                     case DatabaseResult.NotFound:
                         return; //This is not an error, it just means that the user does not have any bookings
@@ -92,7 +92,7 @@ namespace Booking_System.backend.database.hotel
 
             string updateQuery = $"UPDATE tblBooking SET " +
                                  $" RoomId={booking.RoomId}, UserId='{booking.UserId}'," +
-                                 $" CheckIn={booking.CheckIn}, CheckOut={booking.CheckOut}, " +
+                                 $" CheckIn={booking.CheckIn.ToOADate()}, CheckOut={booking.CheckOut.ToOADate()}, " +
                                  $" Price={booking.Price}, NumberOfPeople={booking.NumberOfPeople}" +
                                  $"WHERE ID={booking.Id}";
 
