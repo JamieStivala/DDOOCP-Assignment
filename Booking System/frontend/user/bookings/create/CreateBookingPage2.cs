@@ -83,7 +83,7 @@ namespace Booking_System.frontend.user.bookings.create
 
             if (!BookingHelper.IsRoomAvailable(this.room, checkInDate, checkOutDate))
             {
-                MessageBox.Show("Unfortunately the room is not available on the dates you picked.  Please pick another date or contact an administrator to help you.,", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Unfortunately the room is not available on the dates you picked.  Please pick another date or contact an administrator to help you.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
