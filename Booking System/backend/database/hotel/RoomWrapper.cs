@@ -151,6 +151,7 @@ namespace Booking_System.backend.database.hotel
             {
                 case DatabaseResult.Ok:
                     RoomWrapper.RoomCache[room.HotelId].Remove(room); //Remove the room from the cache
+                    RoomWrapper.RoomList.Remove(room);
                     return;
                 default:
                     throw new Exception("An unknown error has occurred.");
