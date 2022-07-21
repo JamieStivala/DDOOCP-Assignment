@@ -77,18 +77,6 @@ namespace Booking_System.frontend.user.bookings.modify
 
             BookingWrapper.DeleteBooking(booking);
             this.LoadBookingList();
-            /*
-            User user = this.GetSelectedUser();
-
-            if (user.Uuid == this.currentUser.Uuid)
-            {
-                this.ShowError("You can't delete your own User.  Please ask another admin to do it for you.");
-                return;
-            }
-
-            UserWrapper.DeleteUser(user);
-            LoadAllUsers();
-             */
         }
 
         private void ShowError(string message)
