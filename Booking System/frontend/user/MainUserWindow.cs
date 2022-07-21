@@ -3,6 +3,7 @@ using Booking_System.frontend.auth;
 using System;
 using System.Windows.Forms;
 using Booking_System.frontend.user.bookings.create;
+using Booking_System.frontend.user.bookings.modify;
 
 namespace Booking_System.frontend.user
 {
@@ -36,6 +37,11 @@ namespace Booking_System.frontend.user
         {
             CreateBookingPage1 createBooking = new CreateBookingPage1(this.user);
             createBooking.Show();
+        }
+
+        private void viewBookingButton_Click(object sender, EventArgs e)
+        {
+            new ListBookings(this.user).Show();
         }
     }
 }

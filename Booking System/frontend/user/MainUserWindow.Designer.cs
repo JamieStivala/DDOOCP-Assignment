@@ -65,6 +65,7 @@
             this.viewBookingButton.TabIndex = 2;
             this.viewBookingButton.Text = "View/Edit Bookings";
             this.viewBookingButton.UseVisualStyleBackColor = true;
+            this.viewBookingButton.Click += new System.EventHandler(this.viewBookingButton_Click);
             // 
             // editPersonalInformationButton
             // 

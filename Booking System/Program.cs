@@ -11,6 +11,7 @@ using Booking_System.backend.model.hotel;
 using Booking_System.frontend.admin;
 using Booking_System.frontend.auth;
 using Booking_System.frontend.user.bookings.create;
+using Booking_System.frontend.user.bookings.modify;
 
 namespace Booking_System
 {
@@ -39,7 +40,9 @@ namespace Booking_System
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormSignin());
+
+            var userr = UserWrapper.GetUser("jamiestivala@gmail.com", "Pukka1234!");
+            Application.Run(new ListBookings(userr));
         }
     }
 }

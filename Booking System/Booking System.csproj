@@ -120,6 +120,18 @@
     <Compile Include="frontend\user\bookings\create\CreateBookingPage2.Designer.cs">
       <DependentUpon>CreateBookingPage2.cs</DependentUpon>
     </Compile>
+    <Compile Include="frontend\user\bookings\modify\ListBookings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frontend\user\bookings\modify\ListBookings.Designer.cs">
+      <DependentUpon>ListBookings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frontend\user\bookings\modify\ViewBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frontend\user\bookings\modify\ViewBooking.Designer.cs">
+      <DependentUpon>ViewBooking.cs</DependentUpon>
+    </Compile>
     <Compile Include="frontend\user\EditPersonalInformation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +160,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frontend\user\bookings\create\CreateBookingPage2.resx">
       <DependentUpon>CreateBookingPage2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frontend\user\bookings\modify\ListBookings.resx">
+      <DependentUpon>ListBookings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frontend\user\bookings\modify\ViewBooking.resx">
+      <DependentUpon>ViewBooking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frontend\user\EditPersonalInformation.resx">
       <DependentUpon>EditPersonalInformation.cs</DependentUpon>
