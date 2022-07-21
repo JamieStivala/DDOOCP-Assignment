@@ -133,6 +133,8 @@ namespace Booking_System.backend.database
 
                         users.Add(user);
                         break;
+                    case DatabaseResult.NotFound:
+                        break; //If not found just return empty array
                     default:
                         throw new Exception("An unknown error has occurred.");
                 }
