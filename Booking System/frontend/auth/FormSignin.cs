@@ -25,6 +25,13 @@ namespace Booking_System.frontend.auth
             return passed;
         }
 
+        private void ChildWindow_Closed(object sender, EventArgs e)
+        {
+            emailTextBox.Text = "";
+            passwordTextBox.Text = "";
+            this.Show();
+        }
+
         private void LoginButton_Click(object sender, EventArgs e)
         {
             if (!IsDataValid()) return;
@@ -36,12 +43,14 @@ namespace Booking_System.frontend.auth
                 if (user.Type == UserType.Admin)
                 {
                     AdminUserWindow adminUserWindow = new AdminUserWindow(user);
+                    adminUserWindow.FormClosed += ChildWindow_Closed;
                     adminUserWindow.Show();
                     this.Hide();
                 }
                 else
                 {
                     MainUserWindow mainUserWindow = new MainUserWindow(user);
+                    mainUserWindow.FormClosed += ChildWindow_Closed;
                     mainUserWindow.Show();
                     this.Hide();
                 }
@@ -55,7 +64,9 @@ namespace Booking_System.frontend.auth
 
         private void ButtonSignup_Click(object sender, EventArgs e)
         {
-            new FormSignup().Show();
+            FormSignup formSignup = new FormSignup();
+            formSignup.FormClosed += ChildWindow_Closed;
+            formSignup.Show();
             this.Hide();
         }
     }

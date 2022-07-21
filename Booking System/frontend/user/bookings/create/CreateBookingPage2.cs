@@ -88,14 +88,11 @@ namespace Booking_System.frontend.user.bookings.create
                 try
                 {
                     BookingWrapper.CreateBooking(booking);
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    this.Hide();
                 }
 
             }

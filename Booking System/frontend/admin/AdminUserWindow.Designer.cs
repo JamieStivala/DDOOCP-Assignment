@@ -61,6 +61,8 @@ namespace Booking_System.frontend.admin
             this.labelRoomManagerRoomSelected = new System.Windows.Forms.Label();
             this.comboBoxRoomManagerRoomSelected = new System.Windows.Forms.ComboBox();
             this.tabPageUserManager = new System.Windows.Forms.TabPage();
+            this.buttonCreateUserBooking = new System.Windows.Forms.Button();
+            this.buttonViewModifyBookings = new System.Windows.Forms.Button();
             this.buttonUserManagerRemove = new System.Windows.Forms.Button();
             this.buttonUserManagerEditUser = new System.Windows.Forms.Button();
             this.buttonUserManagerToggleAdmin = new System.Windows.Forms.Button();
@@ -72,8 +74,6 @@ namespace Booking_System.frontend.admin
             this.labelHotelSelected = new System.Windows.Forms.Label();
             this.comboBoxHotelSelect = new System.Windows.Forms.ComboBox();
             this.buttonSignOut = new System.Windows.Forms.Button();
-            this.buttonViewModifyBookings = new System.Windows.Forms.Button();
-            this.buttonCreateUserBooking = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPageHotelManager.SuspendLayout();
             this.tabPageRoomManager.SuspendLayout();
@@ -444,6 +444,26 @@ namespace Booking_System.frontend.admin
             this.tabPageUserManager.Text = "User Manager";
             this.tabPageUserManager.UseVisualStyleBackColor = true;
             // 
+            // buttonCreateUserBooking
+            // 
+            this.buttonCreateUserBooking.Location = new System.Drawing.Point(635, 268);
+            this.buttonCreateUserBooking.Name = "buttonCreateUserBooking";
+            this.buttonCreateUserBooking.Size = new System.Drawing.Size(127, 34);
+            this.buttonCreateUserBooking.TabIndex = 60;
+            this.buttonCreateUserBooking.Text = "Create User Booking";
+            this.buttonCreateUserBooking.UseVisualStyleBackColor = true;
+            this.buttonCreateUserBooking.Click += new System.EventHandler(this.buttonCreateUserBooking_Click);
+            // 
+            // buttonViewModifyBookings
+            // 
+            this.buttonViewModifyBookings.Location = new System.Drawing.Point(502, 269);
+            this.buttonViewModifyBookings.Name = "buttonViewModifyBookings";
+            this.buttonViewModifyBookings.Size = new System.Drawing.Size(127, 34);
+            this.buttonViewModifyBookings.TabIndex = 59;
+            this.buttonViewModifyBookings.Text = "View/Modify Bookings";
+            this.buttonViewModifyBookings.UseVisualStyleBackColor = true;
+            this.buttonViewModifyBookings.Click += new System.EventHandler(this.buttonViewModifyBookings_Click);
+            // 
             // buttonUserManagerRemove
             // 
             this.buttonUserManagerRemove.Location = new System.Drawing.Point(6, 269);
@@ -541,26 +561,6 @@ namespace Booking_System.frontend.admin
             this.buttonSignOut.UseVisualStyleBackColor = true;
             this.buttonSignOut.Click += new System.EventHandler(this.buttonSignOut_Click);
             // 
-            // buttonViewModifyBookings
-            // 
-            this.buttonViewModifyBookings.Location = new System.Drawing.Point(502, 269);
-            this.buttonViewModifyBookings.Name = "buttonViewModifyBookings";
-            this.buttonViewModifyBookings.Size = new System.Drawing.Size(127, 34);
-            this.buttonViewModifyBookings.TabIndex = 59;
-            this.buttonViewModifyBookings.Text = "View/Modify Bookings";
-            this.buttonViewModifyBookings.UseVisualStyleBackColor = true;
-            this.buttonViewModifyBookings.Click += new System.EventHandler(this.buttonViewModifyBookings_Click);
-            // 
-            // buttonCreateUserBooking
-            // 
-            this.buttonCreateUserBooking.Location = new System.Drawing.Point(635, 268);
-            this.buttonCreateUserBooking.Name = "buttonCreateUserBooking";
-            this.buttonCreateUserBooking.Size = new System.Drawing.Size(127, 34);
-            this.buttonCreateUserBooking.TabIndex = 60;
-            this.buttonCreateUserBooking.Text = "Create User Booking";
-            this.buttonCreateUserBooking.UseVisualStyleBackColor = true;
-            this.buttonCreateUserBooking.Click += new System.EventHandler(this.buttonCreateUserBooking_Click);
-            // 
             // AdminUserWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -571,7 +571,7 @@ namespace Booking_System.frontend.admin
             this.Controls.Add(this.comboBoxHotelSelect);
             this.Controls.Add(this.tabControl);
             this.Name = "AdminUserWindow";
-            this.Text = "AdminUserWindow";
+            this.Text = "Admin Window";
             this.Load += new System.EventHandler(this.AdminUserWindow_Load);
             this.tabControl.ResumeLayout(false);
             this.tabPageHotelManager.ResumeLayout(false);

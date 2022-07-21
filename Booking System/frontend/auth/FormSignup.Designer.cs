@@ -254,7 +254,7 @@
             this.buttonSignin.Name = "buttonSignin";
             this.buttonSignin.Size = new System.Drawing.Size(101, 35);
             this.buttonSignin.TabIndex = 35;
-            this.buttonSignin.Text = "Signin";
+            this.buttonSignin.Text = "Login";
             this.buttonSignin.UseVisualStyleBackColor = true;
             this.buttonSignin.Click += new System.EventHandler(this.ButtonSignin_Click);
             // 
@@ -287,7 +287,7 @@
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.signupLabel);
             this.Name = "FormSignup";
-            this.Text = "FormSignup";
+            this.Text = "Signup";
             this.Load += new System.EventHandler(this.FormSignup_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);

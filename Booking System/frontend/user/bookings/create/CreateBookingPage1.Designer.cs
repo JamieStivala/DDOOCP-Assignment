@@ -263,7 +263,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.mainMenuLabel);
             this.Name = "CreateBookingPage1";
-            this.Text = "CreateBooking";
+            this.Text = "Create Booking";
             this.groupBoxRoomInformation.ResumeLayout(false);
             this.groupBoxRoomInformation.PerformLayout();
             this.groupBoxReviews.ResumeLayout(false);

@@ -100,7 +100,7 @@
             this.Controls.Add(this.createBookingButton);
             this.Controls.Add(this.mainMenuLabel);
             this.Name = "MainUserWindow";
-            this.Text = "MainUserWindow";
+            this.Text = "Main Menu";
             this.Load += new System.EventHandler(this.MainUserWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

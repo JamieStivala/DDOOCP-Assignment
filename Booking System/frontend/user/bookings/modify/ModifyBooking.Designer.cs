@@ -310,7 +310,7 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // ViewBooking
+            // ModifyBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -325,8 +325,8 @@
             this.Controls.Add(this.groupBoxRoomInformation);
             this.Controls.Add(this.viewBookingLabel);
             this.Controls.Add(this.buttonSaveModifiedBooking);
-            this.Name = "ViewBooking";
-            this.Text = "Modify a Booking";
+            this.Name = "ModifyBooking";
+            this.Text = "Modify Booking";
             this.groupBoxReviews.ResumeLayout(false);
             this.groupBoxRoomInformation.ResumeLayout(false);
             this.groupBoxRoomInformation.PerformLayout();

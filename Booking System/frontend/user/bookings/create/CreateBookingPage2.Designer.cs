@@ -192,7 +192,7 @@
             this.Controls.Add(this.dateTimePickerCheckInDay);
             this.Controls.Add(this.mainMenuLabel);
             this.Name = "CreateBookingPage2";
-            this.Text = "Create a Booking";
+            this.Text = "Create Booking";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();

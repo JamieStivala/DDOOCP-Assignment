@@ -288,7 +288,7 @@
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.updateInformationLabel);
             this.Name = "EditPersonalInformation";
-            this.Text = "EditPersonalInformation";
+            this.Text = "Update Personal Information";
             this.Load += new System.EventHandler(this.EditPersonalInformation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);

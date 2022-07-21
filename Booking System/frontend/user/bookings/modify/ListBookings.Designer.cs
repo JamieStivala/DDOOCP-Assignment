@@ -127,7 +127,7 @@
             this.Controls.Add(this.buttonViewBooking);
             this.Controls.Add(this.labelListAllBookings);
             this.Name = "ListBookings";
-            this.Text = "ListBookings";
+            this.Text = "List All Bookings";
             this.ResumeLayout(false);
             this.PerformLayout();
 

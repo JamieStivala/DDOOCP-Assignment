@@ -107,7 +107,7 @@ namespace Booking_System.frontend.user.bookings.create
             {
                 Room selectedRoom = this.rooms?[comboBoxRoom.SelectedIndex];
                 new CreateBookingPage2(this.user, this.selectedHotel, selectedRoom).Show();
-                this.Hide();
+                this.Close();
             }
         }
     }

@@ -18,6 +18,21 @@ namespace Booking_System.frontend.auth
 
         }
 
+        private void ChildWindow_Closed(object sender, EventArgs e)
+        {
+            textBoxName.Text = string.Empty;
+            textBoxSurname.Text = string.Empty;
+            textBoxEmail.Text = string.Empty;
+            textBoxPassword.Text = string.Empty;
+            textBoxContactNumber.Text = string.Empty;
+            textBoxIdCard.Text = string.Empty;
+            comboBoxGender.Text = string.Empty;
+            textBoxNation.Text = string.Empty;
+            textBoxAddress.Text = string.Empty;
+            dateTimePickerDOB.Value = DateTime.Now;
+            this.Show();
+        }
+
 
         private bool IsDataValid()
         {
@@ -54,6 +69,7 @@ namespace Booking_System.frontend.auth
             {
                 UserWrapper.CreateUser(user);
                 MainUserWindow mainUserWindow = new MainUserWindow(user);
+                mainUserWindow.FormClosed += this.ChildWindow_Closed;
                 mainUserWindow.Show();
                 this.Hide();
             }
@@ -65,9 +81,7 @@ namespace Booking_System.frontend.auth
 
         private void ButtonSignin_Click(object sender, EventArgs e)
         {
-            FormSignin formSignin = new FormSignin();
-            formSignin.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }
