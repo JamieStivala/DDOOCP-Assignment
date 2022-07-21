@@ -62,7 +62,7 @@
             this.dateTimePickerCheckInDay.Location = new System.Drawing.Point(180, 108);
             this.dateTimePickerCheckInDay.Name = "dateTimePickerCheckInDay";
             this.dateTimePickerCheckInDay.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePickerCheckInDay.TabIndex = 73;
+            this.dateTimePickerCheckInDay.TabIndex = 1;
             this.dateTimePickerCheckInDay.ValueChanged += new System.EventHandler(this.dateTimePickerCheckInDate_ValueChanged);
             // 
             // labelCheckInTime
@@ -90,7 +90,7 @@
             this.dateTimePickerCheckOutDay.Location = new System.Drawing.Point(551, 107);
             this.dateTimePickerCheckOutDay.Name = "dateTimePickerCheckOutDay";
             this.dateTimePickerCheckOutDay.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePickerCheckOutDay.TabIndex = 75;
+            this.dateTimePickerCheckOutDay.TabIndex = 2;
             this.dateTimePickerCheckOutDay.ValueChanged += new System.EventHandler(this.dateTimePickerCheckOutDay_ValueChanged);
             // 
             // groupBox1
@@ -170,7 +170,7 @@
             this.buttonBookNow.Location = new System.Drawing.Point(305, 152);
             this.buttonBookNow.Name = "buttonBookNow";
             this.buttonBookNow.Size = new System.Drawing.Size(97, 161);
-            this.buttonBookNow.TabIndex = 78;
+            this.buttonBookNow.TabIndex = 3;
             this.buttonBookNow.Text = "Book now";
             this.buttonBookNow.UseVisualStyleBackColor = true;
             this.buttonBookNow.Click += new System.EventHandler(this.buttonBookNow_Click);

@@ -78,7 +78,7 @@
             this.comboBoxHotel.Location = new System.Drawing.Point(150, 92);
             this.comboBoxHotel.Name = "comboBoxHotel";
             this.comboBoxHotel.Size = new System.Drawing.Size(383, 21);
-            this.comboBoxHotel.TabIndex = 73;
+            this.comboBoxHotel.TabIndex = 1;
             this.comboBoxHotel.SelectedIndexChanged += new System.EventHandler(this.comboBoxHotel_SelectedIndexChanged);
             // 
             // comboBoxRoom
@@ -87,7 +87,7 @@
             this.comboBoxRoom.Location = new System.Drawing.Point(150, 137);
             this.comboBoxRoom.Name = "comboBoxRoom";
             this.comboBoxRoom.Size = new System.Drawing.Size(383, 21);
-            this.comboBoxRoom.TabIndex = 77;
+            this.comboBoxRoom.TabIndex = 2;
             this.comboBoxRoom.SelectedIndexChanged += new System.EventHandler(this.comboBoxRoom_SelectedIndexChanged);
             // 
             // labelRoom
@@ -235,7 +235,7 @@
             this.buttonNextReview.Location = new System.Drawing.Point(6, 82);
             this.buttonNextReview.Name = "buttonNextReview";
             this.buttonNextReview.Size = new System.Drawing.Size(189, 23);
-            this.buttonNextReview.TabIndex = 0;
+            this.buttonNextReview.TabIndex = 3;
             this.buttonNextReview.Text = "Next Review";
             this.buttonNextReview.UseVisualStyleBackColor = true;
             // 
