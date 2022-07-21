@@ -55,8 +55,7 @@ namespace Booking_System.frontend.auth
 
         private void ButtonSignup_Click(object sender, EventArgs e)
         {
-            FormSignup formSignup = new FormSignup();
-            formSignup.Show();
+            new FormSignup().Show();
             this.Hide();
         }
     }
