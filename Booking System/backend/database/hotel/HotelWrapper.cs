@@ -73,7 +73,7 @@ namespace Booking_System.backend.database.hotel
         /**
          * Get hotel by ID
          */
-        public static Hotel GetHotel(int id) => HotelWrapper.HotelCache.First(h => h.Id == id);
+        public static Hotel GetHotel(int id) => HotelWrapper.GetAllHotels().First(h => h.Id == id);
 
         public static void UpdateHotel(Hotel hotel)
         {
