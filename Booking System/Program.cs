@@ -33,7 +33,7 @@ namespace Booking_System
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            new FormSignin().Show();
+            Application.Run(new FormSignin());
         }
     }
 }
