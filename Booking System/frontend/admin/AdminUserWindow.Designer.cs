@@ -33,6 +33,7 @@ namespace Booking_System.frontend.admin
             this.components = new System.ComponentModel.Container();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageHotelManager = new System.Windows.Forms.TabPage();
+            this.buttonHotelManagerRemove = new System.Windows.Forms.Button();
             this.labelHotelManagerDefaultCheckOutTime = new System.Windows.Forms.Label();
             this.dateTimePickerHotelManagerDefaultCheckOutTime = new System.Windows.Forms.DateTimePicker();
             this.labelHotelManagerDefaultCheckInTime = new System.Windows.Forms.Label();
@@ -44,6 +45,7 @@ namespace Booking_System.frontend.admin
             this.buttonHotelManagerReset = new System.Windows.Forms.Button();
             this.buttonHotelManagerSave = new System.Windows.Forms.Button();
             this.tabPageRoomManager = new System.Windows.Forms.TabPage();
+            this.buttonRoomManagerRemove = new System.Windows.Forms.Button();
             this.textBoxRoomManagerDescription = new System.Windows.Forms.RichTextBox();
             this.buttonRoomManagerReset = new System.Windows.Forms.Button();
             this.buttonRoomManagerSave = new System.Windows.Forms.Button();
@@ -60,6 +62,7 @@ namespace Booking_System.frontend.admin
             this.comboBoxRoomManagerRoomSelected = new System.Windows.Forms.ComboBox();
             this.tabPageBookingManager = new System.Windows.Forms.TabPage();
             this.tabPageUserManager = new System.Windows.Forms.TabPage();
+            this.buttonUserManagerRemove = new System.Windows.Forms.Button();
             this.buttonUserManagerEditUser = new System.Windows.Forms.Button();
             this.buttonUserManagerToggleAdmin = new System.Windows.Forms.Button();
             this.listViewUserManagerUserList = new System.Windows.Forms.ListView();
@@ -70,9 +73,6 @@ namespace Booking_System.frontend.admin
             this.labelHotelSelected = new System.Windows.Forms.Label();
             this.comboBoxHotelSelect = new System.Windows.Forms.ComboBox();
             this.buttonSignOut = new System.Windows.Forms.Button();
-            this.buttonHotelManagerRemove = new System.Windows.Forms.Button();
-            this.buttonRoomManagerRemove = new System.Windows.Forms.Button();
-            this.buttonUserManagerRemove = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPageHotelManager.SuspendLayout();
             this.tabPageRoomManager.SuspendLayout();
@@ -93,7 +93,7 @@ namespace Booking_System.frontend.admin
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(776, 337);
-            this.tabControl.TabIndex = 0;
+            this.tabControl.TabIndex = 2;
             // 
             // tabPageHotelManager
             // 
@@ -116,6 +116,17 @@ namespace Booking_System.frontend.admin
             this.tabPageHotelManager.Text = "Hotel Manager";
             this.tabPageHotelManager.UseVisualStyleBackColor = true;
             // 
+            // buttonHotelManagerRemove
+            // 
+            this.buttonHotelManagerRemove.Location = new System.Drawing.Point(311, 245);
+            this.buttonHotelManagerRemove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonHotelManagerRemove.Name = "buttonHotelManagerRemove";
+            this.buttonHotelManagerRemove.Size = new System.Drawing.Size(117, 35);
+            this.buttonHotelManagerRemove.TabIndex = 67;
+            this.buttonHotelManagerRemove.Text = "Remove";
+            this.buttonHotelManagerRemove.UseVisualStyleBackColor = true;
+            this.buttonHotelManagerRemove.Click += new System.EventHandler(this.buttonHotelManagerRemove_Click);
+            // 
             // labelHotelManagerDefaultCheckOutTime
             // 
             this.labelHotelManagerDefaultCheckOutTime.AutoSize = true;
@@ -133,7 +144,7 @@ namespace Booking_System.frontend.admin
             this.dateTimePickerHotelManagerDefaultCheckOutTime.Name = "dateTimePickerHotelManagerDefaultCheckOutTime";
             this.dateTimePickerHotelManagerDefaultCheckOutTime.ShowUpDown = true;
             this.dateTimePickerHotelManagerDefaultCheckOutTime.Size = new System.Drawing.Size(199, 20);
-            this.dateTimePickerHotelManagerDefaultCheckOutTime.TabIndex = 65;
+            this.dateTimePickerHotelManagerDefaultCheckOutTime.TabIndex = 6;
             this.dateTimePickerHotelManagerDefaultCheckOutTime.Value = new System.DateTime(2022, 7, 19, 11, 0, 0, 0);
             // 
             // labelHotelManagerDefaultCheckInTime
@@ -153,7 +164,7 @@ namespace Booking_System.frontend.admin
             this.dateTimePickerHotelManagerDefaultCheckInTime.Name = "dateTimePickerHotelManagerDefaultCheckInTime";
             this.dateTimePickerHotelManagerDefaultCheckInTime.ShowUpDown = true;
             this.dateTimePickerHotelManagerDefaultCheckInTime.Size = new System.Drawing.Size(199, 20);
-            this.dateTimePickerHotelManagerDefaultCheckInTime.TabIndex = 63;
+            this.dateTimePickerHotelManagerDefaultCheckInTime.TabIndex = 5;
             this.dateTimePickerHotelManagerDefaultCheckInTime.Value = new System.DateTime(2022, 7, 19, 13, 0, 0, 0);
             // 
             // labelHotelManagerLocation
@@ -170,7 +181,7 @@ namespace Booking_System.frontend.admin
             this.textBoxHotelManagerLocation.Location = new System.Drawing.Point(520, 35);
             this.textBoxHotelManagerLocation.Name = "textBoxHotelManagerLocation";
             this.textBoxHotelManagerLocation.Size = new System.Drawing.Size(202, 20);
-            this.textBoxHotelManagerLocation.TabIndex = 61;
+            this.textBoxHotelManagerLocation.TabIndex = 4;
             // 
             // labelHotelManagerName
             // 
@@ -186,7 +197,7 @@ namespace Booking_System.frontend.admin
             this.textBoxHotelManagerName.Location = new System.Drawing.Point(38, 35);
             this.textBoxHotelManagerName.Name = "textBoxHotelManagerName";
             this.textBoxHotelManagerName.Size = new System.Drawing.Size(202, 20);
-            this.textBoxHotelManagerName.TabIndex = 59;
+            this.textBoxHotelManagerName.TabIndex = 3;
             // 
             // buttonHotelManagerReset
             // 
@@ -235,12 +246,23 @@ namespace Booking_System.frontend.admin
             this.tabPageRoomManager.Text = "Room Manager";
             this.tabPageRoomManager.UseVisualStyleBackColor = true;
             // 
+            // buttonRoomManagerRemove
+            // 
+            this.buttonRoomManagerRemove.Location = new System.Drawing.Point(312, 245);
+            this.buttonRoomManagerRemove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonRoomManagerRemove.Name = "buttonRoomManagerRemove";
+            this.buttonRoomManagerRemove.Size = new System.Drawing.Size(117, 35);
+            this.buttonRoomManagerRemove.TabIndex = 91;
+            this.buttonRoomManagerRemove.Text = "Remove";
+            this.buttonRoomManagerRemove.UseVisualStyleBackColor = true;
+            this.buttonRoomManagerRemove.Click += new System.EventHandler(this.buttonRoomManagerRemove_Click);
+            // 
             // textBoxRoomManagerDescription
             // 
             this.textBoxRoomManagerDescription.Location = new System.Drawing.Point(520, 70);
             this.textBoxRoomManagerDescription.Name = "textBoxRoomManagerDescription";
             this.textBoxRoomManagerDescription.Size = new System.Drawing.Size(202, 104);
-            this.textBoxRoomManagerDescription.TabIndex = 90;
+            this.textBoxRoomManagerDescription.TabIndex = 11;
             this.textBoxRoomManagerDescription.Text = "";
             // 
             // buttonRoomManagerReset
@@ -280,7 +302,7 @@ namespace Booking_System.frontend.admin
             0});
             this.numericUpDownRoomManagerAmountOfRooms.Name = "numericUpDownRoomManagerAmountOfRooms";
             this.numericUpDownRoomManagerAmountOfRooms.Size = new System.Drawing.Size(202, 20);
-            this.numericUpDownRoomManagerAmountOfRooms.TabIndex = 87;
+            this.numericUpDownRoomManagerAmountOfRooms.TabIndex = 10;
             this.numericUpDownRoomManagerAmountOfRooms.Value = new decimal(new int[] {
             1,
             0,
@@ -303,7 +325,7 @@ namespace Booking_System.frontend.admin
             0});
             this.numericUpDownRoomManagerPrice.Name = "numericUpDownRoomManagerPrice";
             this.numericUpDownRoomManagerPrice.Size = new System.Drawing.Size(202, 20);
-            this.numericUpDownRoomManagerPrice.TabIndex = 86;
+            this.numericUpDownRoomManagerPrice.TabIndex = 12;
             this.numericUpDownRoomManagerPrice.ThousandsSeparator = true;
             this.numericUpDownRoomManagerPrice.Value = new decimal(new int[] {
             10,
@@ -326,7 +348,7 @@ namespace Booking_System.frontend.admin
             0});
             this.numericUpDownRoomManagerCapacity.Name = "numericUpDownRoomManagerCapacity";
             this.numericUpDownRoomManagerCapacity.Size = new System.Drawing.Size(202, 20);
-            this.numericUpDownRoomManagerCapacity.TabIndex = 85;
+            this.numericUpDownRoomManagerCapacity.TabIndex = 9;
             this.numericUpDownRoomManagerCapacity.Value = new decimal(new int[] {
             1,
             0,
@@ -338,9 +360,9 @@ namespace Booking_System.frontend.admin
             this.labelRoomManagerPrice.AutoSize = true;
             this.labelRoomManagerPrice.Location = new System.Drawing.Point(520, 187);
             this.labelRoomManagerPrice.Name = "labelRoomManagerPrice";
-            this.labelRoomManagerPrice.Size = new System.Drawing.Size(78, 13);
+            this.labelRoomManagerPrice.Size = new System.Drawing.Size(104, 13);
             this.labelRoomManagerPrice.TabIndex = 84;
-            this.labelRoomManagerPrice.Text = "Price Per Night";
+            this.labelRoomManagerPrice.Text = "Price Per Night (in £)";
             // 
             // labelRoomManagerDescription
             // 
@@ -383,7 +405,7 @@ namespace Booking_System.frontend.admin
             this.textBoxRoomManagerName.Location = new System.Drawing.Point(43, 70);
             this.textBoxRoomManagerName.Name = "textBoxRoomManagerName";
             this.textBoxRoomManagerName.Size = new System.Drawing.Size(202, 20);
-            this.textBoxRoomManagerName.TabIndex = 71;
+            this.textBoxRoomManagerName.TabIndex = 8;
             // 
             // labelRoomManagerRoomSelected
             // 
@@ -403,7 +425,7 @@ namespace Booking_System.frontend.admin
             this.comboBoxRoomManagerRoomSelected.Location = new System.Drawing.Point(145, 14);
             this.comboBoxRoomManagerRoomSelected.Name = "comboBoxRoomManagerRoomSelected";
             this.comboBoxRoomManagerRoomSelected.Size = new System.Drawing.Size(599, 21);
-            this.comboBoxRoomManagerRoomSelected.TabIndex = 69;
+            this.comboBoxRoomManagerRoomSelected.TabIndex = 7;
             this.comboBoxRoomManagerRoomSelected.SelectedIndexChanged += new System.EventHandler(this.comboBoxRoomManagerRoomSelected_SelectedIndexChanged);
             // 
             // tabPageBookingManager
@@ -429,6 +451,17 @@ namespace Booking_System.frontend.admin
             this.tabPageUserManager.TabIndex = 3;
             this.tabPageUserManager.Text = "User Manager";
             this.tabPageUserManager.UseVisualStyleBackColor = true;
+            // 
+            // buttonUserManagerRemove
+            // 
+            this.buttonUserManagerRemove.Location = new System.Drawing.Point(378, 268);
+            this.buttonUserManagerRemove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonUserManagerRemove.Name = "buttonUserManagerRemove";
+            this.buttonUserManagerRemove.Size = new System.Drawing.Size(117, 33);
+            this.buttonUserManagerRemove.TabIndex = 58;
+            this.buttonUserManagerRemove.Text = "Remove";
+            this.buttonUserManagerRemove.UseVisualStyleBackColor = true;
+            this.buttonUserManagerRemove.Click += new System.EventHandler(this.buttonUserManagerRemove_Click);
             // 
             // buttonUserManagerEditUser
             // 
@@ -502,7 +535,7 @@ namespace Booking_System.frontend.admin
             this.comboBoxHotelSelect.Location = new System.Drawing.Point(139, 12);
             this.comboBoxHotelSelect.Name = "comboBoxHotelSelect";
             this.comboBoxHotelSelect.Size = new System.Drawing.Size(599, 21);
-            this.comboBoxHotelSelect.TabIndex = 67;
+            this.comboBoxHotelSelect.TabIndex = 1;
             this.comboBoxHotelSelect.SelectedIndexChanged += new System.EventHandler(this.comboBoxHotelSelect_SelectedIndexChanged);
             // 
             // buttonSignOut
@@ -515,39 +548,6 @@ namespace Booking_System.frontend.admin
             this.buttonSignOut.Text = "Signout";
             this.buttonSignOut.UseVisualStyleBackColor = true;
             this.buttonSignOut.Click += new System.EventHandler(this.buttonSignOut_Click);
-            // 
-            // buttonHotelManagerRemove
-            // 
-            this.buttonHotelManagerRemove.Location = new System.Drawing.Point(311, 245);
-            this.buttonHotelManagerRemove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonHotelManagerRemove.Name = "buttonHotelManagerRemove";
-            this.buttonHotelManagerRemove.Size = new System.Drawing.Size(117, 35);
-            this.buttonHotelManagerRemove.TabIndex = 67;
-            this.buttonHotelManagerRemove.Text = "Remove";
-            this.buttonHotelManagerRemove.UseVisualStyleBackColor = true;
-            this.buttonHotelManagerRemove.Click += new System.EventHandler(this.buttonHotelManagerRemove_Click);
-            // 
-            // buttonRoomManagerRemove
-            // 
-            this.buttonRoomManagerRemove.Location = new System.Drawing.Point(312, 245);
-            this.buttonRoomManagerRemove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonRoomManagerRemove.Name = "buttonRoomManagerRemove";
-            this.buttonRoomManagerRemove.Size = new System.Drawing.Size(117, 35);
-            this.buttonRoomManagerRemove.TabIndex = 91;
-            this.buttonRoomManagerRemove.Text = "Remove";
-            this.buttonRoomManagerRemove.UseVisualStyleBackColor = true;
-            this.buttonRoomManagerRemove.Click += new System.EventHandler(this.buttonRoomManagerRemove_Click);
-            // 
-            // buttonUserManagerRemove
-            // 
-            this.buttonUserManagerRemove.Location = new System.Drawing.Point(378, 268);
-            this.buttonUserManagerRemove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonUserManagerRemove.Name = "buttonUserManagerRemove";
-            this.buttonUserManagerRemove.Size = new System.Drawing.Size(117, 33);
-            this.buttonUserManagerRemove.TabIndex = 58;
-            this.buttonUserManagerRemove.Text = "Remove";
-            this.buttonUserManagerRemove.UseVisualStyleBackColor = true;
-            this.buttonUserManagerRemove.Click += new System.EventHandler(this.buttonUserManagerRemove_Click);
             // 
             // AdminUserWindow
             // 
