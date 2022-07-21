@@ -12,7 +12,7 @@ namespace Booking_System.backend.database.hotel
         public static void CreateReview(Review review)
         {
             string query = "INSERT INTO tblReview (BookingId, RoomId, Title, [Description]) VALUES" +
-                           $"({review.BookingId}, {review.RoomId}, {review.Title}, {review.Description})";
+                           $"({review.BookingId}, {review.RoomId}, '{review.Title}', '{review.Description}')";
 
             (DatabaseResult, int) result = DatabaseWrapper.InsertIntoDatabaseReturningId(query);
 
