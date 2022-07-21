@@ -159,7 +159,7 @@
             // labelPriceValue
             // 
             this.labelPriceValue.AutoSize = true;
-            this.labelPriceValue.Location = new System.Drawing.Point(344, 78);
+            this.labelPriceValue.Location = new System.Drawing.Point(391, 78);
             this.labelPriceValue.Name = "labelPriceValue";
             this.labelPriceValue.Size = new System.Drawing.Size(19, 13);
             this.labelPriceValue.TabIndex = 6;
@@ -176,13 +176,13 @@
             // 
             // buttonBookNow
             // 
-            this.buttonBookNow.Location = new System.Drawing.Point(347, 137);
+            this.buttonBookNow.Location = new System.Drawing.Point(364, 137);
             this.buttonBookNow.Name = "buttonBookNow";
             this.buttonBookNow.Size = new System.Drawing.Size(125, 39);
             this.buttonBookNow.TabIndex = 4;
-            this.buttonBookNow.Text = "Book Now";
+            this.buttonBookNow.Text = "Next Page";
             this.buttonBookNow.UseVisualStyleBackColor = true;
-            this.buttonBookNow.Click += new System.EventHandler(this.buttonBookNow_Click);
+            this.buttonBookNow.Click += new System.EventHandler(this.buttonNextPage_Click);
             // 
             // labelCheckOutTime
             // 
@@ -207,9 +207,9 @@
             this.labelPrice.AutoSize = true;
             this.labelPrice.Location = new System.Drawing.Point(304, 78);
             this.labelPrice.Name = "labelPrice";
-            this.labelPrice.Size = new System.Drawing.Size(34, 13);
+            this.labelPrice.Size = new System.Drawing.Size(81, 13);
             this.labelPrice.TabIndex = 1;
-            this.labelPrice.Text = "Price:";
+            this.labelPrice.Text = "Price Per Night:";
             // 
             // labelMaxAmountOfRoom
             // 

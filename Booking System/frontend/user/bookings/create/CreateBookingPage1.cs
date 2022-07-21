@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Booking_System.backend.database.hotel;
 using Booking_System.backend.model.hotel;
+using Booking_System.backend.model.user;
 
 namespace Booking_System.frontend.user.bookings.create
 {
@@ -17,10 +18,12 @@ namespace Booking_System.frontend.user.bookings.create
     {
         private Hotel[] hotels;
         private Room[] rooms;
-        public CreateBookingPage1()
+        private User user;
+        public CreateBookingPage1(User user)
         {
             InitializeComponent();
             this.LoadHotels();
+            this.user = user;
         }
 
         private void LoadHotels()
@@ -93,9 +96,18 @@ namespace Booking_System.frontend.user.bookings.create
             MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void buttonBookNow_Click(object sender, EventArgs e)
+        private void buttonNextPage_Click(object sender, EventArgs e)
         {
-
+            Room selectedRoom = this.rooms?[comboBoxRoom.SelectedIndex];
+            if (this.selectedHotel == null || selectedRoom == null)
+            {
+                this.ShowError("Please select a hotel and a room to continue to the next page.");
+            }
+            else
+            {
+                new CreateBookingPage2(this.user, this.selectedHotel, selectedRoom).Show();
+                this.Hide();
+            }
         }
     }
 }
