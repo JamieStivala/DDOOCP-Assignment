@@ -99,7 +99,6 @@ namespace Booking_System.frontend.user.bookings.create
 
         private void buttonNextPage_Click(object sender, EventArgs e)
         {
-            Debug.WriteLine(comboBoxRoom.SelectedIndex);
             if (comboBoxRoom.SelectedIndex == -1 || this.selectedHotel == null || this.rooms?[comboBoxRoom.SelectedIndex] == null)
             {
                 this.ShowError("Please select a hotel and a room to continue to the next page.");
