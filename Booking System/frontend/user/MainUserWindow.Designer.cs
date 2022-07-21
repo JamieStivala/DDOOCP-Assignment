@@ -85,7 +85,7 @@
             this.signoutButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.signoutButton.Name = "signoutButton";
             this.signoutButton.Size = new System.Drawing.Size(117, 35);
-            this.signoutButton.TabIndex = 4;
+            this.signoutButton.TabIndex = 5;
             this.signoutButton.Text = "Signout";
             this.signoutButton.UseVisualStyleBackColor = true;
             this.signoutButton.Click += new System.EventHandler(this.SignoutButton_Click);
@@ -96,7 +96,7 @@
             this.buttonLeaveReview.Location = new System.Drawing.Point(303, 203);
             this.buttonLeaveReview.Name = "buttonLeaveReview";
             this.buttonLeaveReview.Size = new System.Drawing.Size(111, 53);
-            this.buttonLeaveReview.TabIndex = 9;
+            this.buttonLeaveReview.TabIndex = 4;
             this.buttonLeaveReview.Text = "Leave a Review";
             this.buttonLeaveReview.UseVisualStyleBackColor = true;
             this.buttonLeaveReview.Visible = false;
