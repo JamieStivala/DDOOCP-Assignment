@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Booking_System.backend.model.hotel;
 
@@ -93,9 +94,9 @@ namespace Booking_System.backend.database.hotel
             string updateQuery = $"UPDATE tblBooking SET " +
                                  $" RoomId={booking.RoomId}, UserId='{booking.UserId}'," +
                                  $" CheckIn={booking.CheckIn.ToOADate()}, CheckOut={booking.CheckOut.ToOADate()}, " +
-                                 $" Price={booking.Price}, NumberOfPeople={booking.NumberOfPeople}" +
+                                 $" Price={booking.Price}, NumberOfPeopleInRoom={booking.NumberOfPeople} " +
                                  $"WHERE ID={booking.Id}";
-
+            Debug.WriteLine(updateQuery);
             DatabaseResult result = DatabaseWrapper.UpdateFromDatabase(updateQuery);
 
             //Switch the result based on the ENUM representing result
