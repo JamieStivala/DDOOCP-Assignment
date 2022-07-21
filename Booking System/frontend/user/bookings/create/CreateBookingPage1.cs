@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -98,13 +99,14 @@ namespace Booking_System.frontend.user.bookings.create
 
         private void buttonNextPage_Click(object sender, EventArgs e)
         {
-            Room selectedRoom = this.rooms?[comboBoxRoom.SelectedIndex];
-            if (this.selectedHotel == null || selectedRoom == null)
+            Debug.WriteLine(comboBoxRoom.SelectedIndex);
+            if (comboBoxRoom.SelectedIndex == -1 || this.selectedHotel == null || this.rooms?[comboBoxRoom.SelectedIndex] == null)
             {
                 this.ShowError("Please select a hotel and a room to continue to the next page.");
             }
             else
             {
+                Room selectedRoom = this.rooms?[comboBoxRoom.SelectedIndex];
                 new CreateBookingPage2(this.user, this.selectedHotel, selectedRoom).Show();
                 this.Hide();
             }
