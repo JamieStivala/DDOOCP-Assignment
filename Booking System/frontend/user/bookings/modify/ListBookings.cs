@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Forms;
 using Booking_System.backend.database.hotel;
 using Booking_System.backend.model.hotel;
@@ -16,13 +17,18 @@ namespace Booking_System.frontend.user.bookings.modify
         {
             InitializeComponent();
             this.user = user;
+            LoadBookingList();
+        }
+
+        private void LoadBookingList()
+        {
 
             try
             {
                 listViewBookings.Items.Clear();
 
                 this.bookings = BookingWrapper.GetUserBookings(user.Uuid);
-                
+
                 for (int i = 0; i != bookings.Length; i++)
                 {
                     Room room = RoomWrapper.GetHotelRoom(bookings[i].RoomId);
@@ -43,6 +49,18 @@ namespace Booking_System.frontend.user.bookings.modify
             }
         }
 
+        private Booking GetSelectedBooking()
+        {
+            if (listViewBookings.SelectedItems.Count != 1)
+            {
+                this.ShowError("Please select a booking.");
+                return null;
+            }
+
+            int bookingId = int.Parse(listViewBookings.SelectedItems[0].Text);
+            return this.bookings.Single(value => value.Id == bookingId); //Get the booking
+        }
+
         private void buttonViewBooking_Click(object sender, EventArgs e)
         {
 
@@ -50,7 +68,27 @@ namespace Booking_System.frontend.user.bookings.modify
 
         private void buttonDeleteBooking_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show($"Are you sure you want to delete this booking?",
+                "Confirm booking delete", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes) return; //If no, stop action
 
+            Booking booking = this.GetSelectedBooking();
+            if (booking == null) return;
+
+            BookingWrapper.DeleteBooking(booking);
+            this.LoadBookingList();
+            /*
+            User user = this.GetSelectedUser();
+
+            if (user.Uuid == this.currentUser.Uuid)
+            {
+                this.ShowError("You can't delete your own User.  Please ask another admin to do it for you.");
+                return;
+            }
+
+            UserWrapper.DeleteUser(user);
+            LoadAllUsers();
+             */
         }
 
         private void ShowError(string message)
