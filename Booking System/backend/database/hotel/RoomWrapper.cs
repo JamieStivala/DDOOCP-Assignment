@@ -9,6 +9,7 @@ namespace Booking_System.backend.database.hotel
     public class RoomWrapper
     {
         private static readonly Dictionary<int, List<Room>> RoomCache = new Dictionary<int, List<Room>>();  //Hotel --> Room
+        private static readonly List<Room> RoomList = new List<Room>();
         public static void CreateRoom(Room room)
         {
             string insertQuery = $"INSERT INTO tblRoom (HotelId, [Name], Description, Capacity, Price, AmountOfRooms) VALUES" +
@@ -112,6 +113,34 @@ namespace Booking_System.backend.database.hotel
             return null;
         }
 
+        public static Room GetHotelRoom(int roomId)
+        {
+            Room cachedRoom = RoomWrapper.RoomList.Find(findingRoom => findingRoom.Id == roomId);
+            if (cachedRoom != null) return cachedRoom;
+
+            string query = $"SELECT * FROM tblRoom WHERE ID={roomId}";
+            Tuple<DatabaseResult, Dictionary<string, object>> dbRoom = (DatabaseWrapper.GetFromDatabase(query)[0]);
+
+            switch (dbRoom.Item1)
+            {
+                case DatabaseResult.Ok:
+                    Room room = new Room((int)dbRoom.Item2["ID"])
+                    {
+                        HotelId = (int)dbRoom.Item2["HotelId"],
+                        Name = dbRoom.Item2["Name"].ToString(),
+                        Description = dbRoom.Item2["Description"].ToString(),
+                        Capacity = (int)dbRoom.Item2["Capacity"],
+                        Price = double.Parse(dbRoom.Item2["Price"].ToString()), //For some reason normal typecasting wasn't working
+                        AmountOfRooms = (int)dbRoom.Item2["AmountOfRooms"],
+                    };
+                    RoomWrapper.AddToCache(room); //Add the room to the cache
+                    return room;
+                    break;
+                default:
+                    throw new Exception("An unknown error has occurred.");
+            }
+        }
+
         public static void DeleteRoom(Room room)
         {
             string query = $"DELETE * FROM tblRoom WHERE ID={room.Id}";
@@ -135,7 +164,9 @@ namespace Booking_System.backend.database.hotel
         private static void AddToCache(Room room)
         {
             if(!RoomWrapper.RoomCache.ContainsKey(room.HotelId)) RoomWrapper.RoomCache.Add(room.HotelId, new List<Room>());
-            RoomWrapper.RoomCache[room.HotelId].Add(room);
+
+            if(RoomWrapper.RoomCache[room.HotelId].Find(findingRoom => room.Id == findingRoom.Id) == null) RoomWrapper.RoomCache[room.HotelId].Add(room);
+            if(RoomWrapper.RoomList.Find(findingRoom => room.Id == findingRoom.Id) == null) RoomWrapper.RoomList.Add(room);
         }
 
         /**
