@@ -136,7 +136,7 @@ namespace Booking_System.backend.database
 
                 using (OleDbDataReader reader = selectCommand.ExecuteReader())
                 {
-                    if (!reader.HasRows) result.Add(new Tuple<DatabaseResult, Dictionary<string, object>>(DatabaseResult.NotFound, null));
+                    if (!reader.HasRows) result.Add(new Tuple<DatabaseResult, Dictionary<string, object>>(DatabaseResult.NotFound, null)); //If the result has no rows, return not found
                     else
                     {
                         while (reader.Read())

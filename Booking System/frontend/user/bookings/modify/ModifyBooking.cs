@@ -34,28 +34,6 @@ namespace Booking_System.frontend.user.bookings
             this.GetAllReviews();
         }
 
-        private void GetAllReviews()
-        {
-            try
-            {
-                this.reviews = ReviewWrapper.GetRoomReviews(this.room.Id);
-                if(reviews == null || reviews.Length == 0) return;
-                this.UpdateReviewBox();
-            }
-            catch (Exception ex)
-            {
-                //Nothing to show here just no reviews
-            }
-        }
-
-        private void UpdateReviewBox()
-        {
-            if(this.reviews.Length == 0 || this.reviews == null) return;
-            this.reviewIndex = new Random().Next(0, this.reviews.Length);
-            labelReviewTitleValue.Text = this.reviews[reviewIndex].Title;
-            richTextBoxReviewDescription.Text = this.reviews[reviewIndex].Description;
-        }
-
         private bool ValidateDates()
         {
             errorProvider.Clear();
@@ -141,6 +119,29 @@ namespace Booking_System.frontend.user.bookings
             }
         }
 
+        #region Review Section
+        private void GetAllReviews()
+        {
+            try
+            {
+                this.reviews = ReviewWrapper.GetRoomReviews(this.room.Id);
+                if (reviews == null || reviews.Length == 0) return;
+                this.UpdateReviewBox();
+            }
+            catch (Exception ex)
+            {
+                //Nothing to show here just no reviews
+            }
+        }
+
+        private void UpdateReviewBox()
+        {
+            if (this.reviews.Length == 0 || this.reviews == null) return;
+            this.reviewIndex = new Random().Next(0, this.reviews.Length);
+            labelReviewTitleValue.Text = this.reviews[reviewIndex].Title;
+            richTextBoxReviewDescription.Text = this.reviews[reviewIndex].Description;
+        }
+
         private void buttonViewBigReview_Click(object sender, EventArgs e)
         {
             new ViewReview(this.reviews, 0).Show();
@@ -150,5 +151,9 @@ namespace Booking_System.frontend.user.bookings
         {
             this.UpdateReviewBox();
         }
+
+        #endregion
+
+
     }
 }

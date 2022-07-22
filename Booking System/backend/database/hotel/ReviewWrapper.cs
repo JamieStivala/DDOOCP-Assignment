@@ -37,20 +37,20 @@ namespace Booking_System.backend.database.hotel
                         int currentId = (int)row.Item2["ID"];
 
                         Review review = GetFromCache(currentId);
-                        if (review == null) //If booking is not found, create the booking instance and add the booking to the wrapper
+                        if (review == null) //If review is not found, create the review instance and add the review to the cache
                         {
                             review = new Review(currentId);
                             ReviewWrapper.AddToCache(review);
                         }
 
-                        //Copy everything from the database to the new/found booking object (basically updating the cache since the query was done anyways)
+                        //Copy everything from the database to the new/found review object (basically updating the cache since the query was done anyways)
                         review.RoomId = (int)row.Item2["RoomId"];
                         review.BookingId = (int)row.Item2["BookingId"];
                         review.Title = row.Item2["Title"].ToString();
                         review.Description = row.Item2["Description"].ToString();
                         break;
                     case DatabaseResult.NotFound:
-                        return; //This is not an error, it just means that the user does not have any bookings to review/there are no bookings
+                        return; //This is not an error, it just means that there are no reviews yet
                     default:
                         throw new Exception("An unknown error has occurred.");
                 }

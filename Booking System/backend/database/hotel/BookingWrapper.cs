@@ -8,8 +8,11 @@ namespace Booking_System.backend.database.hotel
 {
     public class BookingWrapper
     {
-        private static readonly List<Booking> Bookings = new List<Booking>();
+        private static readonly List<Booking> Bookings = new List<Booking>(); //Store a list of all the bookings that were gotten from the database
 
+        /**
+         * Create a booking into the database, get the ID and store it in the object.  Store object in cache
+         */
         public static void CreateBooking(Booking booking)
         {
             string insertQuery = $"INSERT INTO tblBooking (RoomId, UserId, CheckIn, CheckOut, Price, NumberOfPeopleInRoom) VALUES" +
@@ -28,6 +31,9 @@ namespace Booking_System.backend.database.hotel
             }
         }
 
+        /**
+         * Get a raw database result and convert it into a proper booing
+         */
         private static void UpdateCacheFromQuery(Tuple<DatabaseResult, Dictionary<string, object>>[] databaseResult)
         {
             foreach (Tuple<DatabaseResult, Dictionary<string, object>> row in databaseResult)
@@ -37,7 +43,7 @@ namespace Booking_System.backend.database.hotel
                     case DatabaseResult.Ok:
                         int currentId = (int)row.Item2["ID"];
 
-                        Booking booking = BookingWrapper.Bookings.Find(currentItem => currentItem.Id == currentId);
+                        Booking booking = BookingWrapper.Bookings.Find(currentItem => currentItem.Id == currentId); //Search for the booking
                         if (booking == null) //If booking is not found, create the booking instance and add the booking to the wrapper
                         {
                             booking = new Booking(currentId);
@@ -60,6 +66,9 @@ namespace Booking_System.backend.database.hotel
             }
         }
 
+        /**
+         * Get all the bookings made by the user
+         */
         public static Booking[] GetUserBookings(string userId)
         {
             string query = $"SELECT * FROM tblBooking WHERE UserId='{userId}'";
@@ -68,7 +77,9 @@ namespace Booking_System.backend.database.hotel
             return BookingWrapper.Bookings.FindAll(item => item.UserId == userId).ToArray();
         }
 
-
+        /**
+         * Get all the bookings for a specific room
+         */
         public static Booking[] GetRoomBookings(int roomId)
         {
             string query = $"SELECT * FROM tblBooking WHERE RoomId={roomId}";

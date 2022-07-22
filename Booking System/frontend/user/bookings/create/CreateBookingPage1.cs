@@ -78,32 +78,6 @@ namespace Booking_System.frontend.user.bookings.create
             labelCheckOutTimeValue.Text = "00:00";
         }
 
-        private void ResetReviewInformation()
-        {
-            labelReviewTitleValue.Text = "No reviews yet.";
-            richTextBoxReviewDescription.Text = "No reviews yet.";
-        }
-
-        private void GetReviews(Room room)
-        {
-            try
-            {
-                this.reviews = ReviewWrapper.GetRoomReviews(room.Id);
-            }
-            catch (Exception ex)
-            {
-                //Nothing to do here just means no reviews
-            }
-        }
-
-        private void ShowReview()
-        {
-            if(this.reviews == null || this.reviews.Length == 0) return;
-            this.reviewIndex = new Random().Next(0, this.reviews.Length);
-            labelReviewTitleValue.Text = this.reviews[reviewIndex].Title;
-            richTextBoxReviewDescription.Text = this.reviews[reviewIndex].Description;
-        }
-
         private void comboBoxHotel_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.LoadHotelRooms();
@@ -146,6 +120,34 @@ namespace Booking_System.frontend.user.bookings.create
             }
         }
 
+
+
+        #region Reviews
+        private void ResetReviewInformation()
+        {
+            labelReviewTitleValue.Text = "No reviews yet.";
+            richTextBoxReviewDescription.Text = "No reviews yet.";
+        }
+
+        private void GetReviews(Room room)
+        {
+            try
+            {
+                this.reviews = ReviewWrapper.GetRoomReviews(room.Id);
+            }
+            catch (Exception ex)
+            {
+                //Nothing to do here just means no reviews
+            }
+        }
+
+        private void ShowReview()
+        {
+            if (this.reviews == null || this.reviews.Length == 0) return;
+            this.reviewIndex = new Random().Next(0, this.reviews.Length);
+            labelReviewTitleValue.Text = this.reviews[reviewIndex].Title;
+            richTextBoxReviewDescription.Text = this.reviews[reviewIndex].Description;
+        }
         private void buttonNextReview_Click(object sender, EventArgs e)
         {
             this.ShowReview();
@@ -155,5 +157,6 @@ namespace Booking_System.frontend.user.bookings.create
         {
             new ViewReview(this.reviews, this.reviewIndex).Show();
         }
+        #endregion
     }
 }
