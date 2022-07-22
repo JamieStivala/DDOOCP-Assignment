@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Booking_System.backend.model.hotel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Booking_System.backend.model.hotel;
 
 namespace Booking_System.backend.database.hotel
 {
@@ -99,7 +99,7 @@ namespace Booking_System.backend.database.hotel
 
         private static void AddToCache(Review review)
         {
-            if(GetFromCache(review.Id) == null) ReviewList.Add(review);
+            if (GetFromCache(review.Id) == null) ReviewList.Add(review);
         }
     }
 }

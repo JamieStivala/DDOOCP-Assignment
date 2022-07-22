@@ -16,7 +16,7 @@
         }
 
         public int Id { get; set; }
-        public int BookingId{ get; set; }
+        public int BookingId { get; set; }
         public int RoomId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

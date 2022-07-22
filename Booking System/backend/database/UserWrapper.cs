@@ -109,7 +109,7 @@ namespace Booking_System.backend.database
 
             string getAllUsers = $"SELECT * FROM tblUser";
             var result = DatabaseWrapper.GetFromDatabase(getAllUsers);
-            
+
             foreach (Tuple<DatabaseResult, Dictionary<string, object>> row in result)
             {
                 switch (row.Item1)

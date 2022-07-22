@@ -1,14 +1,12 @@
-﻿using Booking_System.backend.model.user;
-using Booking_System.frontend.auth;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Windows.Forms;
-using Booking_System.backend.database.hotel;
+﻿using Booking_System.backend.database.hotel;
 using Booking_System.backend.model.hotel;
+using Booking_System.backend.model.user;
 using Booking_System.frontend.user.bookings;
 using Booking_System.frontend.user.bookings.create;
 using Booking_System.frontend.user.bookings.modify;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Booking_System.frontend.user
 {
@@ -21,7 +19,7 @@ namespace Booking_System.frontend.user
             InitializeComponent();
             this.user = user;
             this.FindBookingsRequiringReviews();
-            
+
         }
 
         private void FindBookingsRequiringReviews()
@@ -63,7 +61,7 @@ namespace Booking_System.frontend.user
                         if (bookingWithReview != null) this.bookingsRequiringReview.Remove(bookingWithReview); //Remove that booking from the to be reviewed pool
                     }
 
-                    if(this.bookingsRequiringReview.Count > 0) buttonLeaveReview.Visible = true; //Make the review button visible
+                    if (this.bookingsRequiringReview.Count > 0) buttonLeaveReview.Visible = true; //Make the review button visible
                 }
             }
             catch (Exception ex)

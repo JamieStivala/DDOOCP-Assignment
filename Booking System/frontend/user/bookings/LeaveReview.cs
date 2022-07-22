@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Booking_System.backend.database.hotel;
+﻿using Booking_System.backend.database.hotel;
 using Booking_System.backend.model.hotel;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Booking_System.frontend.user.bookings
 {
@@ -51,13 +44,13 @@ namespace Booking_System.frontend.user.bookings
         {
             errorProvider.Clear();
 
-            Control[] itemsToValidateEmpty = new Control[] { textBoxReviewTitle, richTextBoxReviewDescription};
+            Control[] itemsToValidateEmpty = new Control[] { textBoxReviewTitle, richTextBoxReviewDescription };
             return !GeneralValidation.IsEmpty(itemsToValidateEmpty, errorProvider);
         }
 
         private void buttonSaveReview_Click(object sender, EventArgs e)
         {
-            if(!this.IsDataValid()) return;
+            if (!this.IsDataValid()) return;
 
             try
             {

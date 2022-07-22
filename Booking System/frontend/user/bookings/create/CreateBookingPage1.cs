@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Booking_System.backend.database.hotel;
+﻿using Booking_System.backend.database.hotel;
 using Booking_System.backend.model.hotel;
 using Booking_System.backend.model.user;
+using System;
+using System.Windows.Forms;
 
 namespace Booking_System.frontend.user.bookings.create
 {

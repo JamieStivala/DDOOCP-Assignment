@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Windows.Forms;
-using Booking_System.backend.database;
+﻿using Booking_System.backend.database;
 using Booking_System.backend.database.hotel;
 using Booking_System.backend.model.hotel;
 using Booking_System.backend.model.user;
@@ -11,6 +6,10 @@ using Booking_System.frontend.auth;
 using Booking_System.frontend.user;
 using Booking_System.frontend.user.bookings.create;
 using Booking_System.frontend.user.bookings.modify;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Booking_System.frontend.admin
 {
@@ -233,7 +232,7 @@ namespace Booking_System.frontend.admin
                     Room room = rooms[i];
                     comboBoxRoomManagerRoomSelected.Items.Add(room.Name);
                     indexedRooms.Add(i, room); //Store the indexed room
-                    if(room.Id == selectedRoomId) selectedRoomIndex = i;
+                    if (room.Id == selectedRoomId) selectedRoomIndex = i;
                 }
             }
             catch (Exception ex)
@@ -273,7 +272,7 @@ namespace Booking_System.frontend.admin
 
         private void buttonRoomManagerSave_Click(object sender, EventArgs e)
         {
-            if(!IsDataValid()) return;
+            if (!IsDataValid()) return;
             if (this.currentRoom == null) //If creating new room
             {
                 Room room = new Room(this.currentHotel.Id, textBoxRoomManagerName.Text, textBoxRoomManagerDescription.Text,
@@ -375,7 +374,7 @@ namespace Booking_System.frontend.admin
             {
                 this.ShowError("Please select a user.");
                 return null;
-            } 
+            }
 
             string uuid = listViewUserManagerUserList.SelectedItems[0].Text;
             return allUsers.Single(value => value.Uuid == uuid); //Get the user with that UUID
@@ -395,26 +394,26 @@ namespace Booking_System.frontend.admin
             switch (user.Type)
             {
                 case UserType.Admin:
-                {
-                    DialogResult dialogResult =
-                        MessageBox.Show($"Are you sure you want to remove {user.FirstName} {user.LastName} from an administrator?",
-                            "Confirm administrator change", MessageBoxButtons.YesNo);
+                    {
+                        DialogResult dialogResult =
+                            MessageBox.Show($"Are you sure you want to remove {user.FirstName} {user.LastName} from an administrator?",
+                                "Confirm administrator change", MessageBoxButtons.YesNo);
 
-                    if (dialogResult == DialogResult.Yes) user.Type = UserType.Customer;
-                    break;
-                }
+                        if (dialogResult == DialogResult.Yes) user.Type = UserType.Customer;
+                        break;
+                    }
                 case UserType.Customer:
-                {
-                    DialogResult dialogResult =  
-                        MessageBox.Show($"Are you sure you want to make {user.FirstName} {user.LastName} an administrator?",
-                            "Confirm administrator change", MessageBoxButtons.YesNo);
+                    {
+                        DialogResult dialogResult =
+                            MessageBox.Show($"Are you sure you want to make {user.FirstName} {user.LastName} an administrator?",
+                                "Confirm administrator change", MessageBoxButtons.YesNo);
 
-                    if (dialogResult == DialogResult.Yes) user.Type = UserType.Admin;
-                    break;
-                }
+                        if (dialogResult == DialogResult.Yes) user.Type = UserType.Admin;
+                        break;
+                    }
             }
 
-            if(originalUserType == user.Type) return; //Means nothing was updated
+            if (originalUserType == user.Type) return; //Means nothing was updated
 
             UserWrapper.UpdateUser(user);
             LoadAllUsers(); //Reload user list
@@ -423,7 +422,7 @@ namespace Booking_System.frontend.admin
         private void buttonUserManagerEditUser_Click(object sender, EventArgs e)
         {
             User user = this.GetSelectedUser();
-            new EditPersonalInformation(user).Show(); 
+            new EditPersonalInformation(user).Show();
             LoadAllUsers(); //Reload user list
         }
 
@@ -434,7 +433,7 @@ namespace Booking_System.frontend.admin
                     "Confirm user delete", MessageBoxButtons.YesNo);
             if (dialogResult != DialogResult.Yes) return; //If no, stop action
             User user = this.GetSelectedUser();
-            if(user == null) return;
+            if (user == null) return;
 
             if (user.Uuid == this.currentUser.Uuid)
             {
@@ -490,9 +489,10 @@ namespace Booking_System.frontend.admin
                     textBoxHotelManagerName, textBoxHotelManagerLocation, dateTimePickerHotelManagerDefaultCheckInTime, dateTimePickerHotelManagerDefaultCheckOutTime
                 };
                 if (GeneralValidation.IsEmpty(itemsToValidateEmpty, errorProvider)) passed = false;
-            }else if (currentTab == 1)
+            }
+            else if (currentTab == 1)
             {
-                Control[] itemsToValidateEmpty = new Control[] { textBoxRoomManagerName, textBoxRoomManagerDescription, numericUpDownRoomManagerCapacity, numericUpDownRoomManagerPrice, numericUpDownRoomManagerAmountOfRooms};
+                Control[] itemsToValidateEmpty = new Control[] { textBoxRoomManagerName, textBoxRoomManagerDescription, numericUpDownRoomManagerCapacity, numericUpDownRoomManagerPrice, numericUpDownRoomManagerAmountOfRooms };
                 if (GeneralValidation.IsEmpty(itemsToValidateEmpty, errorProvider)) passed = false;
             }
 
@@ -507,6 +507,6 @@ namespace Booking_System.frontend.admin
 
         #endregion
 
-        
+
     }
 }

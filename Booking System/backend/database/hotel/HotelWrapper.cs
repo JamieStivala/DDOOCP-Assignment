@@ -1,12 +1,7 @@
-﻿using System;
+﻿using Booking_System.backend.model.hotel;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Booking_System.backend.model.hotel;
-using Booking_System.backend.model.user;
 
 namespace Booking_System.backend.database.hotel
 {
@@ -53,7 +48,7 @@ namespace Booking_System.backend.database.hotel
                         Hotel hotel = new Hotel((int)currentRow.Item2["ID"])
                         {
                             Name = currentRow.Item2["Name"].ToString(),
-                            Location = currentRow.Item2["Location"].ToString(), 
+                            Location = currentRow.Item2["Location"].ToString(),
                             DefaultCheckInTime = (DateTime)currentRow.Item2["DefaultCheckInTime"],
                             DefaultCheckOutTime = (DateTime)currentRow.Item2["DefaultCheckOutTime"]
                         }; //Create the hotel instance
@@ -86,7 +81,7 @@ namespace Booking_System.backend.database.hotel
             cachedHotel.DefaultCheckInTime = hotel.DefaultCheckInTime;
             cachedHotel.DefaultCheckOutTime = hotel.DefaultCheckOutTime;
             //Just in case the object was copied and not referenced, copy the current instance onto the new instance
-            
+
             string updateQuery = $"UPDATE tblHotel SET" +
                                  $" [Name]='{hotel.Name}', Location='{hotel.Location}', " +
                                  $" DefaultCheckInTime='{hotel.DefaultCheckInTime.ToShortTimeString()}', DefaultCheckOutTime='{hotel.DefaultCheckOutTime.ToShortTimeString()}'" +

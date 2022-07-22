@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Booking_System.backend.database.hotel;
+using Booking_System.backend.model.hotel;
+using Booking_System.backend.model.user;
+using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
-using Booking_System.backend.database.hotel;
-using Booking_System.backend.model.hotel;
-using Booking_System.backend.model.user;
 
 namespace Booking_System.frontend.user.bookings.modify
 {
@@ -14,7 +14,7 @@ namespace Booking_System.frontend.user.bookings.modify
         private User user;
         private bool fromAdmin;
 
-        public ListBookings(User user, bool fromAdmin=false)
+        public ListBookings(User user, bool fromAdmin = false)
         {
             InitializeComponent();
             this.user = user;
@@ -108,7 +108,7 @@ namespace Booking_System.frontend.user.bookings.modify
                 "Confirm booking delete", MessageBoxButtons.YesNo);
             if (dialogResult != DialogResult.Yes) return; //If no, stop action
 
-            
+
 
             BookingWrapper.DeleteBooking(booking);
             this.LoadBookingList();

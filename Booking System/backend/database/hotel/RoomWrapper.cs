@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Booking_System.backend.model.hotel;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using Booking_System.backend.model.hotel;
 
 namespace Booking_System.backend.database.hotel
 {
@@ -67,7 +66,7 @@ namespace Booking_System.backend.database.hotel
             //Check if the item is in the cache, if it is, return it
             if (RoomWrapper.RoomCache.ContainsKey(hotelId)) return RoomWrapper.RoomCache[hotelId].ToArray().OrderBy(value => value.Name).ToArray();
 
-                string query = $"SELECT * FROM tblRoom WHERE HotelId={hotelId}";
+            string query = $"SELECT * FROM tblRoom WHERE HotelId={hotelId}";
             Tuple<DatabaseResult, Dictionary<string, object>>[] result = DatabaseWrapper.GetFromDatabase(query);
 
             foreach (var dbRoom in result)
@@ -163,10 +162,10 @@ namespace Booking_System.backend.database.hotel
          */
         private static void AddToCache(Room room)
         {
-            if(!RoomWrapper.RoomCache.ContainsKey(room.HotelId)) RoomWrapper.RoomCache.Add(room.HotelId, new List<Room>());
+            if (!RoomWrapper.RoomCache.ContainsKey(room.HotelId)) RoomWrapper.RoomCache.Add(room.HotelId, new List<Room>());
 
-            if(RoomWrapper.RoomCache[room.HotelId].Find(findingRoom => room.Id == findingRoom.Id) == null) RoomWrapper.RoomCache[room.HotelId].Add(room);
-            if(RoomWrapper.RoomList.Find(findingRoom => room.Id == findingRoom.Id) == null) RoomWrapper.RoomList.Add(room);
+            if (RoomWrapper.RoomCache[room.HotelId].Find(findingRoom => room.Id == findingRoom.Id) == null) RoomWrapper.RoomCache[room.HotelId].Add(room);
+            if (RoomWrapper.RoomList.Find(findingRoom => room.Id == findingRoom.Id) == null) RoomWrapper.RoomList.Add(room);
         }
 
         /**

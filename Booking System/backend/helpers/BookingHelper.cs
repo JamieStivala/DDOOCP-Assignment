@@ -1,7 +1,7 @@
-﻿using System;
-using System.Linq;
-using Booking_System.backend.database.hotel;
+﻿using Booking_System.backend.database.hotel;
 using Booking_System.backend.model.hotel;
+using System;
+using System.Linq;
 
 namespace Booking_System.backend.helpers
 {
@@ -21,9 +21,9 @@ namespace Booking_System.backend.helpers
          *
          * excludeBookingId is used for when we are modifying a booking and want to exclude it from the check
          */
-        public static bool IsRoomAvailable(Room room, DateTime newBookingCheckIn, DateTime newBookingCheckOut, int excludeBookingId=-1)
+        public static bool IsRoomAvailable(Room room, DateTime newBookingCheckIn, DateTime newBookingCheckOut, int excludeBookingId = -1)
         {
-            
+
             Booking[] currentBookings = BookingWrapper.GetRoomBookings(room.Id);
             if (currentBookings == null || currentBookings.Length == 0) //If the current bookings is null or there are no bookings 
             {

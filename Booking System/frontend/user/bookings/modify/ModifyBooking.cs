@@ -1,8 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-using Booking_System.backend.database.hotel;
+﻿using Booking_System.backend.database.hotel;
 using Booking_System.backend.helpers;
 using Booking_System.backend.model.hotel;
+using System;
+using System.Windows.Forms;
 
 namespace Booking_System.frontend.user.bookings
 {
@@ -11,7 +11,7 @@ namespace Booking_System.frontend.user.bookings
         private readonly Hotel hotel;
         private readonly Room room;
         private readonly Booking booking;
-        
+
         private Review[] reviews;
         private int reviewIndex = 0;
 

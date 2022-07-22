@@ -6,7 +6,7 @@ namespace Booking_System.backend.model.hotel
     {
         public Booking(int id)
         {
-            Id=id;
+            Id = id;
         }
 
         public Booking(int roomId, string userId, DateTime checkIn, DateTime checkOut, double price, int numberOfPeople)

@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Booking_System.backend.model.hotel;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using Booking_System.backend.model.hotel;
 
 namespace Booking_System.backend.database.hotel
 {
@@ -120,7 +119,7 @@ namespace Booking_System.backend.database.hotel
                 default:
                     throw new Exception("An unknown error has occurred.");
             }
-             
+
         }
 
         public static void DeleteBooking(Booking booking)

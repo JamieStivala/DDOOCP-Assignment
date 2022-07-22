@@ -1,10 +1,9 @@
-﻿using System;
-using System.Diagnostics;
-using System.Windows.Forms;
-using Booking_System.backend.database.hotel;
+﻿using Booking_System.backend.database.hotel;
 using Booking_System.backend.helpers;
 using Booking_System.backend.model.hotel;
 using Booking_System.backend.model.user;
+using System;
+using System.Windows.Forms;
 
 namespace Booking_System.frontend.user.bookings.create
 {
@@ -43,8 +42,8 @@ namespace Booking_System.frontend.user.bookings.create
 
         private void UpdatePriceBreakdown()
         {
-            
-            if(!this.ValidateDates()) return;
+
+            if (!this.ValidateDates()) return;
             int amountOfNights = Booking.CalculateAmountOfNights(dateTimePickerCheckInDay.Value, dateTimePickerCheckOutDay.Value);
             labelAmountOfNightsValue.Text = amountOfNights + "";
             labelTotalPriceValue.Text = $"£{amountOfNights * this.room.Price}";

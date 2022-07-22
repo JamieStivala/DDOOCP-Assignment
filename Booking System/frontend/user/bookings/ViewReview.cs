@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Booking_System.backend.model.hotel;
+using System;
 using System.Windows.Forms;
-using Booking_System.backend.model.hotel;
 
 namespace Booking_System.frontend.user.bookings
 {
@@ -33,12 +26,12 @@ namespace Booking_System.frontend.user.bookings
                 this.labelTitleValue.Text = reviews[index].Title;
                 this.richTextBoxDescription.Text = reviews[index].Description;
             }
-            
+
         }
 
         private void buttonNextReview_Click(object sender, EventArgs e)
         {
-            if(this.reviews == null || this.reviews.Length == 0) return;
+            if (this.reviews == null || this.reviews.Length == 0) return;
             this.UpdateReviewText(new Random().Next(0, this.reviews.Length));
         }
     }

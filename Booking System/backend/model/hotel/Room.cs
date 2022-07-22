@@ -8,7 +8,7 @@
             this.Id = id;
         }
 
-        public Room (int hotelId, string name, string description, int capacity, double price, int amountOfRooms)
+        public Room(int hotelId, string name, string description, int capacity, double price, int amountOfRooms)
         {
             HotelId = hotelId;
             Name = name;
