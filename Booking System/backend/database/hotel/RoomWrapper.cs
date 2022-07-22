@@ -95,23 +95,6 @@ namespace Booking_System.backend.database.hotel
             return GetHotelRooms(hotelId); //Since now all the rooms have been cached, recall method and return result from cache
         }
 
-        public static Room GetHotelRoom(int hotelId, int roomId)
-        {
-            try
-            {
-                foreach (Room hotelRoom in RoomWrapper.GetHotelRooms(hotelId))
-                {
-                    if (hotelRoom.Id == roomId) return hotelRoom;
-                }
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-
-            return null;
-        }
-
         public static Room GetHotelRoom(int roomId)
         {
             Room cachedRoom = RoomWrapper.RoomList.Find(findingRoom => findingRoom.Id == roomId);
@@ -167,17 +150,5 @@ namespace Booking_System.backend.database.hotel
             if (RoomWrapper.RoomCache[room.HotelId].Find(findingRoom => room.Id == findingRoom.Id) == null) RoomWrapper.RoomCache[room.HotelId].Add(room);
             if (RoomWrapper.RoomList.Find(findingRoom => room.Id == findingRoom.Id) == null) RoomWrapper.RoomList.Add(room);
         }
-
-        /**
-         * Ability to add rooms to cache, by using AddToCache(Room room)
-         */
-        private static void AddToCache(IEnumerable<Room> rooms)
-        {
-            foreach (Room room in rooms)
-            {
-                RoomWrapper.AddToCache(room);
-            }
-        }
-
     }
 }
