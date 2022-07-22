@@ -90,7 +90,6 @@
             this.groupBoxReviews.TabIndex = 83;
             this.groupBoxReviews.TabStop = false;
             this.groupBoxReviews.Text = "Reviews";
-            this.groupBoxReviews.Enter += new System.EventHandler(this.groupBoxReviews_Enter);
             // 
             // richTextBoxReviewDescription
             // 
